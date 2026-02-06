@@ -177,27 +177,27 @@ export default function ScheduleAppointment() {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 bg-accent hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
+                  className="flex-1 bg-primary hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
                 >
                   CONFIRM APPOINTMENT
                 </button>
                 <button
                   type="button"
-                  className="flex-1 border-2 border-accent text-accent hover:bg-accent/5 px-8 py-3 rounded-lg font-semibold transition-all"
+                  className="flex-1 border-2 border-primary text-primary hover:bg-accent/5 px-8 py-3 rounded-lg font-semibold transition-all"
                 >
                   CALL US INSTEAD
                 </button>
               </div>
 
               <p className="text-sm text-foreground/60 text-center">
-                {'{'}*{'}'}Required fields. We{'{'}ll{"}"} contact you to confirm your appointment time.
+                We will contact you to confirm your appointment time.
               </p>
             </form>
           )}
         </div>
 
         {/* Info Cards */}
-        <div className="grid sm:grid-cols-2 gap-6 mt-12">
+        {/* <div className="grid sm:grid-cols-2 gap-6 mt-12">
           <div className="bg-white rounded-lg p-6 border border-secondary text-center">
             <p className="text-accent font-bold text-2xl mb-2">24 Hours</p>
             <p className="text-foreground/70">Average confirmation time</p>
@@ -206,7 +206,7 @@ export default function ScheduleAppointment() {
             <p className="text-accent font-bold text-2xl mb-2">Easy Rescheduling</p>
             <p className="text-foreground/70">Change your appointment anytime</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

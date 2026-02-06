@@ -51,7 +51,7 @@ export default function FacilityTour() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <p className="text-secondary font-semibold uppercase tracking-widest mb-4 animate-slide-down">
+          <p className="text-accent font-semibold uppercase tracking-widest mb-4 animate-slide-down">
             Our Facilities
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance animate-slide-up">
@@ -85,7 +85,7 @@ export default function FacilityTour() {
                   <div
                     className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                       activeTab === idx
-                        ? "bg-secondary text-white shadow-lg scale-110"
+                        ? "bg-primary text-white shadow-lg scale-110"
                         : "bg-gray-100 text-primary group-hover:bg-secondary/20 group-hover:scale-105"
                     }`}
                   >
@@ -140,7 +140,7 @@ export default function FacilityTour() {
                 {["Modern", "Comfortable", "Advanced"].map((tag, idx) => (
                   <span
                     key={tag}
-                    className="px-5 py-2 bg-white/80 backdrop-blur-sm text-secondary rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-default"
+                    className="px-5 py-2 bg-primary backdrop-blur-sm text-secondary rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-default"
                     style={{
                       animation: `slideInUp 0.5s ease-out ${idx * 0.1}s both`,
                     }}
@@ -172,7 +172,7 @@ export default function FacilityTour() {
               We welcome visitors to explore our state-of-the-art facilities and
               meet our team in person.
             </p>
-            <button className="bg-secondary hover:bg-secondary/90 text-white px-10 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group inline-flex items-center gap-2">
+            <button className="bg-accent text-white px-10 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group inline-flex items-center gap-2">
               REQUEST A TOUR
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

@@ -44,7 +44,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="py-20 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto py-12 border-t border-gray-200">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-accent font-semibold uppercase tracking-widest mb-4">Patient Success Stories</p>
@@ -63,7 +63,7 @@ export default function Testimonials() {
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                 ))}
               </div>
 
@@ -85,7 +85,7 @@ export default function Testimonials() {
         </div>
 
         {/* Stats Section */}
-        <div className="bg-gradient-to-r from-primary to-accent/20 rounded-lg p-12 text-white">
+        {/* <div className="bg-gradient-to-r from-primary to-accent/20 rounded-lg p-12 text-white">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <p className="text-4xl font-bold mb-2">98%</p>
@@ -100,7 +100,7 @@ export default function Testimonials() {
               <p className="text-lg opacity-90">Average Patient Rating</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

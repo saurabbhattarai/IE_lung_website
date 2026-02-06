@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react'
+import Image from 'next/image'
+import { LineMdTwitterXAlt } from './ui/twitterlogo'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -13,7 +15,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            {/* <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
                 <span className="font-bold text-lg">IE</span>
               </div>
@@ -21,7 +23,9 @@ export default function Footer() {
                 <p className="font-bold text-sm">IE LUNG</p>
                 <p className="text-xs text-gray-300">Sleep Institute</p>
               </div>
-            </div>
+            </div> */}
+
+            <Image src="/logo_white.png" alt="IE Lung Logo" width={150} height={150} />
             <p className="text-gray-300 text-sm leading-relaxed">
               Providing comprehensive respiratory and sleep care with science-driven treatment and patient-centered compassion.
             </p>
@@ -133,7 +137,9 @@ export default function Footer() {
               <Facebook className="w-5 h-5" />
             </a>
             <a href="#" className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition">
-              <Twitter className="w-5 h-5" />
+              {/* <Twitter className="w-5 h-5" /> */}
+              <LineMdTwitterXAlt className="w-5 h-5" />
+              
             </a>
             <a href="#" className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition">
               <Linkedin className="w-5 h-5" />

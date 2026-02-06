@@ -28,53 +28,59 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="py-20 px-4 bg-white">
+    <section id="services" className="py-24 px-4 bg-white border-t border-primary/10">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-accent font-semibold uppercase tracking-widest mb-4">Our Services</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance">
+        <div className="mb-20 text-center">
+          <p className="text-accent font-medium text-sm mb-3">SERVICES</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-5 mx-auto max-w-3xl">
             Comprehensive Respiratory & Sleep Care
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-pretty">
+          <p className="text-lg text-primary/60 max-w-2xl mx-auto leading-relaxed">
             From diagnosis to ongoing treatment and management, we provide complete care for your respiratory and sleep health needs.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {services.map((service) => {
+        <div className="grid md:grid-cols-3 gap-6 mb-20">
+          {services.map((service, index) => {
             const IconComponent = service.icon
             return (
-              <div key={service.id} className="bg-background rounded-lg border border-secondary p-8 hover:shadow-lg transition-all duration-300">
-                <div className="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
-                  <IconComponent className="w-7 h-7 text-accent" />
+              <div 
+                key={service.id} 
+                className="group relative bg-white border-2 border-primary/10 rounded-2xl p-8 hover:border-accent/30 transition-all duration-300"
+              >
+                {/* Number badge */}
+                <div className="absolute top-8 right-8 text-5xl font-bold text-primary/5 group-hover:text-accent/10 transition-colors">
+                  {String(index + 1).padStart(2, '0')}
                 </div>
-                <h3 className="text-2xl font-bold text-primary mb-4">{service.title}</h3>
-                <p className="text-foreground/70 mb-6 leading-relaxed">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.highlights.map((highlight, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-primary text-sm">
-                      <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
+                
+                <div className="relative">
+                  <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <IconComponent className="w-6 h-6 text-white" strokeWidth={2.5} />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
+                  <p className="text-primary/60 text-[15px] leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                  
+                  <div className="space-y-2.5 pt-4 border-t border-primary/10">
+                    {service.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-center gap-2.5 text-primary/70 text-sm">
+                        <div className="w-1 h-1 bg-accent rounded-full" />
+                        {highlight}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             )
           })}
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-r from-accent/10 to-primary/5 rounded-lg p-12 text-center border border-accent/20">
-          <h3 className="text-2xl font-bold text-primary mb-4">Ready to Start Your Journey to Better Health?</h3>
-          <p className="text-foreground/70 mb-8 max-w-xl mx-auto">
-            Schedule a consultation with our experienced team to discuss your respiratory and sleep health concerns.
-          </p>
-          <button className="bg-accent hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105">
-            SCHEDULE YOUR APPOINTMENT
-          </button>
-        </div>
+   
       </div>
     </section>
   )

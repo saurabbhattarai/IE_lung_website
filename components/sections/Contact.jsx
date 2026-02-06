@@ -1,62 +1,71 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Mail, Phone, MapPin, Download, Send } from 'lucide-react'
+import { useState } from "react";
+import { Mail, Phone, MapPin, Download, Send } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [submitted, setSubmitted] = useState(false)
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    setSubmitted(true);
     setTimeout(() => {
-      setFormData({ name: '', email: '', message: '' })
-      setSubmitted(false)
-    }, 3000)
-  }
+      setFormData({ name: "", email: "", message: "" });
+      setSubmitted(false);
+    }, 3000);
+  };
 
   return (
     <section id="contact" className="py-20 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-accent font-semibold uppercase tracking-widest mb-4">Get In Touch</p>
+          <p className="text-accent font-semibold uppercase tracking-widest mb-4">
+            Get In Touch
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance">
             Contact Us
           </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-pretty">
-            Have questions? Ready to schedule your appointment? We{'{'}re{"}"} here to help.
+            Have questions? Ready to schedule your appointment? We're here to
+            help.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Contact Form */}
           <div className="bg-background rounded-lg p-8 border border-secondary">
-            <h3 className="text-2xl font-bold text-primary mb-8">Send us a Message</h3>
+            <h3 className="text-2xl font-bold text-primary mb-8">
+              Send us a Message
+            </h3>
 
             {submitted ? (
               <div className="bg-accent/10 border border-accent rounded-lg p-6 text-center">
                 <p className="text-accent font-semibold mb-2">Thank you!</p>
-                <p className="text-foreground/70">We{'{'}ve{"}"} received your message and will get back to you soon.</p>
+                <p className="text-foreground/70">
+                  We're received your message and will get back to you soon.
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold text-primary mb-2">Full Name</label>
+                  <label className="block text-sm font-semibold text-primary mb-2">
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -69,7 +78,9 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-primary mb-2">Email Address</label>
+                  <label className="block text-sm font-semibold text-primary mb-2">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -82,7 +93,9 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-primary mb-2">Message</label>
+                  <label className="block text-sm font-semibold text-primary mb-2">
+                    Message
+                  </label>
                   <textarea
                     name="message"
                     value={formData.message}
@@ -96,7 +109,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full bg-accent hover:bg-opacity-90 text-white px-6 py-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+                  className="w-full bg-primary hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   SEND MESSAGE
@@ -113,7 +126,7 @@ export default function Contact() {
               <p className="text-foreground/70 text-sm mb-4">
                 Download our referral form for healthcare providers
               </p>
-              <button className="w-full border-2 border-accent text-accent hover:bg-accent/5 px-6 py-2 rounded-lg font-semibold transition-all flex items-center justify-center gap-2">
+              <button className="w-full border-2 border-primary text-primary hover:bg-accent/5 px-6 py-2 rounded-lg font-semibold transition-all flex items-center justify-center gap-2">
                 <Download className="w-4 h-4" />
                 DOWNLOAD REFERRAL FORM
               </button>
@@ -126,7 +139,7 @@ export default function Contact() {
             <div className="bg-background rounded-lg p-8 border border-secondary">
               <div className="flex gap-4 mb-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-accent" />
+                  <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-2">Our Location</h4>
@@ -149,14 +162,19 @@ export default function Contact() {
             <div className="bg-background rounded-lg p-8 border border-secondary">
               <div className="flex gap-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-accent" />
+                  <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-2">Phone Number</h4>
-                  <a href="tel:+18402580972" className="text-lg font-semibold text-accent hover:text-accent/80 transition">
+                  <a
+                    href="tel:+18402580972"
+                    className="text-lg font-semibold text-accent hover:text-accent/80 transition"
+                  >
                     +1 (840) 258-0972
                   </a>
-                  <p className="text-foreground/60 text-sm mt-2">Mon-Fri: 8AM-5PM</p>
+                  <p className="text-foreground/60 text-sm mt-2">
+                    Mon-Fri: 8AM-5PM
+                  </p>
                 </div>
               </div>
             </div>
@@ -165,14 +183,19 @@ export default function Contact() {
             <div className="bg-background rounded-lg p-8 border border-secondary">
               <div className="flex gap-4">
                 <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-accent" />
+                  <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-bold text-primary mb-2">Email</h4>
-                  <a href="mailto:info@ielung.com" className="text-accent hover:text-accent/80 transition font-semibold">
+                  <a
+                    href="mailto:info@ielung.com"
+                    className="text-accent hover:text-accent/80 transition font-semibold"
+                  >
                     info@ielung.com
                   </a>
-                  <p className="text-foreground/60 text-sm mt-2">Response within 24 hours</p>
+                  <p className="text-foreground/60 text-sm mt-2">
+                    Response within 24 hours
+                  </p>
                 </div>
               </div>
             </div>
@@ -193,5 +216,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
