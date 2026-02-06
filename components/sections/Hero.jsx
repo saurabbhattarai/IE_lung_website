@@ -1,89 +1,107 @@
-'use client'
+"use client";
 
-import { useEffect, useRef } from 'react'
-import { ChevronDown } from 'lucide-react'
-import BreathingLung from '../breathinglung/BreathingLung'
+import { useEffect, useRef } from "react";
+import { ChevronDown } from "lucide-react";
+import BreathingLung from "../breathinglung/BreathingLung";
 
 export default function Hero() {
-  const canvasRef = useRef(null)
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    const ctx = canvas.getContext('2d')
-    let animationId
+    const ctx = canvas.getContext("2d");
+    let animationId;
 
     const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
-    }
-    resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-    let time = 0
+    let time = 0;
     const animate = () => {
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      // Smoother fade with lower alpha for silky trails
+      ctx.fillStyle = "rgba(255, 255, 255, 0.04)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.strokeStyle = 'rgba(61, 71, 73, 0.12)'
-      ctx.lineWidth = 2
-      ctx.lineCap = 'round'
-      ctx.lineJoin = 'round'
-      
-      ctx.beginPath()
+      ctx.strokeStyle = "rgba(61, 71, 73, 0.08)";
+      ctx.lineWidth = 1.5;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
 
-      const centerY = canvas.height / 2
-      const speed = 3
-      const amplitude = 30
-      const frequency = 0.015
+      ctx.beginPath();
 
+      const centerY = canvas.height / 2;
+      const breathingAmplitude = 25;
+      const breathingFrequency = 0.008;
+
+      // Multiple wave layers for a flowing breeze effect
       for (let x = 0; x < canvas.width; x++) {
-        let y = centerY
-        
-        y += Math.sin((x + time) * frequency) * amplitude
-        y += Math.sin((x + time) * frequency * 2.5) * amplitude * 0.3
-        y += Math.cos((x + time) * frequency * 0.5) * amplitude * 0.2
-        
-        const spikePosition = (time * 2) % canvas.width
-        if (Math.abs(x - spikePosition) < 20) {
-          const spikeIntensity = Math.exp(-Math.pow((x - spikePosition) / 5, 2))
-          y -= spikeIntensity * 40
-        }
+        let y = centerY;
 
-        if (x === 0) ctx.moveTo(x, y)
-        else ctx.lineTo(x, y)
+        // Primary breathing wave - slow and gentle
+        y +=
+          Math.sin(x * breathingFrequency + time * 0.005) * breathingAmplitude;
+
+        // Secondary wave - creates flow and movement
+        y +=
+          Math.sin(x * breathingFrequency * 0.6 + time * 0.0035) *
+          breathingAmplitude *
+          0.5;
+
+        // Tertiary wave - adds organic variation
+        y +=
+          Math.cos(x * breathingFrequency * 1.5 + time * 0.0025) *
+          breathingAmplitude *
+          0.3;
+
+        // Subtle depth wave
+        y +=
+          Math.sin(x * breathingFrequency * 0.3 + time * 0.002) *
+          breathingAmplitude *
+          0.2;
+
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
       }
 
-      ctx.stroke()
-      time += speed
+      ctx.stroke();
 
-      animationId = requestAnimationFrame(animate)
-    }
+      // Faster time increment
+      time += 1.2;
 
-    animate()
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animate();
 
     return () => {
-      cancelAnimationFrame(animationId)
-      window.removeEventListener('resize', resizeCanvas)
-    }
-  }, [])
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", resizeCanvas);
+    };
+  }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white">
-      <canvas 
-        ref={canvasRef} 
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white"
+    >
+      <canvas
+        ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none"
         style={{ opacity: 1 }}
       />
 
-      <div 
-        className="absolute inset-0 pointer-events-none" 
+      <div
+        className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(circle, rgba(61, 71, 73, 0.08) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px',
-          opacity: 0.6
-        }} 
+          backgroundSize: "40px 40px",
+          opacity: 0.6,
+        }}
       />
 
       {/* Breathing Lung - Smaller sizing */}
@@ -93,16 +111,12 @@ export default function Hero() {
         </div>
       </div>
 
-<div className="relative text-2xl md:text-2xl lg:text-6xl text-primary mb-2">
-      <div>
-        Lung
+      <div className="relative text-2xl md:text-2xl lg:text-6xl text-primary mb-2">
         <div>
-          Inland Empire Lung
+          Lung
+          <div>Inland Empire Lung</div>
         </div>
-      </div>
-      <div>
-        & Sleep Institute
-      </div>
+        <div>& Sleep Institute</div>
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-6">
@@ -119,7 +133,8 @@ export default function Hero() {
         </div>
 
         <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mt-6 leading-relaxed font-light">
-          Comprehensive care for pulmonary and sleep disorders with a commitment to delivering science-driven treatment aligned with your values.
+          Comprehensive care for pulmonary and sleep disorders with a commitment
+          to delivering science-driven treatment aligned with your values.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
@@ -136,5 +151,5 @@ export default function Hero() {
         <ChevronDown className="w-8 h-8 text-gray-700 opacity-60" />
       </div> */}
     </section>
-  )
+  );
 }
