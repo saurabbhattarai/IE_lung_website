@@ -177,7 +177,7 @@ export default function ScheduleAppointment() {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 bg-primary hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
+                  className="flex-1 bg-[#3D4749] hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
                 >
                   CONFIRM APPOINTMENT
                 </button>

@@ -115,7 +115,7 @@ export default function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center">
-            <button className="bg-primary text-white px-6 py-2.5 rounded-lg hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 text-sm font-medium tracking-wide">
+            <button className="bg-[#3D4749] text-white px-6 py-2.5 rounded-lg hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 text-sm font-medium tracking-wide">
               SCHEDULE APPOINTMENT
             </button>
           </div>
@@ -223,7 +223,7 @@ export default function Navigation() {
               </Link>
 
               <button
-                className="w-full mt-4 bg-primary text-white px-4 py-3 rounded-lg hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 text-sm font-medium"
+                className="w-full mt-4 bg-[#3D4749] text-white px-4 py-3 rounded-lg hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 text-sm font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 SCHEDULE APPOINTMENT

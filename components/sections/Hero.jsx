@@ -138,7 +138,7 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-          <button className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
+          <button className="bg-[#3D4749] hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
             SCHEDULE APPOINTMENT
           </button>
           <button className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all shadow-md">
