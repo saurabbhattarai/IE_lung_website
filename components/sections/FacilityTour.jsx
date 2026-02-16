@@ -19,6 +19,8 @@ export default function FacilityTour() {
         "Our comfortable, state-of-the-art examination rooms are designed for patient comfort and efficient care delivery with the latest medical equipment.",
       icon: Building2,
       color: "from-teal-400/20 to-primary/10",
+      image: "/modern-clinic-spaces.jpg",
+      tags: ["Minimalist", "Private", "Ergonomic"],
     },
     {
       title: "Advanced Sleep Lab",
@@ -26,6 +28,8 @@ export default function FacilityTour() {
         "ISO-certified sleep laboratory with private, hotel-like sleep rooms equipped with cutting-edge monitoring technology for accurate sleep studies.",
       icon: Monitor,
       color: "from-secondary/20 to-teal-500/10",
+      image: "/advanced-sleep-lab.jpg",
+      tags: ["ISO-Certified", "Monitored", "Hotel-like"],
     },
     {
       title: "Relaxation Areas",
@@ -33,6 +37,8 @@ export default function FacilityTour() {
         "Welcoming waiting areas and patient lounges designed to reduce anxiety and create a peaceful environment during your visit.",
       icon: DoorOpen,
       color: "from-cyan-400/20 to-primary/10",
+      image: "/relaxation-areas.jpg",
+      tags: ["Biophilic", "Calming", "Natural Light"],
     },
     {
       title: "Diagnostic Center",
@@ -40,6 +46,8 @@ export default function FacilityTour() {
         "Equipped with spirometry, cardiopulmonary exercise testing, and other advanced diagnostic tools for comprehensive respiratory assessment.",
       icon: Microscope,
       color: "from-primary/20 to-secondary/10",
+      image: "/diagnostic-center.jpg",
+      tags: ["High-Tech", "Precise", "Comprehensive"],
     },
   ];
 
@@ -118,32 +126,35 @@ export default function FacilityTour() {
           {/* Right - Content Display */}
           <div
             key={activeTab}
-            className={`bg-gradient-to-br ${facilities[activeTab].color} rounded-2xl p-10 flex flex-col justify-center border-2 border-gray-200 shadow-xl relative overflow-hidden animate-fade-in-scale`}
+            className="relative rounded-2xl min-h-[500px] flex flex-col justify-end p-8 md:p-12 shadow-2xl overflow-hidden border-2 border-gray-200 animate-fade-in-scale"
           >
-            {/* Decorative Circle */}
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+            {/* The Image */}
+            <img
+              src={
+                facilities[activeTab].image.src || facilities[activeTab].image
+              }
+              alt={facilities[activeTab].title}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
 
-            <div className="relative z-10">
-              <div className="mb-6 inline-block p-4 bg-white rounded-2xl shadow-md animate-bounce-subtle">
-                {React.createElement(facilities[activeTab].icon, {
-                  className: "w-14 h-14 text-secondary",
-                })}
-              </div>
-              <h3 className="text-3xl font-bold text-primary mb-4 animate-slide-up">
+            {/* Gradient Overlay for Readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent z-10" />
+
+            {/* Content Layer */}
+            <div className="relative z-20">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 animate-slide-up">
                 {facilities[activeTab].title}
               </h3>
-              <p className="text-gray-700 text-lg leading-relaxed mb-8 animate-fade-in-delayed">
+
+              <p className="text-gray-200 text-lg leading-relaxed mb-8 max-w-lg animate-fade-in">
                 {facilities[activeTab].description}
               </p>
+
               <div className="flex flex-wrap gap-3">
-                {["Modern", "Comfortable", "Advanced"].map((tag, idx) => (
+                {facilities[activeTab].tags.map((tag, idx) => (
                   <span
                     key={tag}
-                    className="px-5 py-2 bg-primary backdrop-blur-sm text-secondary rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-default"
-                    style={{
-                      animation: `slideInUp 0.5s ease-out ${idx * 0.1}s both`,
-                    }}
+                    className="px-4 py-1.5 bg-secondary text-primary rounded-full text-xs font-bold uppercase tracking-wider shadow-lg"
                   >
                     {tag}
                   </span>
