@@ -35,6 +35,9 @@ const BreathingLung = () => {
           fill="#3D4749"
         />
       </svg>
+      <h3 className="text-[9vw] lg:-mt-8 lg:pl-10 text-gray-600 font-semibold tracking-wide">
+        Lung
+      </h3>
     </div>
   );
 };

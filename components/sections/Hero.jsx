@@ -87,7 +87,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-white"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-10"
     >
       <canvas
         ref={canvasRef}
@@ -111,37 +111,35 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative text-2xl md:text-2xl lg:text-6xl text-primary mb-2">
+      <div className="relative text-center my-4">
         <div>
-          Lung
-          <div>Inland Empire Lung</div>
+          {/* Lung */}
+          <div className="text-2xl md:text-2xl lg:text-6xl text-primary">
+            Inland Empire Lung
+          </div>
         </div>
-        <div>& Sleep Institute</div>
+        <div className="text-xl md:text-xl lg:text-5xl text-primary">
+          & Sleep Institute
+        </div>
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-6">
         <div className="mb-6">
-          <p className="text-gray-600 text-sm md:text-base font-semibold tracking-widest uppercase mb-4">
+          <p className="text-gray-600 text-sm md:text-base font-bold tracking-widest uppercase">
             Breathe | Sleep | Thrive
           </p>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
-            Comprehensive Respiratory Care
-          </h1>
-          <p className="text-lg md:text-xl text-gray-700 font-light">
+          <p className="text-sm md:text-base text-gray-700 font-light">
             Science-Led. Patient-Centered.
           </p>
         </div>
 
-        <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mt-6 leading-relaxed font-light">
+        <p className="text-gray-700 text-base md:text-lg max-w-2xl mx-auto mt-6 leading-relaxed font-light">
           Comprehensive care for pulmonary and sleep disorders with a commitment
           to delivering science-driven treatment aligned with your values.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-          <button className="bg-[#3D4749] hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg">
-            SCHEDULE APPOINTMENT
-          </button>
-          <button className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all shadow-md">
+          <button className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 shadow-md">
             LEARN MORE
           </button>
         </div>
