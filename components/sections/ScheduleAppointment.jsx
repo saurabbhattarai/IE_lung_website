@@ -1,53 +1,56 @@
-'use client'
+"use client";
 
-import { Calendar, Clock, User, Phone } from 'lucide-react'
-import { useState } from 'react'
+import { Calendar, Clock, User, Phone } from "lucide-react";
+import { useState } from "react";
 
 export default function ScheduleAppointment() {
   const [appointmentData, setAppointmentData] = useState({
-    patientName: '',
-    phone: '',
-    reason: '',
-    preferredDate: '',
-    preferredTime: ''
-  })
-  const [submitted, setSubmitted] = useState(false)
+    patientName: "",
+    phone: "",
+    reason: "",
+    preferredDate: "",
+    preferredTime: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setAppointmentData(prev => ({
+    const { name, value } = e.target;
+    setAppointmentData((prev) => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Appointment scheduled:', appointmentData)
-    setSubmitted(true)
+    e.preventDefault();
+    console.log("Appointment scheduled:", appointmentData);
+    setSubmitted(true);
     setTimeout(() => {
       setAppointmentData({
-        patientName: '',
-        phone: '',
-        reason: '',
-        preferredDate: '',
-        preferredTime: ''
-      })
-      setSubmitted(false)
-    }, 3000)
-  }
+        patientName: "",
+        phone: "",
+        reason: "",
+        preferredDate: "",
+        preferredTime: "",
+      });
+      setSubmitted(false);
+    }, 3000);
+  };
 
   return (
     <section className="py-20 px-4 bg-background">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-accent font-semibold uppercase tracking-widest mb-4">Schedule Today</p>
+          <p className="text-accent font-semibold uppercase tracking-widest mb-4">
+            Schedule Today
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance">
             Book Your Appointment
           </h2>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-pretty">
-            Ready to take control of your respiratory and sleep health? Schedule an appointment with one of our expert providers.
+            Ready to take control of your respiratory and sleep health? Schedule
+            an appointment with one of our expert providers.
           </p>
         </div>
 
@@ -57,9 +60,13 @@ export default function ScheduleAppointment() {
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-8 h-8 text-accent" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-3">Thank You!</h3>
+              <h3 className="text-2xl font-bold text-primary mb-3">
+                Thank You!
+              </h3>
               <p className="text-foreground/70 max-w-md mx-auto mb-6">
-                We{'{'}ve{"}"} received your appointment request. A member of our team will contact you within 24 hours to confirm your appointment.
+                We{"{"}ve{"}"} received your appointment request. A member of
+                our team will contact you within 24 hours to confirm your
+                appointment.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
@@ -73,7 +80,9 @@ export default function ScheduleAppointment() {
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Patient Name */}
                 <div>
-                  <label className="block text-sm font-semibold text-primary mb-3">Full Name *</label>
+                  <label className="block text-sm font-semibold text-primary mb-3">
+                    Full Name *
+                  </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40 pointer-events-none" />
                     <input
@@ -90,7 +99,9 @@ export default function ScheduleAppointment() {
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-sm font-semibold text-primary mb-3">Phone Number *</label>
+                  <label className="block text-sm font-semibold text-primary mb-3">
+                    Phone Number *
+                  </label>
                   <div className="relative">
                     <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40 pointer-events-none" />
                     <input
@@ -108,7 +119,9 @@ export default function ScheduleAppointment() {
 
               {/* Reason for Visit */}
               <div>
-                <label className="block text-sm font-semibold text-primary mb-3">Reason for Visit *</label>
+                <label className="block text-sm font-semibold text-primary mb-3">
+                  Reason for Visit *
+                </label>
                 <select
                   name="reason"
                   value={appointmentData.reason}
@@ -129,7 +142,9 @@ export default function ScheduleAppointment() {
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Preferred Date */}
                 <div>
-                  <label className="block text-sm font-semibold text-primary mb-3">Preferred Date *</label>
+                  <label className="block text-sm font-semibold text-primary mb-3">
+                    Preferred Date *
+                  </label>
                   <div className="relative">
                     <Calendar className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40 pointer-events-none" />
                     <input
@@ -145,7 +160,9 @@ export default function ScheduleAppointment() {
 
                 {/* Preferred Time */}
                 <div>
-                  <label className="block text-sm font-semibold text-primary mb-3">Preferred Time *</label>
+                  <label className="block text-sm font-semibold text-primary mb-3">
+                    Preferred Time *
+                  </label>
                   <div className="relative">
                     <Clock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40 pointer-events-none" />
                     <select
@@ -177,13 +194,13 @@ export default function ScheduleAppointment() {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 bg-[#3D4749] hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
+                  className="flex-1 bg-[#3D4749] hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-semibold duration-300 transition-all transform hover:scale-105"
                 >
                   CONFIRM APPOINTMENT
                 </button>
                 <button
                   type="button"
-                  className="flex-1 border-2 border-primary text-primary hover:bg-accent/5 px-8 py-3 rounded-lg font-semibold transition-all"
+                  className="flex-1 border-2 border-primary text-primary hover:bg-accent/5 px-8 py-3 rounded-lg font-semibold duration-300 transition-all transform hover:scale-105"
                 >
                   CALL US INSTEAD
                 </button>
@@ -209,5 +226,5 @@ export default function ScheduleAppointment() {
         </div> */}
       </div>
     </section>
-  )
+  );
 }

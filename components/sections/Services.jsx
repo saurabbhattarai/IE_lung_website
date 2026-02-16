@@ -32,7 +32,7 @@ export default function Services() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-20 text-center">
-          <p className="text-accent font-medium text-sm mb-3">SERVICES</p>
+          <p className="text-accent font-semibold uppercase tracking-widest mb-4">SERVICES</p>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-5 mx-auto max-w-3xl">
             Comprehensive Respiratory & Sleep Care
           </h2>
@@ -51,12 +51,12 @@ export default function Services() {
                 className="group relative bg-white border-2 border-primary/10 rounded-2xl p-8 hover:border-accent/30 transition-all duration-300"
               >
                 {/* Number badge */}
-                <div className="absolute top-8 right-8 text-5xl font-bold text-primary/5 group-hover:text-accent/10 transition-colors">
+                <div className="absolute top-8 right-8 text-5xl font-bold text-primary/5 group-hover:text-accent/30 transition-colors">
                   {String(index + 1).padStart(2, '0')}
                 </div>
                 
                 <div className="relative">
-                  <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mb-6 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-transform">
                     <IconComponent className="w-6 h-6 text-white" strokeWidth={2.5} />
                   </div>
                   
