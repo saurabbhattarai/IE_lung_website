@@ -1,6 +1,13 @@
 "use client";
 
-import { Calendar, Clock, User, Phone } from "lucide-react";
+import {
+  Calendar,
+  Clock,
+  User,
+  Phone,
+  ChevronDown,
+  CheckCircle2,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function ScheduleAppointment() {
@@ -15,15 +22,11 @@ export default function ScheduleAppointment() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setAppointmentData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setAppointmentData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Appointment scheduled:", appointmentData);
     setSubmitted(true);
     setTimeout(() => {
       setAppointmentData({
@@ -34,196 +37,206 @@ export default function ScheduleAppointment() {
         preferredTime: "",
       });
       setSubmitted(false);
-    }, 3000);
+    }, 5000);
   };
 
   return (
-    <section className="py-20 px-4 bg-background">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
+    <section id="schedule" className="py-24 px-4 bg-slate-50/50">
+      <div className="max-w-5xl mx-auto">
+        {/* Header Section */}
         <div className="text-center mb-16">
-          <p className="text-accent font-semibold uppercase tracking-widest mb-4">
+          <span className="text-accent font-semibold uppercase tracking-widest mb-4">
             Schedule Today
-          </p>
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance">
             Book Your Appointment
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-pretty">
-            Ready to take control of your respiratory and sleep health? Schedule
-            an appointment with one of our expert providers.
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+            Take the first step toward better respiratory health. Select your
+            preferred slot and our team will handle the rest.
           </p>
         </div>
 
-        <div className="bg-white rounded-lg border border-secondary p-8 md:p-12 shadow-sm">
-          {submitted ? (
-            <div className="text-center py-12">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Calendar className="w-8 h-8 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary mb-3">
-                Thank You!
-              </h3>
-              <p className="text-foreground/70 max-w-md mx-auto mb-6">
-                We{"{"}ve{"}"} received your appointment request. A member of
-                our team will contact you within 24 hours to confirm your
-                appointment.
-              </p>
-              <button
-                onClick={() => setSubmitted(false)}
-                className="text-accent hover:text-accent/80 font-semibold transition"
-              >
-                Schedule Another Appointment
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Patient Name */}
-                <div>
-                  <label className="block text-sm font-semibold text-primary mb-3">
-                    Full Name *
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40 pointer-events-none" />
-                    <input
-                      type="text"
-                      name="patientName"
-                      value={appointmentData.patientName}
-                      onChange={handleChange}
-                      required
-                      className="w-full pl-12 pr-4 py-3 rounded-lg border border-secondary bg-white text-primary placeholder-foreground/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition"
-                      placeholder="Your full name"
-                    />
-                  </div>
+        <div className="relative group">
+          <div className="relative bg-white rounded-[2.5rem] border border-slate-200 p-8 md:p-14 shadow-2xl shadow-slate-200/40 overflow-hidden">
+            {submitted ? (
+              <div className="text-center py-16 animate-in fade-in zoom-in duration-500">
+                <div className="w-24 h-24 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+                  <CheckCircle2 size={48} strokeWidth={1.5} />
                 </div>
-
-                {/* Phone */}
-                <div>
-                  <label className="block text-sm font-semibold text-primary mb-3">
-                    Phone Number *
-                  </label>
-                  <div className="relative">
-                    <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40 pointer-events-none" />
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={appointmentData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full pl-12 pr-4 py-3 rounded-lg border border-secondary bg-white text-primary placeholder-foreground/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition"
-                      placeholder="(123) 456-7890"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Reason for Visit */}
-              <div>
-                <label className="block text-sm font-semibold text-primary mb-3">
-                  Reason for Visit *
-                </label>
-                <select
-                  name="reason"
-                  value={appointmentData.reason}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-secondary bg-white text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition"
+                <h3 className="text-3xl font-bold text-[#3D4749] mb-4">
+                  Request Received!
+                </h3>
+                <p className="text-slate-500 text-lg max-w-md mx-auto mb-8">
+                  Our patient coordinator will contact you at{" "}
+                  <span className="font-bold text-accent">
+                    {appointmentData.phone || "your number"}
+                  </span>{" "}
+                  within 24 business hours to finalize the schedule.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="bg-slate-100 hover:bg-slate-200 text-slate-600 px-8 py-3 rounded-xl font-bold transition-all"
                 >
-                  <option value="">Select a reason...</option>
-                  <option value="pulmonary-checkup">Pulmonary Checkup</option>
-                  <option value="sleep-study">Sleep Study</option>
-                  <option value="breathing-issues">Breathing Issues</option>
-                  <option value="sleep-problems">Sleep Problems</option>
-                  <option value="follow-up">Follow-up Visit</option>
-                  <option value="other">Other</option>
-                </select>
+                  New Booking
+                </button>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-8">
+                {/* Step 1: Personal Details */}
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">
+                      Patient Name
+                    </label>
+                    <div className="relative group/input">
+                      <User className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 group-focus-within/input:text-accent transition-colors" />
+                      <input
+                        type="text"
+                        name="patientName"
+                        value={appointmentData.patientName}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50/50 border focus:border-accent/10 focus:bg-white focus:ring-4 focus:ring-accent/5 transition-all text-[#3D4749] font-medium"
+                        placeholder="Full Name"
+                      />
+                    </div>
+                  </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Preferred Date */}
-                <div>
-                  <label className="block text-sm font-semibold text-primary mb-3">
-                    Preferred Date *
-                  </label>
-                  <div className="relative">
-                    <Calendar className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40 pointer-events-none" />
-                    <input
-                      type="date"
-                      name="preferredDate"
-                      value={appointmentData.preferredDate}
-                      onChange={handleChange}
-                      required
-                      className="w-full pl-12 pr-4 py-3 rounded-lg border border-secondary bg-white text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition"
-                    />
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">
+                      Contact Phone
+                    </label>
+                    <div className="relative group/input">
+                      <Phone className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 group-focus-within/input:text-accent transition-colors" />
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={appointmentData.phone}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50/50 border focus:border-accent/10 focus:bg-white focus:ring-4 focus:ring-accent/5 transition-all text-[#3D4749] font-medium"
+                        placeholder="(000) 000-0000"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                {/* Preferred Time */}
-                <div>
-                  <label className="block text-sm font-semibold text-primary mb-3">
-                    Preferred Time *
+                {/* Step 2: Reason */}
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">
+                    Reason for Consultation
                   </label>
                   <div className="relative">
-                    <Clock className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40 pointer-events-none" />
                     <select
-                      name="preferredTime"
-                      value={appointmentData.preferredTime}
+                      name="reason"
+                      value={appointmentData.reason}
                       onChange={handleChange}
                       required
-                      className="w-full pl-12 pr-4 py-3 rounded-lg border border-secondary bg-white text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition"
+                      className="w-full appearance-none px-6 py-4 rounded-2xl bg-slate-50/50 border focus:border-accent/10 focus:bg-white focus:ring-4 focus:ring-accent/5 transition-all text-[#3D4749] font-medium cursor-pointer"
                     >
-                      <option value="">Select a time...</option>
-                      <option value="8:00 AM">8:00 AM</option>
-                      <option value="8:30 AM">8:30 AM</option>
-                      <option value="9:00 AM">9:00 AM</option>
-                      <option value="9:30 AM">9:30 AM</option>
-                      <option value="10:00 AM">10:00 AM</option>
-                      <option value="10:30 AM">10:30 AM</option>
-                      <option value="2:00 PM">2:00 PM</option>
-                      <option value="2:30 PM">2:30 PM</option>
-                      <option value="3:00 PM">3:00 PM</option>
-                      <option value="3:30 PM">3:30 PM</option>
-                      <option value="4:00 PM">4:00 PM</option>
-                      <option value="4:30 PM">4:30 PM</option>
+                      <option value="">Choose a specialized service...</option>
+                      <option value="pulmonary-checkup">
+                        Pulmonary Evaluation
+                      </option>
+                      <option value="sleep-study">
+                        Sleep Disorder Consultation
+                      </option>
+                      <option value="breathing-issues">
+                        Asthma / COPD Management
+                      </option>
+                      <option value="follow-up">Follow-up Visit</option>
+                      <option value="other">General Respiratory Inquiry</option>
                     </select>
+                    <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 pointer-events-none" />
                   </div>
                 </div>
-              </div>
 
-              {/* Submit */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button
-                  type="submit"
-                  className="flex-1 bg-[#3D4749] hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-semibold duration-300 transition-all transform hover:scale-105"
-                >
-                  CONFIRM APPOINTMENT
-                </button>
-                <button
-                  type="button"
-                  className="flex-1 border-2 border-primary text-primary hover:bg-accent/5 px-8 py-3 rounded-lg font-semibold duration-300 transition-all transform hover:scale-105"
-                >
-                  CALL US INSTEAD
-                </button>
-              </div>
+                {/* Step 3: Schedule */}
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">
+                      Preferred Date
+                    </label>
+                    <div className="relative group/input">
+                      <Calendar className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 group-focus-within/input:text-accent transition-colors" />
+                      <input
+                        type="date"
+                        name="preferredDate"
+                        value={appointmentData.preferredDate}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50/50 border focus:border-accent/10 focus:bg-white focus:ring-4 focus:ring-accent/5 transition-all text-[#3D4749] font-medium"
+                      />
+                    </div>
+                  </div>
 
-              <p className="text-sm text-foreground/60 text-center">
-                We will contact you to confirm your appointment time.
-              </p>
-            </form>
-          )}
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">
+                      Preferred Time
+                    </label>
+                    <div className="relative group/input">
+                      <Clock className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 group-focus-within/input:text-accent transition-colors" />
+                      <select
+                        name="preferredTime"
+                        value={appointmentData.preferredTime}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-14 pr-12 py-4 rounded-2xl bg-slate-50/50 border focus:border-accent/10 focus:bg-white focus:ring-4 focus:ring-accent/5 appearance-none transition-all text-[#3D4749] font-medium cursor-pointer"
+                      >
+                        <option value="">Select Time Slot...</option>
+                        <optgroup label="Morning">
+                          <option value="8:00 AM">8:00 AM - 10:00 AM</option>
+                          <option value="10:00 AM">10:00 AM - 12:00 PM</option>
+                        </optgroup>
+                        <optgroup label="Afternoon">
+                          <option value="2:00 PM">2:00 PM - 4:00 PM</option>
+                          <option value="4:00 PM">4:00 PM - 5:00 PM</option>
+                        </optgroup>
+                      </select>
+                      <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 pointer-events-none" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Final Actions */}
+                <div className="pt-6 flex flex-col md:flex-row gap-4 items-center">
+                  <button
+                    type="submit"
+                    className="w-full md:flex-[2] bg-[#3D4749] hover:bg-accent text-white px-10 py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-primary/20"
+                  >
+                    CONFIRM APPOINTMENT
+                  </button>
+                  <a
+                    href="tel:+18402580972"
+                    className="w-full md:flex-1 text-center border-2 border-slate-100 hover:border-accent hover:text-accent text-slate-400 px-6 py-5 rounded-[1.25rem] font-bold transition-all duration-300"
+                  >
+                    CALL US INSTEAD
+                  </a>
+                </div>
+
+                <p className="text-[11px] font-bold text-slate-400 text-center uppercase tracking-tighter">
+                  We will contact you to confirm your appointment time.
+                </p>
+              </form>
+            )}
+          </div>
         </div>
 
-        {/* Info Cards */}
-        {/* <div className="grid sm:grid-cols-2 gap-6 mt-12">
-          <div className="bg-white rounded-lg p-6 border border-secondary text-center">
-            <p className="text-accent font-bold text-2xl mb-2">24 Hours</p>
-            <p className="text-foreground/70">Average confirmation time</p>
-          </div>
-          <div className="bg-white rounded-lg p-6 border border-secondary text-center">
-            <p className="text-accent font-bold text-2xl mb-2">Easy Rescheduling</p>
-            <p className="text-foreground/70">Change your appointment anytime</p>
-          </div>
-        </div> */}
+        {/* Support Stats */}
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+            {[
+                { label: "Patient Satisfaction", val: "4.9/5" },
+                { label: "Board Certified", val: "Expert" },
+                { label: "Response Time", val: "< 24hr" },
+                { label: "Clinic Location", val: "Yucaipa" }
+            ].map((stat, i) => (
+                <div key={i} className="p-4 rounded-2xl bg-white border border-slate-100 text-center shadow-sm">
+                    <p className="text-xl font-extrabold text-[#3D4749]">{stat.val}</p>
+                    <p className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">{stat.label}</p>
+                </div>
+            ))}
+        </div>*/}
       </div>
     </section>
   );
