@@ -87,7 +87,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden -mt-10"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
       <canvas
         ref={canvasRef}
@@ -105,7 +105,7 @@ export default function Hero() {
       />
 
       {/* Breathing Lung - Smaller sizing */}
-      <div className="relative z-10 flex items-center justify-center ">
+      <div className="relative z-10 flex items-center justify-center -mt-32">
         <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64">
           <BreathingLung />
         </div>
@@ -114,34 +114,23 @@ export default function Hero() {
       <div className="relative text-center my-4">
         <div>
           {/* Lung */}
-          <div className="text-2xl md:text-2xl lg:text-6xl text-primary">
+          <div className="text-2xl sm:text-4xl md:text-6xl text-primary">
             Inland Empire Lung
           </div>
         </div>
-        <div className="text-xl md:text-xl lg:text-5xl text-primary">
+        <div className="text-xl sm:text-2xl md:text-5xl text-primary">
           & Sleep Institute
         </div>
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-6">
         <div className="mb-6">
-          <p className="text-gray-600 text-sm md:text-base font-bold tracking-widest uppercase">
+          <p className="text-gray-600 text-xl  md:text-4xl font-semibold tracking-widest uppercase">
             Breathe | Sleep | Thrive
           </p>
-          <p className="text-sm md:text-base text-gray-700 font-light">
+          <p className="text-xl md:text-4xl mt-2 text-gray-700 font-light">
             Science-Led. Patient-Centered.
           </p>
-        </div>
-
-        <p className="text-gray-700 text-base md:text-lg max-w-2xl mx-auto mt-6 leading-relaxed font-light">
-          Comprehensive care for pulmonary and sleep disorders with a commitment
-          to delivering science-driven treatment aligned with your values.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-          <button className="border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300 shadow-md">
-            LEARN MORE
-          </button>
         </div>
       </div>
 
