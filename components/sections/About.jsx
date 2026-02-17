@@ -2,7 +2,7 @@
 
 export default function About() {
   return (
-    <section id="about" className="my-16 py-18 px-4 bg-white">
+    <section id="about" className="my-16 py-18 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Section Label */}
         <div className="flex items-center justify-center gap-4 mb-8">
