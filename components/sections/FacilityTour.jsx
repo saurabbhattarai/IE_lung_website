@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // Added useEffect
 import {
   ChevronRight,
   Building2,
@@ -8,44 +8,47 @@ import {
   DoorOpen,
   Microscope,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function FacilityTour() {
   const [activeTab, setActiveTab] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Reset loading state whenever the tab changes
+  useEffect(() => {
+    setIsLoading(true);
+  }, [activeTab]);
 
   const facilities = [
     {
       title: "Modern Clinic Spaces",
       description:
-        "Our comfortable, state-of-the-art examination rooms are designed for patient comfort and efficient care delivery with the latest medical equipment.",
+        "Our comfortable, state-of-the-art examination rooms are designed for patient comfort and efficient care delivery.",
       icon: Building2,
-      color: "from-teal-400/20 to-primary/10",
       image: "/modern-clinic-spaces.jpg",
       tags: ["Minimalist", "Private", "Ergonomic"],
     },
     {
       title: "Advanced Sleep Lab",
       description:
-        "ISO-certified sleep laboratory with private, hotel-like sleep rooms equipped with cutting-edge monitoring technology for accurate sleep studies.",
+        "ISO-certified sleep laboratory with private, hotel-like sleep rooms equipped with cutting-edge monitoring technology.",
       icon: Monitor,
-      color: "from-secondary/20 to-teal-500/10",
       image: "/advanced-sleep-lab.jpg",
       tags: ["ISO-Certified", "Monitored", "Hotel-like"],
     },
     {
       title: "Relaxation Areas",
       description:
-        "Welcoming waiting areas and patient lounges designed to reduce anxiety and create a peaceful environment during your visit.",
+        "Welcoming waiting areas and patient lounges designed to reduce anxiety and create a peaceful environment.",
       icon: DoorOpen,
-      color: "from-cyan-400/20 to-primary/10",
       image: "/relaxation-areas.jpg",
       tags: ["Biophilic", "Calming", "Natural Light"],
     },
     {
       title: "Diagnostic Center",
       description:
-        "Equipped with spirometry, cardiopulmonary exercise testing, and other advanced diagnostic tools for comprehensive respiratory assessment.",
+        "Equipped with spirometry and advanced diagnostic tools for comprehensive respiratory assessment.",
       icon: Microscope,
-      color: "from-primary/20 to-secondary/10",
       image: "/diagnostic-center.jpg",
       tags: ["High-Tech", "Precise", "Comprehensive"],
     },
@@ -58,151 +61,104 @@ export default function FacilityTour() {
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <p className="text-accent font-semibold uppercase tracking-widest mb-4 animate-slide-down">
+        <div className="text-center mb-16">
+          <p className="text-accent font-semibold uppercase tracking-widest mb-4">
             Our Facilities
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance animate-slide-up">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             State-of-the-Art Facilities
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto text-pretty animate-fade-in-delayed">
-            We invest in the latest technology and create comfortable spaces to
-            provide you the best care experience.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            We invest in the latest technology to provide you the best care
+            experience.
           </p>
         </div>
 
-        {/* Tour Section */}
-        <div className="grid lg:grid-cols-2 gap-12 items-stretch mb-16">
-          {/* Left - Tabs */}
-          <div className="flex flex-col space-y-4">
-            {facilities.map((facility, idx) => {
-              const IconComponent = facility.icon;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveTab(idx)}
-                  className={`w-full text-left p-5 rounded-xl border-2 transition-all duration-500 flex items-start gap-4 group hover:shadow-lg transform hover:-translate-y-1 ${
-                    activeTab === idx
-                      ? "bg-gradient-to-r from-secondary/10 to-primary/5 border-secondary shadow-lg scale-[1.02]"
-                      : "bg-white border-gray-200 hover:border-secondary/50"
-                  }`}
-                  style={{
-                    animation: `slideInLeft 0.5s ease-out ${idx * 0.1}s both`,
-                  }}
-                >
-                  <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                      activeTab === idx
-                        ? "bg-primary text-white shadow-lg scale-110"
-                        : "bg-gray-100 text-primary group-hover:bg-secondary/20 group-hover:scale-105"
-                    }`}
-                  >
-                    <IconComponent className="w-6 h-6" />
-                  </div>
-                  <div className="flex-1">
-                    <h4
-                      className={`font-bold text-base mb-1 transition-colors ${
-                        activeTab === idx ? "text-primary" : "text-gray-800"
-                      }`}
-                    >
-                      {facility.title}
-                    </h4>
-                    <p className="text-sm text-gray-600 line-clamp-2">
-                      {facility.description}
-                    </p>
-                  </div>
-                  <ChevronRight
-                    className={`w-5 h-5 flex-shrink-0 mt-1 transition-all duration-300 ${
-                      activeTab === idx
-                        ? "text-secondary translate-x-1"
-                        : "text-gray-400 opacity-0 group-hover:opacity-100"
-                    }`}
-                  />
-                </button>
-              );
-            })}
-          </div>
+        {/* --- ADDED: Tab Navigation Buttons --- */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {facilities.map((facility, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveTab(index)}
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                activeTab === index
+                  ? "bg-[#3D4749] text-white shadow-lg scale-105"
+                  : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+              }`}
+            >
+              <facility.icon className="w-5 h-5" />
+              <span className="hidden md:inline">{facility.title}</span>
+            </button>
+          ))}
+        </div>
 
-          {/* Right - Content Display */}
-          <div
-            key={activeTab}
-            className="relative rounded-2xl min-h-[500px] flex flex-col justify-end p-8 md:p-12 shadow-2xl overflow-hidden border-2 border-gray-200 animate-fade-in-scale"
-          >
-            {/* The Image */}
-            <img
-              src={
-                facilities[activeTab].image.src || facilities[activeTab].image
-              }
-              alt={facilities[activeTab].title}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-
-            {/* Gradient Overlay for Readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent z-10" />
-
-            {/* Content Layer */}
-            <div className="relative z-20">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 animate-slide-up">
-                {facilities[activeTab].title}
-              </h3>
-
-              <p className="text-gray-200 text-lg leading-relaxed mb-8 max-w-lg animate-fade-in">
-                {facilities[activeTab].description}
-              </p>
-
-              <div className="flex flex-wrap gap-3">
-                {facilities[activeTab].tags.map((tag, idx) => (
-                  <span
-                    key={tag}
-                    className="px-4 py-1.5 bg-secondary text-primary rounded-full text-xs font-bold uppercase tracking-wider shadow-lg"
-                  >
-                    {tag}
-                  </span>
-                ))}
+        {/* Main Tour Display */}
+        <div className="relative rounded-3xl min-h-[500px] flex flex-col justify-end p-8 md:p-12 shadow-2xl overflow-hidden border border-gray-100 mb-20">
+          {/* 1. SKELETON LAYER */}
+          {isLoading && (
+            <div className="absolute inset-0 z-30 bg-gray-200 overflow-hidden">
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+              <div className="absolute bottom-12 left-12 space-y-4 w-full">
+                <div className="h-10 w-2/3 bg-gray-300 rounded-lg animate-pulse" />
+                <div className="h-6 w-1/2 bg-gray-300 rounded-lg animate-pulse" />
               </div>
+            </div>
+          )}
+
+          {/* 2. THE IMAGE (Now correctly linked to isLoading) */}
+          <Image
+            key={facilities[activeTab].image} // Force re-render on tab change
+            src={facilities[activeTab].image}
+            alt={facilities[activeTab].title}
+            fill
+            onLoad={() => setIsLoading(false)}
+            className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+              isLoading ? "scale-110 blur-xl" : "scale-100 blur-0"
+            }`}
+          />
+
+          {/* 3. GRADIENT OVERLAY */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3D4749] via-[#3D4749]/40 to-transparent z-10" />
+
+          {/* 4. CONTENT LAYER */}
+          <div
+            className={`relative z-20 transition-opacity duration-700 ${isLoading ? "opacity-0" : "opacity-100"}`}
+          >
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 animate-slide-up">
+              {facilities[activeTab].title}
+            </h3>
+            <p className="text-gray-200 text-lg leading-relaxed mb-8 max-w-lg">
+              {facilities[activeTab].description}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {facilities[activeTab].tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-4 py-1.5 bg-white/20 backdrop-blur-md text-white rounded-full text-xs font-bold uppercase tracking-wider"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Virtual Tour CTA */}
-        <div className="bg-gradient-to-r from-primary to-primary/90 rounded-2xl p-12 text-center text-white shadow-2xl relative overflow-hidden group animate-fade-in-scale">
-          {/* Animated Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-full h-full">
-              <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full animate-float"></div>
-              <div className="absolute bottom-10 right-10 w-24 h-24 bg-white rounded-full animate-float-delayed"></div>
-              <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-white rounded-full animate-float-slow"></div>
-            </div>
-          </div>
-
+        {/* <div className="bg-gradient-to-r from-[#3D4749] to-gray-700 rounded-2xl p-12 text-center text-white shadow-2xl relative overflow-hidden group">
           <div className="relative z-10">
-            <h3 className="text-3xl font-bold mb-4">
-              Schedule a Facility Tour
-            </h3>
+            <h3 className="text-3xl font-bold mb-4">Schedule a Facility Tour</h3>
             <p className="mb-8 max-w-xl mx-auto text-gray-100 text-lg">
-              We welcome visitors to explore our state-of-the-art facilities and
-              meet our team in person.
+              We welcome visitors to explore our state-of-the-art facilities and meet our team in person.
             </p>
-            <button className="bg-accent text-white px-10 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group inline-flex items-center gap-2">
+            <button className="bg-white text-[#3D4749] px-10 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group inline-flex items-center gap-2">
               REQUEST A TOUR
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
         @keyframes slideInUp {
           from {
             opacity: 0;
@@ -213,92 +169,8 @@ export default function FacilityTour() {
             transform: translateY(0);
           }
         }
-
-        @keyframes fadeInScale {
-          from {
-            opacity: 0;
-            transform: scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes bounceSubtle {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0) translateX(0);
-          }
-          50% {
-            transform: translateY(-20px) translateX(10px);
-          }
-        }
-
-        @keyframes floatDelayed {
-          0%,
-          100% {
-            transform: translateY(0) translateX(0);
-          }
-          50% {
-            transform: translateY(-15px) translateX(-10px);
-          }
-        }
-
-        @keyframes floatSlow {
-          0%,
-          100% {
-            transform: translateY(0) scale(1);
-          }
-          50% {
-            transform: translateY(-25px) scale(1.1);
-          }
-        }
-
-        .animate-fade-in {
-          animation: fadeInScale 0.6s ease-out;
-        }
-
-        .animate-fade-in-delayed {
-          animation: fadeInScale 0.8s ease-out 0.2s both;
-        }
-
-        .animate-fade-in-scale {
-          animation: fadeInScale 0.5s ease-out;
-        }
-
         .animate-slide-up {
           animation: slideInUp 0.6s ease-out;
-        }
-
-        .animate-slide-down {
-          animation: slideInUp 0.6s ease-out reverse;
-        }
-
-        .animate-bounce-subtle {
-          animation: bounceSubtle 3s ease-in-out infinite;
-        }
-
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-
-        .animate-float-delayed {
-          animation: floatDelayed 8s ease-in-out infinite;
-        }
-
-        .animate-float-slow {
-          animation: floatSlow 10s ease-in-out infinite;
         }
       `}</style>
     </section>
