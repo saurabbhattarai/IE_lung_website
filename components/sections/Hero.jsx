@@ -1,8 +1,22 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ChevronDown } from "lucide-react";
-import BreathingLung from "../breathinglung/BreathingLung";
+import dynamic from "next/dynamic";
+
+function LungSkeleton() {
+  return (
+    <div className="flex flex-col items-center justify-center animate-pulse text-gray-400">
+      {/* <Loader2 className="animate-spin text-center text-gray-500" /> */}
+      <h1 className="text-7xl">IE Lung</h1>
+      <h3 className="text-xl">Inland Empire Lung & Sleep Institute</h3>
+    </div>
+  );
+}
+
+const BreathingLung = dynamic(() => import("../breathinglung/BreathingLung"), {
+  ssr: false,
+  loading: () => <LungSkeleton />, // Show skeleton while loading
+});
 
 export default function Hero() {
   const canvasRef = useRef(null);
@@ -87,7 +101,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden border-b"
     >
       <canvas
         ref={canvasRef}
@@ -105,7 +119,7 @@ export default function Hero() {
       />
 
       {/* Breathing Lung - Smaller sizing */}
-      <div className="relative z-10 flex items-center justify-center -mt-32">
+      <div className="relative z-10 flex items-center justify-center">
         <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64">
           <BreathingLung />
         </div>

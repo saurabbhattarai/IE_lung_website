@@ -2,7 +2,7 @@
 
 export default function About() {
   return (
-    <section id="about" className="py-18 px-4 bg-white">
+    <section id="about" className="my-16 py-18 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
         {/* Section Label */}
         <div className="flex items-center justify-center gap-4 mb-8">
@@ -17,7 +17,7 @@ export default function About() {
         <div>
           <div className="relative z-10 bg-gray-50/50 border border-gray-100 rounded-3xl p-8 md:p-16 shadow-sm">
             {/* The Statement Block */}
-            <div className="space-y-8 text-lg md:text-xl text-gray-700 leading-relaxed text-center md:text-left">
+            <div className="space-y-8 text-lg md:text-xl text-gray-700 leading-relaxed text-left">
               <p className="font-medium text-primary text-2xl md:text-3xl leading-tight">
                 At <span className="text-accent font-bold">IE Lung</span>, we
                 provide comprehensive care for obstructive, restrictive, and
