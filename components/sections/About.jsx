@@ -1,89 +1,66 @@
-'use client'
-
-import { Bug as Lung, Heart, Users } from 'lucide-react'
-import {SimpleIconsTrustpilot} from '@/components/ui/trust.jsx'
-import {EosIconsScienceOutlined} from '@/components/ui/science.jsx'
+"use client";
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4 bg-background ">
-      <div className="max-w-6xl mx-auto border-t border-gray-200 py-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-accent font-semibold uppercase tracking-widest mb-4">Who We Are</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance">
-            Your Trusted Partner in Respiratory & Sleep Health
-          </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-pretty">
-            At IE Lung, we believe that quality healthcare comes from combining medical expertise with genuine compassion.
+    <section id="about" className="py-18 px-4 bg-white">
+      <div className="max-w-5xl mx-auto">
+        {/* Section Label */}
+        <div className="flex items-center justify-center gap-4 mb-8">
+          {/* <div className="h-[1px] w-12 bg-accent/30"></div> */}
+          <p className="text-accent font-semibold uppercase tracking-widest mb-4">
+            Who We Are
           </p>
+          {/* <div className="h-[1px] w-12 bg-accent/30"></div> */}
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-          {/* Left - Mission */}
-          <div>
-            <h3 className="text-3xl font-bold text-primary mb-6">Our Mission</h3>
-            <p className="text-foreground/80 text-lg leading-relaxed mb-6">
-              We provide comprehensive care for obstructive, restrictive, and pulmonary vascular lung diseases, as well as sleep disorders. Our mission is to deliver science-driven care that aligns with what matters most to you.
-            </p>
-            <div className="bg-secondary/50  p-6 rounded-lg">
-            <SimpleIconsTrustpilot className="inline-block mb-2" />
-              <p className="text-primary font-semibold italic">
-                {'"'}Every visit brings together two experts: our clinicians and you. Your insights matter as much as our medical knowledge.{'"'}
+        {/* Main Content Card */}
+        <div>
+          <div className="relative z-10 bg-gray-50/50 border border-gray-100 rounded-3xl p-8 md:p-16 shadow-sm">
+            {/* The Statement Block */}
+            <div className="space-y-8 text-lg md:text-xl text-gray-700 leading-relaxed text-center md:text-left">
+              <p className="font-medium text-primary text-2xl md:text-3xl leading-tight">
+                At <span className="text-accent font-bold">IE Lung</span>, we
+                provide comprehensive care for obstructive, restrictive, and
+                pulmonary vascular lung diseases, as well as sleep disorders.
               </p>
-            </div>
-          </div>
 
-          {/* Right - Values */}
-          <div className="grid gap-6">
-            <div className="bg-white rounded-lg p-6 border border-secondary shadow-sm hover:shadow-md transition">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Heart className="w-6 h-6 text-primary" />
+              <div className="grid md:grid-cols-2 gap-12 pt-4">
+                <p>
+                  We believe that every visit brings together{" "}
+                  <span className="text-primary font-semibold">
+                    two experts
+                  </span>
+                  : our clinicians, who bring expertise in pulmonary and sleep
+                  medicine, and{" "}
+                  <span className="text-accent font-semibold italic">you</span>,
+                  who bring insight into your lived experience, preferences, and
+                  values.
+                </p>
+                <p>
+                  Our mission is to deliver{" "}
+                  <span className="border-b-2 border-accent/20">
+                    science-driven care
+                  </span>{" "}
+                  that aligns with what matters most to you—true
+                  patient-centered care.
+                </p>
               </div>
-              <h4 className="font-bold text-primary mb-2">Patient-Centered</h4>
-              <p className="text-foreground/70">We listen, partner with you, and support your journey to better health.</p>
-            </div>
 
-            <div className="bg-white rounded-lg p-6 border border-secondary shadow-sm hover:shadow-md transition">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                {/* <Lung className="w-6 h-6 text-accent" /> */}
-                <EosIconsScienceOutlined className="w-6 h-6 text-primary" />
+              <div className="pt-8 border-t border-gray-200/60">
+                <p className="text-gray-600 italic">
+                  Proudly serving the Inland Empire, we are deeply committed to
+                  strengthening the respiratory and sleep health of our
+                  community. Our compassionate physicians and staff take the
+                  time to listen, partner with you, and support you to{" "}
+                  <span className="text-primary font-bold uppercase tracking-wider">
+                    breathe, sleep and thrive!
+                  </span>
+                </p>
               </div>
-              <h4 className="font-bold text-primary mb-2">Science-Driven</h4>
-              <p className="text-foreground/70">Our treatment plans are based on latest medical evidence and research.</p>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 border border-secondary shadow-sm hover:shadow-md transition">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-primary" />
-              </div>
-              <h4 className="font-bold text-primary mb-2">Community Focused</h4>
-              <p className="text-foreground/70">We are deeply committed to strengthening respiratory health in the Inland Empire.</p>
             </div>
           </div>
         </div>
-
-        {/* Key Stats */}
-        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-accent/10 rounded-lg p-8 text-center">
-            <p className="text-3xl font-bold text-accent mb-2">15+</p>
-            <p className="text-primary font-medium">Years Experience</p>
-          </div>
-          <div className="bg-accent/10 rounded-lg p-8 text-center">
-            <p className="text-3xl font-bold text-accent mb-2">5000+</p>
-            <p className="text-primary font-medium">Patients Served</p>
-          </div>
-          <div className="bg-accent/10 rounded-lg p-8 text-center">
-            <p className="text-3xl font-bold text-accent mb-2">98%</p>
-            <p className="text-primary font-medium">Patient Satisfaction</p>
-          </div>
-          <div className="bg-accent/10 rounded-lg p-8 text-center">
-            <p className="text-3xl font-bold text-accent mb-2">24/7</p>
-            <p className="text-primary font-medium">Emergency Support</p>
-          </div>
-        </div> */}
       </div>
     </section>
-  )
+  );
 }
