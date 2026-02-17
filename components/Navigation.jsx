@@ -23,7 +23,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 bg-transparant`}
+      className={`sticky top-0 z-50 transition-all duration-300 bg-white`}
     >
       <div className="max-w-7xl mx-auto px-4 flex gap-18 justify-between items-center">
         {/* Logo */}
