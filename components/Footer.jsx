@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from 'lucide-react'
-import Image from 'next/image'
-import { LineMdTwitterXAlt } from './ui/twitterlogo'
+import Link from "next/link";
+import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
+import Image from "next/image";
+import { LineMdTwitterXAlt } from "./ui/twitterlogo";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-[#3D4749] text-white">
@@ -25,9 +25,15 @@ export default function Footer() {
               </div>
             </div> */}
 
-            <Image src="/logo_white.png" alt="IE Lung Logo" width={150} height={150} />
+            <Image
+              src="/logo_white.png"
+              alt="IE Lung Logo"
+              width={150}
+              height={150}
+            />
             <p className="text-gray-300 text-sm leading-relaxed">
-              Providing comprehensive respiratory and sleep care with science-driven treatment and patient-centered compassion.
+              Providing comprehensive respiratory and sleep care with
+              science-driven treatment and patient-centered compassion.
             </p>
           </div>
 
@@ -36,27 +42,42 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="#home" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#home"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="#about" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#about"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#services"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="#providers" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#providers"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   Our Providers
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#contact"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   Contact
                 </Link>
               </li>
@@ -68,27 +89,42 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6">Services</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="#services" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#services"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   Pulmonary Care
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#services"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   Sleep Medicine
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#services"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   Diagnostic Testing
                 </Link>
               </li>
               <li>
-                <Link href="#facility" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#facility"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   Facility Tour
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-gray-300 hover:text-accent transition">
+                <Link
+                  href="#contact"
+                  className="text-gray-300 hover:text-accent transition"
+                >
                   Schedule Appointment
                 </Link>
               </li>
@@ -108,13 +144,19 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="tel:+18402580972" className="text-gray-300 hover:text-accent transition text-sm">
+                <a
+                  href="tel:+18402580972"
+                  className="text-gray-300 hover:text-accent transition text-sm"
+                >
                   +1 (840) 258-0972
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="mailto:info@ielung.com" className="text-gray-300 hover:text-accent transition text-sm">
+                <a
+                  href="mailto:info@ielung.com"
+                  className="text-gray-300 hover:text-accent transition text-sm"
+                >
                   info@ielung.com
                 </a>
               </div>
@@ -128,20 +170,29 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-gray-300 text-sm">
-            © {currentYear} Inland Empire Lung & Sleep Institute. All rights reserved.
+            © {currentYear} Inland Empire Lung & Sleep Institute. All rights
+            reserved.
           </p>
 
           {/* Social Links */}
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition">
+            <a
+              href="#"
+              className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition"
+            >
               <Facebook className="w-5 h-5" />
             </a>
-            <a href="#" className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition">
+            <a
+              href="#"
+              className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition"
+            >
               {/* <Twitter className="w-5 h-5" /> */}
               <LineMdTwitterXAlt className="w-5 h-5" />
-              
             </a>
-            <a href="#" className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition">
+            <a
+              href="#"
+              className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition"
+            >
               <Linkedin className="w-5 h-5" />
             </a>
           </div>
@@ -157,6 +208,22 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      <p className="flex items-centerj justify-center space-x-2 text-sm pb-4 text-gray-400">
+        Crafted in
+        <span className="flex items-center ml-1 gap-0.5 hover:text-red-500 transition-colors cursor-default">
+          Nepal <span className="text-[10px] mr-1">🇳🇵</span>
+        </span>
+        via
+        <Link
+          href="https://growssence.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-white hover:underline"
+        >
+          Growssence
+        </Link>
+      </p>
     </footer>
-  )
+  );
 }
