@@ -1,6 +1,32 @@
 "use client";
 
-import { Star, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
+
+// Moved outside to prevent re-creation on every render
+const StarIcon = ({ className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    className={className}
+  >
+    <g fill="none">
+      <path
+        fill="#ffef5e"
+        d="M11.523 1.332a.511.511 0 0 1 .957 0l2.59 7.343h7.315a.512.512 0 0 1 .332.9l-6.112 5.067l2.558 7.685a.512.512 0 0 1-.788.574L12 18.224L5.622 22.9a.511.511 0 0 1-.785-.574l2.559-7.685l-6.113-5.067a.512.512 0 0 1 .332-.9h7.316z"
+      />
+      <path
+        fill="#fff9bf"
+        d="M12 18.224L5.622 22.9a.511.511 0 0 1-.785-.574l2.559-7.685l-6.113-5.067a.512.512 0 0 1 .332-.9h7.316l2.59-7.343a.51.51 0 0 1 .48-.332z"
+      />
+      <path
+        stroke="#e3d354"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M11.523 1.332a.511.511 0 0 1 .957 0l2.59 7.343h7.315a.512.512 0 0 1 .332.9l-6.112 5.067l2.558 7.685a.512.512 0 0 1-.788.574L12 18.224L5.622 22.9a.511.511 0 0 1-.785-.574l2.559-7.685l-6.113-5.067a.512.512 0 0 1 .332-.9h7.316z"
+      />
+    </g>
+  </svg>
+);
 
 export default function Testimonials() {
   const testimonials = [
@@ -50,10 +76,10 @@ export default function Testimonials() {
           <p className="text-accent font-semibold uppercase tracking-widest mb-4">
             Patient Success Stories
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             What Our Patients Say
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-pretty">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Real stories from real patients about their transformative
             experiences with IE Lung.
           </p>
@@ -64,15 +90,15 @@ export default function Testimonials() {
           {testimonials.map((testimonial, idx) => (
             <div
               key={idx}
-              className="group relative bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-lg transition-all duration-500 flex flex-col hover:-translate-y-2 overflow-hidden group"
+              className="group relative bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-lg transition-all duration-500 flex flex-col hover:-translate-y-2 overflow-hidden"
             >
               {/* Header: Stars & Quote */}
               <div className="flex justify-between items-start mb-6">
-                <div className="flex gap-1">
+                <div className="flex gap-0.5">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
+                    <StarIcon
                       key={i}
-                      className="w-4 h-4  text-secondary group-hover:text-yellow-400 group-hover:scale-110 transition-transform duration-300"
+                      className="w-5 h-5 transition-transform duration-300 group-hover:scale-110"
                     />
                   ))}
                 </div>
@@ -84,7 +110,7 @@ export default function Testimonials() {
                 "{testimonial.text}"
               </p>
 
-              {/* Footer: Author with Visual Identity */}
+              {/* Footer: Author */}
               <div className="flex items-center gap-4 border-t border-slate-50 pt-6 mt-auto">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white font-bold text-sm shadow-inner">
                   {testimonial.name
@@ -104,24 +130,6 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
-
-        {/* Stats Section */}
-        {/* <div className="bg-gradient-to-r from-primary to-accent/20 rounded-lg p-12 text-white">
-          <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
-              <p className="text-4xl font-bold mb-2">98%</p>
-              <p className="text-lg opacity-90">Patient Satisfaction Rate</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold mb-2">5000+</p>
-              <p className="text-lg opacity-90">Patients Treated Successfully</p>
-            </div>
-            <div>
-              <p className="text-4xl font-bold mb-2">4.9/5</p>
-              <p className="text-lg opacity-90">Average Patient Rating</p>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );
