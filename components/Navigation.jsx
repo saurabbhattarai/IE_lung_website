@@ -23,7 +23,7 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 bg-white`}
+      className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-transparent" : "bg-white"} ${isOpen ? "bg-white" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-4 flex gap-18 justify-between items-center">
         {/* Logo */}
@@ -134,12 +134,12 @@ export default function Navigation() {
           </Link>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center">
+          <Link href="#schedule" className="hidden lg:flex items-center">
             <button className="bg-[#3D4749] text-white flex items-center gap-2 px-6 py-2.5 rounded-lg group hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 text-sm font-medium tracking-tight">
               SCHEDULE APPOINTMENT
               <ArrowRight className="w-4 group-hover:translate-x-1 transition-all duration-300" />
             </button>
-          </div>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -244,12 +244,14 @@ export default function Navigation() {
               CONTACT
             </Link>
 
-            <button
-              className="w-full mt-4 bg-[#3D4749] text-white px-4 py-3 rounded-lg hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 text-sm font-medium"
-              onClick={() => setIsOpen(false)}
-            >
-              SCHEDULE APPOINTMENT
-            </button>
+            <Link href="#schedule">
+              <button
+                className="w-full mt-4 bg-[#3D4749] text-white px-4 py-3 rounded-lg hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 text-sm font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                SCHEDULE APPOINTMENT
+              </button>
+            </Link>
           </div>
         </div>
       )}
