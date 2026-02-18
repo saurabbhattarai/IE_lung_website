@@ -203,13 +203,13 @@ export default function ScheduleAppointment() {
                 <div className="pt-6 flex flex-col md:flex-row gap-4 items-center">
                   <button
                     type="submit"
-                    className="w-full md:flex-[2] bg-[#3D4749] hover:bg-accent text-white px-10 py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-primary/20"
+                    className="w-full md:flex-[2] bg-[#3D4749] hover:bg-accent text-white sm:px-10 py-4 rounded-2xl font-semibold sm:font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-primary/20"
                   >
                     CONFIRM APPOINTMENT
                   </button>
                   <a
                     href="tel:+18402580972"
-                    className="w-full md:flex-1 text-center border-2 border-slate-100 hover:border-accent hover:text-accent text-slate-400 px-6 py-5 rounded-[1.25rem] font-bold transition-all duration-300"
+                    className="w-full md:flex-1 text-center border-2 border-slate-100 hover:border-accent hover:text-accent text-slate-400 sm:px-6 py-4 sm:py-5 rounded-[1.25rem] font-semibold sm:font-bold transition-all duration-300"
                   >
                     CALL US INSTEAD
                   </a>

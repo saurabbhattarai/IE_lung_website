@@ -194,7 +194,7 @@ export default function Contact() {
                     <div className="md:col-span-2 pt-4">
                       <button
                         type="submit"
-                        className="w-full md:w-auto bg-[#3D4749] hover:bg-accent text-white sm:px-10 py-4 rounded-2xl font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-primary/20"
+                        className="w-full md:w-auto bg-[#3D4749] hover:bg-accent text-white sm:px-10 py-4 rounded-2xl font-semibold sm:font-bold transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-primary/20"
                       >
                         <Send size={18} />
                         SEND MESSAGE
@@ -206,7 +206,7 @@ export default function Contact() {
             </div>
 
             {/* Provider Referral Box - Nested nicely below form */}
-            <div className="mt-8 flex flex-col md:flex-row items-center justify-between p-8 bg-gradient-to-r from-primary to-[#2D3537] rounded-[2rem] text-white overflow-hidden relative">
+            <div className="mt-8 flex flex-col md:flex-row items-center justify-between p-6 sm:p-8 bg-gradient-to-r from-primary to-[#2D3537] rounded-[2rem] text-white overflow-hidden relative">
               <div className="relative z-10 mb-6 md:mb-0">
                 <h4 className="text-xl font-bold flex items-center gap-2 mb-1">
                   <Download className="text-accent" /> Provider Referrals
@@ -215,11 +215,10 @@ export default function Contact() {
                   Download our secure referral form for your patients.
                 </p>
               </div>
-              <button className="relative z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-8 py-3 rounded-xl font-bold transition-all flex items-center gap-2">
+              <button className="relative z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-8 py-3 rounded-xl font-semibold sm:font-bold transition-all flex items-center gap-2">
                 <Download size={18} />
                 DOWNLOAD PDF
               </button>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent opacity-10 rounded-full -translate-y-1/2 translate-x-1/2" />
             </div>
           </div>
         </div>
