@@ -169,10 +169,22 @@ export default function Footer() {
 
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-gray-300 text-sm">
-            © {currentYear} Inland Empire Lung & Sleep Institute. All rights
-            reserved.
-          </p>
+          <div>
+            <p className="text-gray-300 text-sm">
+              © {currentYear} Inland Empire Lung & Sleep Institute. All rights
+              reserved.
+            </p>
+
+            {/* <p className="text-sm text-gray-400">
+        Digital craftsmanship by
+        <Link
+          href="https://growssence.com"
+          className="ml-1 italic hover:text-white hover:underline"
+        >
+          Growssence
+        </Link>
+      </p> */}
+          </div>
 
           {/* Social Links */}
           <div className="flex gap-4">
@@ -209,17 +221,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <p className="flex items-centerj justify-center space-x-2 text-sm pb-4 text-gray-400">
-        Crafted in
-        <span className="flex items-center ml-1 gap-0.5 hover:text-red-500 transition-colors cursor-default">
-          Nepal <span className="text-[10px] mr-1">🇳🇵</span>
-        </span>
-        via
+      <p className="flex items-centerj justify-center space-x-2 text-sm mr-1 pb-4 text-gray-400">
+        Digital craftsmanship by
         <Link
           href="https://growssence.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-white hover:underline"
+          className="ml-1 hover:text-white hover:underline"
         >
           Growssence
         </Link>
