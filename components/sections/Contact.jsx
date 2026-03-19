@@ -215,10 +215,15 @@ export default function Contact() {
                   Download our secure referral form for your patients.
                 </p>
               </div>
-              <button className="relative z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-8 py-3 rounded-xl font-semibold sm:font-bold transition-all flex items-center gap-2">
+              <a
+                href="/referral-form.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative z-10 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-8 py-3 rounded-xl font-semibold sm:font-bold transition-all flex items-center gap-2 cursor-pointer"
+              >
                 <Download size={18} />
                 DOWNLOAD PDF
-              </button>
+              </a>
             </div>
           </div>
         </div>
