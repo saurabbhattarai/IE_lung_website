@@ -1,120 +1,91 @@
 "use client";
 
-import { User } from "lucide-react";
+import { useState } from "react";
+import { providers } from "../../lib/constants/doctorsData";
+import DoctorModal from "../DoctorsModal";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export default function Providers() {
-  const providers = [
-    {
-      name: "Dr. Sarah Williams",
-      specialty: "Pulmonary & Sleep Medicine",
-      credentials: "MD, Board Certified",
-      bio: "With over 18 years of experience in pulmonary medicine, Dr. Williams specializes in complex respiratory conditions.",
-      image: "https://via.placeholder.com/300x300?text=Dr.+Williams",
-    },
-    {
-      name: "Dr. Michael Chen",
-      specialty: "Sleep Medicine Specialist",
-      credentials: "MD, FCCP, Board Certified Sleep",
-      bio: "Dr. Chen is dedicated to providing personalized sleep solutions with state-of-the-art diagnostic technology.",
-      image: "https://via.placeholder.com/300x300?text=Dr.+Chen",
-    },
-    {
-      name: "Dr. Jennifer Rodriguez",
-      specialty: "Pulmonary Medicine",
-      credentials: "MD, Board Certified",
-      bio: "Dr. Rodriguez brings compassionate care and innovative treatment approaches to her patients.",
-      image: "https://via.placeholder.com/300x300?text=Dr.+Rodriguez",
-    },
-    {
-      name: "Dr. James Lee",
-      specialty: "Sleep & Respiratory Disorders",
-      credentials: "MD, Board Certified",
-      bio: "With a focus on integrated care, Dr. Lee treats both pulmonary and sleep conditions holistically.",
-      image: "https://via.placeholder.com/300x300?text=Dr.+Lee",
-    },
-  ];
+  const [selectedDoctor, setSelectedDoctor] = useState(null);
 
   return (
-    <section id="providers" className="py-20 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
+    <section id="providers" className="py-24 px-4 bg-slate-50/50">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20 space-y-4">
           <p className="text-accent font-semibold uppercase tracking-widest mb-4">
             Expert Team
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance">
-            Meet Our Providers
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-5 mx-auto max-w-3xl">
+            Meet Our Specialists
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-pretty">
-            Our board-certified physicians bring decades of combined experience
-            and genuine compassion to every patient interaction.
+          <p className="text-lg text-primary/60 max-w-2xl mx-auto leading-relaxed">
+            Trusted pulmonary and sleep medicine experts delivering
+            compassionate, world-class care.
           </p>
         </div>
 
-        {/* Providers Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {providers.map((provider, idx) => (
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          {providers.map((doctor) => (
             <div
-              key={idx}
-              className="bg-white rounded-lg overflow-hidden border border-secondary hover:shadow-lg hover:scale-105 transition-all duration-300"
+              key={doctor.id}
+              onClick={() => setSelectedDoctor(doctor)}
+              className="group relative cursor-pointer bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-slate-100"
             >
-              {/* Image Placeholder */}
-              <div className="h-48 bg-primary/5 flex items-center justify-center relative">
-                {/* Animated Pulse Rings*/} 
-                <div className="absolute w-24 h-24 bg-accent/10 rounded-full animate-ping opacity-20" />
-                <div className="absolute w-32 h-32 bg-accent/5 rounded-full animate-pulse" />
+              {/* Image Container */}
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src={doctor.image}
+                  alt={doctor.name}
+                  fill
+                  className="object-cover object-top transition-transform duration-1000 group-hover:scale-110"
+                />
 
-                <div className="bg-white p-4 rounded-full shadow-sm border border-accent/20 z-10">
-                  <User className="w-20 h-20 text-accent" />
+                {/* Visual Gradient Layer */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-80" />
+
+                {/* Content over Image */}
+                <div className="absolute bottom-0 left-0 w-full p-8 text-white z-10">
+                  <span className="bg-accent/90 backdrop-blur-md text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-3 inline-block">
+                    {doctor.credentials}
+                  </span>
+                  <h4 className="text-2xl font-bold mb-1 group-hover:text-accent transition-colors">
+                    {doctor.name}
+                  </h4>
+                  <p className="text-white/80 text-sm font-medium line-clamp-1 italic">
+                    {doctor.speciality}
+                  </p>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-bold text-primary text-lg mb-1">
-                  {provider.name}
-                </h3>
-                <p className="text-accent text-sm font-semibold mb-2">
-                  {provider.specialty}
+              {/* Hover Secondary View (Quick Bio) */}
+              <div className="absolute inset-0 bg-primary px-10 py-4 flex flex-col transform translate-y-full group-hover:translate-y-1/2 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] z-20">
+                <h4 className="text-2xl font-bold text-white mb-2">
+                  {doctor.name}
+                </h4>
+                <div className="w-8 h-1 bg-accent mb-4" />
+                <p className="text-white/80 text-sm line-clamp-4 leading-relaxed mb-8">
+                  {doctor.fullDescription}
                 </p>
-                <p className="text-xs text-foreground/60 mb-4">
-                  {provider.credentials}
-                </p>
-                <p className="text-foreground/70 text-sm leading-relaxed">
-                  {provider.bio}
-                </p>
+                <button className="flex items-center gap-3 text-accent font-bold text-xs uppercase tracking-widest self-start group/btn">
+                  View Profile{" "}
+                  <ArrowRight
+                    size={16}
+                    className="group-hover/btn:translate-x-2 transition-transform"
+                  />
+                </button>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Additional Info */}
-        <div className="mt-16 bg-accent/5 rounded-lg p-8 border border-accent/20 text-center">
-          <h3 className="text-2xl font-bold text-primary mb-4">
-            Professional Excellence
-          </h3>
-          <p className="text-foreground/70 max-w-2xl mx-auto mb-6">
-            All our providers are board-certified, actively involved in
-            continuing medical education, and committed to staying at the
-            forefront of pulmonary and sleep medicine.
-          </p>
-          <div className="grid sm:grid-cols-3 gap-6">
-            <div>
-              <p className="text-2xl font-bold text-accent">95+</p>
-              <p className="text-sm text-foreground/70">
-                Combined Years Experience
-              </p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-accent">4</p>
-              <p className="text-sm text-foreground/70">Expert Providers</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-accent">100%</p>
-              <p className="text-sm text-foreground/70">Board Certified</p>
-            </div>
-          </div>
-        </div>
+        {/* Modal */}
+        <DoctorModal
+          doctor={selectedDoctor}
+          onClose={() => setSelectedDoctor(null)}
+        />
       </div>
     </section>
   );
