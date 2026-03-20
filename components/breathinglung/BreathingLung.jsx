@@ -3,7 +3,7 @@ import styles from "./BreathingLung.module.css";
 const BreathingLung = () => {
   return (
     <div className={styles.wrapper}>
-      <div className="flex flex-col items-center w-full">
+      <div className="flex items-end justify-center gap-4">
         <svg
           className={styles.svg}
           viewBox="0 0 825 574"
@@ -36,12 +36,9 @@ const BreathingLung = () => {
           />
         </svg>
 
-        {/* Text Container: Set to w-1/2 (50%) of the SVG's container width */}
-        <div className="w-1/2 flex justify-center">
-          <h3 className="text-5xl md:text-6xl text-gray-600 font-bold tracking-wide uppercase text-center mt-2 md:mt-4">
-            Lung
-          </h3>
-        </div>
+        <h3 className="text-5xl md:text-[6rem] text-gray-600 font-semibold tracking-wide uppercase text-center">
+          Lung
+        </h3>
       </div>
     </div>
   );
