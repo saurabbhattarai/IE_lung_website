@@ -54,6 +54,6 @@
 
 @media screen and (max-width: 425px) {
   .svg {
-    width: 95%; /* Slight padding for mobile */
+    width: 60%; /* Slight padding for mobile */
   }
 }
