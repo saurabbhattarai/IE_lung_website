@@ -73,9 +73,9 @@ export default function Contact() {
               {
                 icon: Mail,
                 title: "Email Address",
-                lines: ["info@ielung.com"],
+                lines: [" contact@ielung.com"],
                 sub: "Patient & Provider inquiries",
-                href: "mailto:info@ielung.com",
+                href: "mailto: contact@ielung.com",
               },
             ].map((item, i) => (
               <div

@@ -157,7 +157,7 @@ export default function Footer() {
                   href="mailto:info@ielung.com"
                   className="text-gray-300 hover:text-accent transition text-sm"
                 >
-                  info@ielung.com
+                  contact@ielung.com
                 </a>
               </div>
             </div>
