@@ -123,7 +123,7 @@ export default function Hero() {
         <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64">
           <BreathingLung />
         </div>
-        <div className="text-xl md:text-4xl mt-2 text-gray-700 font-light">
+        <div className="text-xl md:text-3xl text-gray-700 font-light">
           Inland Empire Lung & Sleep Institute
         </div>
       </div>
