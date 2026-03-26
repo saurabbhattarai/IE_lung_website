@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+// import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 
 function LungSkeleton() {
@@ -19,95 +19,95 @@ const BreathingLung = dynamic(() => import("../breathinglung/BreathingLung"), {
 });
 
 export default function Hero() {
-  const canvasRef = useRef(null);
+  // const canvasRef = useRef(null);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+  // useEffect(() => {
+  //   const canvas = canvasRef.current;
+  //   if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
-    let animationId;
+  //   const ctx = canvas.getContext("2d");
+  //   let animationId;
 
-    const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+  //   const resizeCanvas = () => {
+  //     canvas.width = canvas.offsetWidth;
+  //     canvas.height = canvas.offsetHeight;
+  //   };
+  //   resizeCanvas();
+  //   window.addEventListener("resize", resizeCanvas);
 
-    let time = 0;
-    const animate = () => {
-      // Smoother fade with lower alpha for silky trails
-      ctx.fillStyle = "rgba(255, 255, 255, 0.04)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+  //   let time = 0;
+  //   const animate = () => {
+  //     // Smoother fade with lower alpha for silky trails
+  //     ctx.fillStyle = "rgba(255, 255, 255, 0.04)";
+  //     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.strokeStyle = "rgba(61, 71, 73, 0.08)";
-      ctx.lineWidth = 1.5;
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
+  //     ctx.strokeStyle = "rgba(61, 71, 73, 0.08)";
+  //     ctx.lineWidth = 1.5;
+  //     ctx.lineCap = "round";
+  //     ctx.lineJoin = "round";
 
-      ctx.beginPath();
+  //     ctx.beginPath();
 
-      const centerY = canvas.height / 2;
-      const breathingAmplitude = 25;
-      const breathingFrequency = 0.008;
+  //     const centerY = canvas.height / 2;
+  //     const breathingAmplitude = 25;
+  //     const breathingFrequency = 0.008;
 
-      // Multiple wave layers for a flowing breeze effect
-      for (let x = 0; x < canvas.width; x++) {
-        let y = centerY;
+  //     // Multiple wave layers for a flowing breeze effect
+  //     for (let x = 0; x < canvas.width; x++) {
+  //       let y = centerY;
 
-        // Primary breathing wave - slow and gentle
-        y +=
-          Math.sin(x * breathingFrequency + time * 0.005) * breathingAmplitude;
+  //       // Primary breathing wave - slow and gentle
+  //       y +=
+  //         Math.sin(x * breathingFrequency + time * 0.005) * breathingAmplitude;
 
-        // Secondary wave - creates flow and movement
-        y +=
-          Math.sin(x * breathingFrequency * 0.6 + time * 0.0035) *
-          breathingAmplitude *
-          0.5;
+  //       // Secondary wave - creates flow and movement
+  //       y +=
+  //         Math.sin(x * breathingFrequency * 0.6 + time * 0.0035) *
+  //         breathingAmplitude *
+  //         0.5;
 
-        // Tertiary wave - adds organic variation
-        y +=
-          Math.cos(x * breathingFrequency * 1.5 + time * 0.0025) *
-          breathingAmplitude *
-          0.3;
+  //       // Tertiary wave - adds organic variation
+  //       y +=
+  //         Math.cos(x * breathingFrequency * 1.5 + time * 0.0025) *
+  //         breathingAmplitude *
+  //         0.3;
 
-        // Subtle depth wave
-        y +=
-          Math.sin(x * breathingFrequency * 0.3 + time * 0.002) *
-          breathingAmplitude *
-          0.2;
+  //       // Subtle depth wave
+  //       y +=
+  //         Math.sin(x * breathingFrequency * 0.3 + time * 0.002) *
+  //         breathingAmplitude *
+  //         0.2;
 
-        if (x === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      }
+  //       if (x === 0) ctx.moveTo(x, y);
+  //       else ctx.lineTo(x, y);
+  //     }
 
-      ctx.stroke();
+  //     ctx.stroke();
 
-      // Faster time increment
-      time += 1.2;
+  //     // Faster time increment
+  //     time += 1.2;
 
-      animationId = requestAnimationFrame(animate);
-    };
+  //     animationId = requestAnimationFrame(animate);
+  //   };
 
-    animate();
+  //   animate();
 
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resizeCanvas);
-    };
-  }, []);
+  //   return () => {
+  //     cancelAnimationFrame(animationId);
+  //     window.removeEventListener("resize", resizeCanvas);
+  //   };
+  // }, []);
 
   return (
     <section
       id="home"
       className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden border-b"
     >
-      <canvas
+      {/* <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none"
         style={{ opacity: 1 }}
-      />
+      /> */}
 
       <div
         className="absolute inset-0 pointer-events-none"
