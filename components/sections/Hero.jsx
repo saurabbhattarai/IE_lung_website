@@ -119,22 +119,23 @@ export default function Hero() {
       />
 
       {/* Breathing Lung - Smaller sizing */}
-      <div className="relative z-10 flex items-center justify-center">
+      <div className="relative z-10 flex flex-col items-center justify-center">
         <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64">
           <BreathingLung />
+        </div>
+        <div className="text-xl md:text-4xl mt-2 text-gray-700 font-light">
+          Inland Empire Lung & Sleep Institute
         </div>
       </div>
 
       <div className="relative text-center my-4">
-        <div>
-          {/* Lung */}
-          <div className="text-2xl sm:text-4xl md:text-6xl text-primary">
+        {/* <div className="text-2xl sm:text-4xl md:text-6xl text-primary">
             Inland Empire Lung
           </div>
-        </div>
+        
         <div className="text-xl sm:text-2xl md:text-5xl text-primary">
           & Sleep Institute
-        </div>
+        </div> */}
       </div>
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-6">
