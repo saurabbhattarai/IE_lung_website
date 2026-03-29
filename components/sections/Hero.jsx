@@ -120,10 +120,10 @@ export default function Hero() {
 
       {/* Breathing Lung - Smaller sizing */}
       <div className="relative z-10 flex flex-col items-center justify-center">
-        <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64">
+        <div className="w-56 h-56 lg:w-64 lg:h-64">
           <BreathingLung />
         </div>
-        <div className="text-xl md:text-3xl text-gray-700 font-light">
+        <div className="text-lg sm:text-xl md:text-3xl -mt-8 md:mt-0 text-gray-700 font-light">
           Inland Empire Lung & Sleep Institute
         </div>
       </div>
