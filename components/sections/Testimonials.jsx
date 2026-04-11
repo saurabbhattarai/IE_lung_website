@@ -2,7 +2,6 @@
 
 import { Quote } from "lucide-react";
 
-// Moved outside to prevent re-creation on every render
 const StarIcon = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -33,36 +32,42 @@ export default function Testimonials() {
     {
       name: "Margaret Johnson",
       condition: "Sleep Apnea Patient",
+      doctor: "Dr. Roger Seheult",
       text: "The team at IE Lung changed my life. After just a few weeks of CPAP therapy prescribed by Dr. Williams, I finally feel rested and energized again. Their compassionate care made all the difference.",
       rating: 5,
     },
     {
       name: "Robert Martinez",
       condition: "COPD Management",
+      doctor: "Dr. Tarik Ngab",
       text: "Dr. Chen takes time to really listen and understand your concerns. The personalized treatment plan he created has helped me manage my COPD symptoms effectively and improve my quality of life.",
       rating: 5,
     },
     {
       name: "Patricia Lee",
       condition: "Asthma Patient",
+      doctor: "Dr. Paresh C. Giri",
       text: "From the moment I walked in, I felt welcomed and cared for. The staff is professional yet warm, and Dr. Rodriguez has given me tools to better control my asthma.",
       rating: 5,
     },
     {
       name: "David Thompson",
       condition: "Sleep Study Patient",
+      doctor: "Dr. Luke Buxton",
       text: "The sleep lab was incredibly comfortable - it felt like sleeping in a nice hotel room! The results helped identify my sleep issues, and now I sleep better than I have in years.",
       rating: 5,
     },
     {
       name: "Elizabeth Garcia",
       condition: "Pulmonary Function Testing",
+      doctor: "Dr. Sahib Grewal",
       text: "Professional, efficient, and caring. The entire experience was smooth from scheduling to the actual appointment. I highly recommend IE Lung to anyone seeking respiratory care.",
       rating: 5,
     },
     {
       name: "Michael Patel",
       condition: "Sleep Medicine Patient",
+      doctor: "Dr Enrique Gil",
       text: "Finally found a clinic that treats patients as individuals, not just cases. Dr. Lee worked with me to find the right treatment approach, and I have never felt better.",
       rating: 5,
     },
@@ -85,14 +90,14 @@ export default function Testimonials() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, idx) => (
             <div
               key={idx}
-              className="group relative bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-lg transition-all duration-500 flex flex-col hover:-translate-y-2 overflow-hidden"
+              className="group bg-white rounded-3xl p-8 border border-slate-100 shadow-md hover:shadow-lg transition-all duration-500 flex flex-col hover:-translate-y-2"
             >
-              {/* Header: Stars & Quote */}
+              {/* Stars + Quote */}
               <div className="flex justify-between items-start mb-6">
                 <div className="flex gap-0.5">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -105,26 +110,41 @@ export default function Testimonials() {
                 <Quote className="w-10 h-10 text-slate-100 group-hover:text-accent/20 transition-colors duration-500 rotate-12" />
               </div>
 
-              {/* Body: Text */}
-              <p className="text-slate-600 mb-8 flex-1 leading-relaxed text-lg font-medium italic relative z-10">
+              {/* Text */}
+              <p className="text-slate-600 mb-8 flex-1 leading-relaxed text-lg font-medium italic">
                 "{testimonial.text}"
               </p>
 
-              {/* Footer: Author */}
+              {/* Footer */}
               <div className="flex items-center gap-4 border-t border-slate-50 pt-6 mt-auto">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white font-bold text-sm shadow-inner">
+                {/* Avatar */}
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-white font-bold text-sm shadow-inner shrink-0">
                   {testimonial.name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
                 </div>
+
+                {/* Info */}
                 <div>
                   <p className="font-bold text-primary leading-tight">
                     {testimonial.name}
                   </p>
-                  <span className="inline-block mt-1 px-2 py-0.5 rounded bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-widest">
-                    {testimonial.condition}
-                  </span>
+
+                  <div className="flex flex-col gap-1 mt-1">
+                    {/* Condition */}
+                    <span className="inline-block w-fit px-2 py-0.5 rounded bg-secondary/40 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
+                      {testimonial.condition}
+                    </span>
+
+                    {/* Doctor name added */}
+                    <span className="text-xs text-slate-400 italic">
+                      Examined by
+                      <span className="pl-1 text-accent font-medium">
+                        {testimonial.doctor}
+                      </span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
