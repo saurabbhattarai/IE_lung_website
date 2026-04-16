@@ -9,9 +9,10 @@
 }
 
 .svg {
-  width: 80%;
+  width: 100%;
   height: auto; /* Changed from 100% to auto to keep aspect ratio */
-  max-width: 100%;
+  display: block;
+  /* max-width: 100%; */
   overflow: visible;
   shape-rendering: geometricPrecision;
 }
