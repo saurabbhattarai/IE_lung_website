@@ -123,22 +123,22 @@ export default function Hero() {
         <div className="w-56 lg:w-64">
           <BreathingLung />
         </div>
-        <div className="sm:text-2xl md:text-3xl mt-4 md:mt-6 text-gray-700 font-light tracking-wider">
+        <div className="sm:text-2xl md:text-3xl mt-4 md:mt-6 text-gray-700 font-light -ml-6 sm:tracking-wider">
           Inland Empire Lung & Sleep Institute
         </div>
       </div>
 
-      <div className="relative text-center my-4">
-        {/* <div className="text-2xl sm:text-4xl md:text-6xl text-primary">
+      {/* <div className="relative text-center my-4">
+        <div className="text-2xl sm:text-4xl md:text-6xl text-primary">
             Inland Empire Lung
           </div>
         
         <div className="text-xl sm:text-2xl md:text-5xl text-primary">
           & Sleep Institute
-        </div> */}
-      </div>
+        </div>
+      </div> */}
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-6">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-14">
         <div className="mb-6">
           <p className="text-gray-600 text-xl  md:text-4xl font-semibold tracking-widest uppercase">
             Breathe | Sleep | Thrive
