@@ -33,21 +33,21 @@ export default function Testimonials() {
       name: "Margaret Johnson",
       condition: "Sleep Apnea Patient",
       doctor: "Dr. Roger Seheult",
-      text: "The team at IE Lung changed my life. After just a few weeks of CPAP therapy prescribed by Dr. Williams, I finally feel rested and energized again. Their compassionate care made all the difference.",
+      text: "The team at IE Lung changed my life. After just a few weeks of CPAP therapy prescribed by Dr. Roger, I finally feel rested and energized again. Their compassionate care made all the difference.",
       rating: 5,
     },
     {
       name: "Robert Martinez",
       condition: "COPD Management",
       doctor: "Dr. Tarik Ngab",
-      text: "Dr. Chen takes time to really listen and understand your concerns. The personalized treatment plan he created has helped me manage my COPD symptoms effectively and improve my quality of life.",
+      text: "Dr. Tarik takes time to really listen and understand your concerns. The personalized treatment plan he created has helped me manage my COPD symptoms effectively and improve my quality of life.",
       rating: 5,
     },
     {
       name: "Patricia Lee",
       condition: "Asthma Patient",
       doctor: "Dr. Paresh C. Giri",
-      text: "From the moment I walked in, I felt welcomed and cared for. The staff is professional yet warm, and Dr. Rodriguez has given me tools to better control my asthma.",
+      text: "From the moment I walked in, I felt welcomed and cared for. The staff is professional yet warm, and Dr. Paresh has given me tools to better control my asthma.",
       rating: 5,
     },
     {
@@ -68,7 +68,7 @@ export default function Testimonials() {
       name: "Michael Patel",
       condition: "Sleep Medicine Patient",
       doctor: "Dr Enrique Gil",
-      text: "Finally found a clinic that treats patients as individuals, not just cases. Dr. Lee worked with me to find the right treatment approach, and I have never felt better.",
+      text: "Finally found a clinic that treats patients as individuals, not just cases. Dr Enrique worked with me to find the right treatment approach, and I have never felt better.",
       rating: 5,
     },
   ];
