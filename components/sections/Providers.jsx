@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { providers } from "../../lib/constants/doctorsData";
 import DoctorModal from "../DoctorsModal";
 import Image from "next/image";
@@ -8,6 +8,18 @@ import { ArrowRight } from "lucide-react";
 
 export default function Providers() {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+
+  useEffect(() => {
+    if (selectedDoctor) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [selectedDoctor]);
 
   return (
     <section id="providers" className="py-24 px-4 bg-slate-50/50">
