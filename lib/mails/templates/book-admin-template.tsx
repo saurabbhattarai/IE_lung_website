@@ -12,43 +12,54 @@ export const getBookingAdminTemplate = ({
   preferredDate: string;
   preferredTime: string;
   email: string;
-}) => `
-<div style="font-family: Arial, sans-serif; background-color: #f1f5f9; padding: 40px 20px;">
-  <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; padding: 40px; border-top: 4px solid #3D4749;">
-    <h2 style="color: #3D4749; margin-top: 0;">New Appointment Booking</h2>
-    <p style="color: #64748b;">A new appointment request has been submitted via the website.</p>
-    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-      <tr>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: #64748b;">Patient Name:</td>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; font-weight: bold;">${patientName}</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: #64748b;">Phone Number:</td>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; font-weight: bold;">
-          <a href="tel:${phone}" style="color: #3D4749;">${phone}</a>
-        </td>
-      </tr>
-      <tr>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: #64748b;">Email Address:</td>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; font-weight: bold;">
-          <a href="mailto:${email}" style="color: #3D4749;">${email}</a>
-        </td>
-      </tr>
-      <tr>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: #64748b;">Requested Service:</td>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">${reason}</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: #64748b;">Preferred Date:</td>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">${preferredDate}</td>
-      </tr>
-      <tr>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0; color: #64748b;">Time Slot:</td>
-        <td style="padding: 10px 0; border-bottom: 1px solid #e2e8f0;">${preferredTime}</td>
-      </tr>
-    </table>
-    <div style="margin-top: 30px; text-align: center;">
-      <p style="font-size: 12px; color: #94a3b8;">This inquiry was sent from the IE Lung & Sleep Institute Appointment Form.</p>
+}) => {
+  const accent = "#2eb09c";
+  const primary = "#333d3f";
+
+  return `
+<div style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; background-color: #f1f5f9; padding: 40px 20px;">
+  <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+    <div style="background-color: ${primary}; padding: 20px; text-align: center;">
+      <h2 style="color: #ffffff; margin: 0; font-size: 18px; text-transform: uppercase; letter-spacing: 1px;">New Appointment Request</h2>
+    </div>
+    <div style="padding: 30px;">
+      <p style="color: #64748b; font-size: 14px; margin-bottom: 25px;">A new request has been submitted. Please review the details below and follow up with the patient.</p>
+      
+      <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: #94a3b8; font-size: 13px; text-transform: uppercase; width: 140px;">Patient</td>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: ${primary}; font-weight: bold;">${patientName}</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: #94a3b8; font-size: 13px; text-transform: uppercase;">Phone</td>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: bold;">
+            <a href="tel:${phone}" style="color: ${accent}; text-decoration: none;">${phone}</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: #94a3b8; font-size: 13px; text-transform: uppercase;">Email</td>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; font-weight: bold;">
+            <a href="mailto:${email}" style="color: ${accent}; text-decoration: none;">${email}</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: #94a3b8; font-size: 13px; text-transform: uppercase;">Service</td>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: ${primary};">${reason}</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: #94a3b8; font-size: 13px; text-transform: uppercase;">Date</td>
+          <td style="padding: 12px 0; border-bottom: 1px solid #f1f5f9; color: ${primary}; font-weight: bold;">${preferredDate}</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px 0; color: #94a3b8; font-size: 13px; text-transform: uppercase;">Time Slot</td>
+          <td style="padding: 12px 0; color: ${primary}; font-weight: bold;">${preferredTime}</td>
+        </tr>
+      </table>
+
+      <div style="margin-top: 35px; padding-top: 20px; border-top: 2px solid #f1f5f9; text-align: center;">
+        <p style="font-size: 11px; color: #cbd5e1; text-transform: uppercase; letter-spacing: 1px;">Generated by IE Lung Web Portal</p>
+      </div>
     </div>
   </div>
 </div>`;
+};
