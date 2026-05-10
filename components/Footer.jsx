@@ -114,15 +114,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#facility"
-                  className="text-gray-300 hover:text-accent transition"
-                >
-                  Facility Tour
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#contact"
+                  href="#schedule"
                   className="text-gray-300 hover:text-accent transition"
                 >
                   Schedule Appointment
