@@ -16,22 +16,28 @@ export async function sendContactEmails(data: {
 }) {
   const { name, email, message } = data;
 
-  return await Promise.all([
-    // To Admin
+  const results = await Promise.all([
     resend.emails.send({
-      from,
+      from: `IE Lung & Sleep Institute <contact@${from}>`,
       to: [ownerEmail],
       subject: `New Contact Form: ${name}`,
       html: getContactAdminTemplate({ name, email, message }),
     }),
-    // To User
     resend.emails.send({
-      from,
+      from: `IE Lung & Sleep Institute <contact@${from}>`,
       to: [email],
       subject: "Message Received | IE Lung",
       html: getContactUserTemplate({ name, message }),
     }),
   ]);
+
+  // check if any error on sending mails
+  const error = results.find((res) => res.error);
+  if (error) {
+    throw new Error(error.error?.message || "Failed to send contact emails");
+  }
+
+  return results;
 }
 
 // BOOKING FORM EMAIL
@@ -46,12 +52,11 @@ export async function sendBookingEmails(data: {
   const { patientName, phone, reason, preferredDate, preferredTime, email } =
     data;
 
-  return await Promise.all([
-    // To Admin
+  const results = await Promise.all([
     resend.emails.send({
-      from,
+      from: `IE Lung & Sleep Institute <appointment@${from}>`,
       to: [ownerEmail],
-      subject: `📅 New Appointment: ${patientName}`,
+      subject: `New Appointment: ${patientName}`,
       html: getBookingAdminTemplate({
         patientName,
         email,
@@ -61,9 +66,8 @@ export async function sendBookingEmails(data: {
         preferredTime,
       }),
     }),
-    // To User
     resend.emails.send({
-      from,
+      from: `IE Lung & Sleep Institute <appointment@${from}>`,
       to: [email],
       subject: "Appointment Request Received | IE Lung",
       html: getBookingUserTemplate({
@@ -74,4 +78,12 @@ export async function sendBookingEmails(data: {
       }),
     }),
   ]);
+
+  // check if any error on sending mails
+  const error = results.find((res) => res.error);
+  if (error) {
+    throw new Error(error.error?.message || "Failed to send booking emails");
+  }
+
+  return results;
 }
