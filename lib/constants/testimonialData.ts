@@ -36,7 +36,7 @@ export const testimonials = [
   },
   {
     name: "Michael Patel",
-    condition: "Patient with sleep disorders",
+    condition: "Patient with sleep apnea",
     doctor: "Dr. Enrique Gil",
     text: "Finally found a clinic that treats patients as individuals, not just cases. Dr. Gil worked with me to find the right treatment approach, and I have never felt better.",
     rating: 5,
