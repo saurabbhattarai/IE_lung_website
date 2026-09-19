@@ -55,4 +55,13 @@ export const providers = [
       "Dr. Gil received his medical training at several leading institutions, beginning with Family Practice training at Riverside University Health System and an Internal Medicine residency at Loma Linda University. He then completed a Pulmonary and Critical Care fellowship at UCLA Medical Center. He also trained in Sleep Medicine under Dr. Phil Westbrook, a founding member of the American Academy of Sleep Medicine. Dr. Gil served for several years as Medical Director of the Intensive Care Unit at Redlands Community Hospital and was also Chief of Staff. He is dedicated to serving the Redlands community by providing compassionate, expert care to every patient.",
     image: "./doctors_images/dr_enrique_gil.webp",
   },
+  {
+    id: 7,
+    name: "Dr. Aalok Shah",
+    speciality: "Pulmonary & Critical Care Medicine",
+    credentials: "MD",
+    fullDescription:
+      "Aalok Shah, MD, is a board-certified pulmonologist and critical care physician. He is a husband, father, grandfather, physician, and U.S. Air Force veteran. He studied medicine at Northwestern University Feinberg School of Medicine, completed an Internal Medicine residency at Lackland AFB in Texas, and completed a Pulmonary and Critical Care Fellowship at Naval Medical Center San Diego before finishing his Air Force career at Travis AFB David Grant Medical Center. Dr. Shah and his family have served the Inland Empire since 2013 through Beaver and Optum, and now through IE Lung. He has a special interest in asthma, interstitial lung disease, and exercise. Outside of medicine, he enjoys sports, especially those involving a frisbee or racquet, punk rock and ska music, mythology, religion, and reading. Dr. Shah approaches medicine as a balance of science and art, caring for both the patient's physical disease and holistic experience. He believes that the medical experience can guide both patient and physician toward a greater humanity, and he is committed to laughing and crying with his patients through life's tragic and comic journey.",
+    image: "/dr_alok.webp",
+  },
 ];

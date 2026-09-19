@@ -129,10 +129,15 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                <div className="text-sm text-gray-300">
-                  <p>12047 4th Street</p>
-                  <p>Yucaipa, CA 92399</p>
-                </div>
+                <a
+                  href="https://www.google.com/maps/search/245+Terracina+Boulevard,+Suite+108,+Redlands,+CA+92373?entry=gmail&source=g"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm text-gray-300 hover:text-accent transition"
+                >
+                  <p>245 Terracina Boulevard, Suite 108</p>
+                  <p>Redlands, CA 92373</p>
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />

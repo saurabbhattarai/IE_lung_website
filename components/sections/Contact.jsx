@@ -51,9 +51,12 @@ export default function Contact() {
               {
                 icon: MapPin,
                 title: "Our Location",
-                lines: ["12047 4th Street", "Yucaipa, CA 92399"],
+                lines: [
+                  "245 Terracina Boulevard, Suite 108",
+                  "Redlands, CA 92373",
+                ],
                 linkText: "Get Directions",
-                href: "https://maps.google.com",
+                href: "https://www.google.com/maps/search/245+Terracina+Boulevard,+Suite+108,+Redlands,+CA+92373?entry=gmail&source=g",
               },
               {
                 icon: Phone,
@@ -85,11 +88,24 @@ export default function Contact() {
                     <h4 className="font-bold text-[#3D4749] text-lg mb-1">
                       {item.title}
                     </h4>
-                    {item.lines.map((line, idx) => (
-                      <p key={idx} className="text-slate-500 leading-relaxed">
-                        {line}
-                      </p>
-                    ))}
+                    {item.title === "Our Location" ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-slate-500 leading-relaxed hover:text-accent transition-colors"
+                      >
+                        {item.lines.map((line, idx) => (
+                          <p key={idx}>{line}</p>
+                        ))}
+                      </a>
+                    ) : (
+                      item.lines.map((line, idx) => (
+                        <p key={idx} className="text-slate-500 leading-relaxed">
+                          {line}
+                        </p>
+                      ))
+                    )}
                     {item.sub && (
                       <p className="text-xs text-slate-400 mt-1 uppercase font-semibold tracking-wider">
                         {item.sub}
