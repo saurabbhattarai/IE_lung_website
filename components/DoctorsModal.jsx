@@ -69,7 +69,7 @@ export default function DoctorModal({ doctor, onClose }) {
               {doctor.fullDescription}
             </p>
 
-            <div className="pt-6">
+            {/* <div className="pt-6">
               <Link href={"/#schedule"} className="block w-full">
                 <button
                   onClick={onClose}
@@ -79,7 +79,7 @@ export default function DoctorModal({ doctor, onClose }) {
                   Schedule Appointment
                 </button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

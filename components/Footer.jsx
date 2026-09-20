@@ -3,10 +3,15 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { LineMdTwitterXAlt } from "./ui/twitterlogo";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState(2026);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-[#3D4749] text-white">

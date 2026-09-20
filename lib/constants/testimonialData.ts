@@ -41,4 +41,11 @@ export const testimonials = [
     text: "Finally found a clinic that treats patients as individuals, not just cases. Dr. Gil worked with me to find the right treatment approach, and I have never felt better.",
     rating: 5,
   },
+  {
+    name: "Sara Rodriguez",
+    condition: "Patient with asthma",
+    doctor: "Dr. Aalok Shah",
+    text: "Dr. Shah’s expertise in asthma care helped me finally understand and control my symptoms. I’m breathing easier and feeling more confident every day.",
+    rating: 5,
+  },
 ];

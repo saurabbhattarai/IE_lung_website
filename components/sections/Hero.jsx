@@ -118,8 +118,19 @@ export default function Hero() {
         }}
       />
 
+      <div className="relative z-10 w-full px-4 pt-5 md:pt-6">
+        <div className="mx-auto max-w-4xl rounded-full border border-[#25A89D]/30 bg-[#D9E8E6]/85 px-4 py-2.5 shadow-[0_8px_24px_rgba(61,71,73,0.06)] backdrop-blur-sm sm:px-6 md:px-8 md:py-3">
+          <p className="text-center text-[9px] font-semibold uppercase tracking-[0.2em] text-[#3D4749] sm:text-[10px] md:text-xs">
+            Opening soon
+          </p>
+          <p className="mt-0.5 text-center text-base font-semibold tracking-[-0.04em] text-[#3D4749] sm:text-lg md:text-2xl lg:text-[2rem]">
+            November 1, 2026
+          </p>
+        </div>
+      </div>
+
       {/* Breathing Lung - Smaller sizing */}
-      <div className="relative z-10 flex flex-col items-center justify-center">
+      <div className="relative z-10 flex flex-col items-center justify-center pt-6 md:pt-8">
         <div className="w-56 md:w-64">
           <BreathingLung />
         </div>
@@ -138,9 +149,9 @@ export default function Hero() {
         </div>
       </div> */}
 
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-14">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10 sm:mt-14">
         <div className="mb-6">
-          <p className="text-gray-600 text-xl  md:text-4xl font-semibold tracking-widest uppercase">
+          <p className="text-gray-600 text-xl md:text-4xl font-semibold tracking-widest uppercase">
             Breathe | Sleep | Thrive
           </p>
           <p className="text-xl md:text-4xl mt-2 text-gray-700 font-light">
