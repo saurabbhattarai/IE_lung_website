@@ -124,7 +124,7 @@ export default function Hero() {
             Opening soon
           </p>
           <p className="mt-0.5 text-center text-base font-semibold tracking-[-0.04em] text-[#3D4749] sm:text-lg md:text-2xl lg:text-[2rem]">
-            November 1, 2026
+            November 2, 2026
           </p>
         </div>
       </div>

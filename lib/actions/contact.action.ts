@@ -1,6 +1,9 @@
 "use server";
 
-import { sendContactEmails, sendBookingEmails } from "@/lib/mails/resend";
+import {
+  sendContactEmails,
+  sendBookingEmails,
+} from "@/lib/mails/microsoft-graph";
 import {
   BookingSchema,
   ContactSchema,
@@ -28,12 +31,7 @@ export async function submitContactForm(
       };
     }
 
-    const results = await sendContactEmails(validatedFields.data);
-
-    // Check if Resend returned any errors
-    if (results.some((res) => res.error)) {
-      throw new Error("Email provider error");
-    }
+    await sendContactEmails(validatedFields.data);
 
     return {
       success: true,
@@ -64,12 +62,7 @@ export async function submitBookingForm(
       };
     }
 
-    // Pass all fields to the email helper
-    const results = await sendBookingEmails(validatedFields.data);
-
-    if (results.some((res: any) => res.error)) {
-      throw new Error("Email provider error");
-    }
+    await sendBookingEmails(validatedFields.data);
 
     return {
       success: true,
