@@ -61,9 +61,9 @@ export default function Contact() {
               {
                 icon: Phone,
                 title: "Phone Number",
-                lines: ["+1 (840) 258-0972"],
+                lines: ["909 938 1152"],
                 sub: "Mon-Fri: 8AM - 5PM",
-                href: "tel:+18402580972",
+                href: "tel:+19099381152",
               },
               {
                 icon: Mail,

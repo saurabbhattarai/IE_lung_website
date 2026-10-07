@@ -34,7 +34,7 @@ export default function BackToTop() {
     });
   };
 
-  const whatsappLink = `https://wa.me/18402580972?text=${encodeURIComponent('Hi, I need consultation for ...')}`;
+  const whatsappLink = `https://wa.me/19099381152?text=${encodeURIComponent('Hi, I need consultation for ...')}`;
 
   return (
     isVisible && (

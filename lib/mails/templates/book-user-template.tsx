@@ -67,7 +67,7 @@ export const getBookingUserTemplate = ({
       <div class="footer">
         <p style="margin-bottom: 10px;"><strong>IE Lung & Sleep Institute</strong><br>
         12047 4th Street, Yucaipa, CA 92399</p>
-        <p>Phone: +1 (840) 258-0972 | Email: support@ielung.com</p>
+        <p>Phone: 909 938 1152 | Email: support@ielung.com</p>
         <hr style="border: none; border-top: 1px solid #d1d5db; margin: 20px 0;">
         <p style="font-style: italic;">CONFIDENTIALITY NOTICE: This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed.</p>
       </div>

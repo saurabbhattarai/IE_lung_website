@@ -1,3 +1,5 @@
+const lastName = (name: string) => name.trim().split(/\s+/).pop() ?? name;
+
 export const providers = [
   {
     id: 1,
@@ -64,4 +66,6 @@ export const providers = [
       "Aalok Shah, MD, is a board-certified pulmonologist and critical care physician. He is a husband, father, grandfather, physician, and U.S. Air Force veteran. He studied medicine at Northwestern University Feinberg School of Medicine, completed an Internal Medicine residency at Lackland AFB in Texas, and completed a Pulmonary and Critical Care Fellowship at Naval Medical Center San Diego before finishing his Air Force career at Travis AFB David Grant Medical Center. Dr. Shah and his family have served the Inland Empire since 2013 through Beaver and Optum, and now through IE Lung. He has a special interest in asthma, interstitial lung disease, and exercise. Outside of medicine, he enjoys sports, especially those involving a frisbee or racquet, punk rock and ska music, mythology, religion, and reading. Dr. Shah approaches medicine as a balance of science and art, caring for both the patient's physical disease and holistic experience. He believes that the medical experience can guide both patient and physician toward a greater humanity, and he is committed to laughing and crying with his patients through life's tragic and comic journey.",
     image: "/dr_alok.webp",
   },
-];
+].sort((first, second) =>
+  lastName(first.name).localeCompare(lastName(second.name)),
+);

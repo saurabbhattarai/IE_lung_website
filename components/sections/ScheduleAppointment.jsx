@@ -264,7 +264,7 @@ export default function ScheduleAppointment() {
                     )}
                   </button>
                   <a
-                    href="tel:+18402580972"
+                    href="tel:+19099381152"
                     className="w-full md:flex-1 text-center border-2 border-slate-100 hover:border-accent hover:text-accent text-slate-400 py-4 sm:py-5 rounded-[1.25rem] font-bold transition-all duration-300"
                   >
                     CALL US INSTEAD
