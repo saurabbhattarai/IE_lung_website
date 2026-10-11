@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { LineMdTwitterXAlt } from "./ui/twitterlogo";
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(2026);
@@ -191,23 +190,22 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex gap-4">
             <a
-              href="#"
+              href="https://www.facebook.com/profile.php?id=61594848786425"
+              target="_blank"
+              rel="noreferrer"
               className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition"
+              aria-label="Facebook"
             >
               <Facebook className="w-5 h-5" />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/inlandempirelung?exln=MWl0NHhpbXZlczh4&utm_source=qr"
+              target="_blank"
+              rel="noreferrer"
               className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition"
+              aria-label="Instagram"
             >
-              {/* <Twitter className="w-5 h-5" /> */}
-              <LineMdTwitterXAlt className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 bg-accent/20 hover:bg-accent rounded-full flex items-center justify-center transition"
-            >
-              <Linkedin className="w-5 h-5" />
+              <Instagram className="w-5 h-5" />
             </a>
           </div>
 

@@ -8,7 +8,7 @@ const insurancePlans = [
   },
   {
     name: "Community Alliance Medical Group",
-    logo: "https://images.squarespace-cdn.com/content/v1/65032e78554bee57bb3732a5/bbef6eba-7b65-42ae-aa65-70c2f5cd4fe4/CAMG-black-pinkribbon.png?format=1500w",
+    logo: "/CAMG-180x56-png.png",
   },
   {
     name: "Medicare",
