@@ -72,11 +72,8 @@ export default function Contact() {
                 sub: "Patient & Provider inquiries",
                 href: "mailto: contact@ielung.com",
               },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="group bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
-              >
+            ].map((item, i) => {
+              const cardContent = (
                 <div className="flex items-start gap-5">
                   <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors duration-500">
                     <item.icon
@@ -113,8 +110,24 @@ export default function Contact() {
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+              const cardClassName =
+                "group bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500";
+
+              return item.title === "Phone Number" ? (
+                <a
+                  key={i}
+                  href={item.href}
+                  className={`${cardClassName} block`}
+                >
+                  {cardContent}
+                </a>
+              ) : (
+                <div key={i} className={cardClassName}>
+                  {cardContent}
+                </div>
+              );
+            })}
           </div>
 
           {/* Contact Form */}
