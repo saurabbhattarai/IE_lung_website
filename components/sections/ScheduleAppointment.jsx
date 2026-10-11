@@ -12,6 +12,11 @@ import {
   Loader2,
 } from "lucide-react";
 import { submitBookingForm } from "../../lib/actions/contact.action";
+import {
+  AFTERNOON_BOOKING_SLOTS,
+  MIN_BOOKING_DATE,
+  MORNING_BOOKING_SLOTS,
+} from "../../lib/constants/booking";
 
 // Initial state for the action
 const initialState = {
@@ -190,6 +195,7 @@ export default function ScheduleAppointment() {
                       <input
                         type="date"
                         name="preferredDate"
+                        min={MIN_BOOKING_DATE}
                         className={`w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-50/50 border focus:bg-white transition-all text-[#3D4749] font-medium outline-none ${
                           state.errors?.preferredDate
                             ? "border-red-500 ring-4 ring-red-50"
@@ -221,20 +227,18 @@ export default function ScheduleAppointment() {
                       >
                         <option value="">Select Time Slot...</option>
                         <optgroup label="Morning">
-                          <option value="8:00 AM - 10:00 AM">
-                            8:00 AM - 10:00 AM
-                          </option>
-                          <option value="10:00 AM - 12:00 PM">
-                            10:00 AM - 12:00 PM
-                          </option>
+                          {MORNING_BOOKING_SLOTS.map((slot) => (
+                            <option key={slot} value={slot}>
+                              {slot}
+                            </option>
+                          ))}
                         </optgroup>
                         <optgroup label="Afternoon">
-                          <option value="2:00 PM - 4:00 PM">
-                            2:00 PM - 4:00 PM
-                          </option>
-                          <option value="4:00 PM - 5:00 PM">
-                            4:00 PM - 5:00 PM
-                          </option>
+                          {AFTERNOON_BOOKING_SLOTS.map((slot) => (
+                            <option key={slot} value={slot}>
+                              {slot}
+                            </option>
+                          ))}
                         </optgroup>
                       </select>
                       <ChevronDown className="absolute right-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 pointer-events-none" />
