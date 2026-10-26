@@ -9,6 +9,7 @@ import {
   Send,
   CheckCircle2,
   Loader2,
+  Printer,
 } from "lucide-react";
 import { submitContactForm } from "../../lib/actions/contact.action";
 
@@ -66,6 +67,13 @@ export default function Contact() {
                 href: "tel:+19099381152",
               },
               {
+                icon: Printer,
+                title: "Fax Number",
+                lines: ["909 453 3676"],
+                sub: "Send referrals & documents",
+                href: "tel:+19094533676",
+              },
+              {
                 icon: Mail,
                 title: "Email Address",
                 lines: [" contact@ielung.com"],
@@ -114,7 +122,7 @@ export default function Contact() {
               const cardClassName =
                 "group bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500";
 
-              return item.title === "Phone Number" ? (
+              return item.title === "Phone Number" || item.title === "Fax Number" ? (
                 <a
                   key={i}
                   href={item.href}

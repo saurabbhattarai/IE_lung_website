@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Instagram, Printer } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -150,6 +150,15 @@ export default function Footer() {
                   className="text-gray-300 hover:text-accent transition text-sm"
                 >
                   909 938 1152
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Printer className="w-5 h-5 text-accent flex-shrink-0" />
+                <a
+                  href="tel:+19094533676"
+                  className="text-gray-300 hover:text-accent transition text-sm"
+                >
+                  Fax: 909 453 3676
                 </a>
               </div>
               <div className="flex items-center gap-3">

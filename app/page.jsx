@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
+import InfoMarquee from "@/components/InfoMarquee";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <main className="bg-background text-foreground">
       <Navigation />
+      <InfoMarquee />
       <Hero />
       <About />
       <Services />
