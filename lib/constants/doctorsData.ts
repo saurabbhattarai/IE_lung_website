@@ -36,7 +36,7 @@ export const providers = [
     credentials: "MD",
     fullDescription:
       "Dr. Tarik Ngab is a board-certified pulmonary and critical care physician with over 10 years of experience caring for patients with complex lung and critical illnesses. He treats conditions such as asthma, COPD, interstitial lung disease, and respiratory failure, and also cares for critically ill patients in the intensive care unit. Dr. Ngab serves as Director of Cardiopulmonary Services and Director of Critical Care Services at Redlands Community Hospital, where he works to improve patient care and safety. He has special expertise in advanced lung procedures, including robotic bronchoscopy, and in managing complex cardiopulmonary conditions. Dr. Ngab is also passionate about teaching and serves as an Assistant Clinical Professor at UC Riverside, helping train future physicians while providing compassionate, patient-centered care.",
-    image: "./doctors_images/dr_tarik_ngab.webp",
+    image: "./doctors_images/dr_tarik.webp",
   },
   {
     id: 5,
