@@ -3,32 +3,32 @@ import { ShieldCheck } from "lucide-react";
 
 const insurancePlans = [
   {
-    name: "Maren Medical Group",
-    logo: "https://maren.com/wp-content/uploads/2025/05/marenlogo-horiz.svg",
-  },
-  {
-    name: "Community Alliance Medical Group",
-    logo: "/CAMG-180x56-png.png",
-  },
-  {
-    name: "Medicare",
-    logo: "https://frontend.medicare.gov/assets/medicare-logo-green-DrWAB2BY.svg",
+    name: "Aetna",
+    logo: "https://www.aetna.com/content/dam/aetna/images/logos/Aetna_Logo_ss_Violet_RGB_Coated.svg",
   },
   {
     name: "Blue Cross",
     logo: "https://www.bcbs.com/dA/cec184ec-9008-4a98-bd75-b5d2304fb861/85q",
   },
   {
-    name: "United Healthcare",
-    logo: "https://1000logos.net/wp-content/uploads/2018/02/United-Healthcare-Logo.png",
+    name: "Community Alliance Medical Group",
+    logo: "/CAMG-180x56-png.png",
+  },
+  {
+    name: "Maren Medical Group",
+    logo: "https://maren.com/wp-content/uploads/2025/05/marenlogo-horiz.svg",
+  },
+  {
+    name: "Medicare",
+    logo: "https://frontend.medicare.gov/assets/medicare-logo-green-DrWAB2BY.svg",
   },
   {
     name: "Triwest Healthcare Alliance",
     logo: "https://www.spineandrehab.com/wp-content/uploads/2023/04/Untitled-design-2023-04-04T053407.087-1-e1680557736158.png.webp",
   },
   {
-    name: "Aetna",
-    logo: "https://www.aetna.com/content/dam/aetna/images/logos/Aetna_Logo_ss_Violet_RGB_Coated.svg",
+    name: "United Healthcare",
+    logo: "https://1000logos.net/wp-content/uploads/2018/02/United-Healthcare-Logo.png",
   },
   {
     name: "WellCare",
