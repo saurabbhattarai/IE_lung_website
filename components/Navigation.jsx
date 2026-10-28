@@ -66,13 +66,13 @@ export default function Navigation() {
           className={`hidden lg:flex items-center gap-4 sticky  z-50 mx-auto w-fit px-10 py-4 rounded-full transition-all duration-500 ${isScrolled ? "bg-gray-100 border border-white/30 shadow-xl" : "bg-white/10 backdrop-blur-md border border-white/20"}`}
         >
           <Link
-            href="#home"
+            href="/#home"
             className="text-primary hover:text-accent transition-colors text-sm font-medium tracking-wide"
           >
             HOME
           </Link>
           <Link
-            href="#about"
+            href="/#about"
             className="text-primary hover:text-accent transition-colors text-sm font-medium tracking-wide"
           >
             ABOUT
@@ -81,25 +81,67 @@ export default function Navigation() {
           {/* Services Dropdown */}
           <div className="relative group">
             <button className="text-primary hover:text-accent transition-colors text-sm font-medium flex items-center gap-1 py-2 tracking-wide">
-              SERVICES
+              OUR SERVICES
               <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
             </button>
-            <div className="absolute left-0 z-10 mt-2 w-56 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 -translate-y-2 border border-gray-100">
+            <div className="absolute left-0 z-10 mt-2 w-72 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 -translate-y-2 border border-gray-100">
               <div className="py-2">
+                <p className="px-5 py-2 text-xs font-semibold text-primary/40 uppercase tracking-wider">
+                  Overview
+                </p>
                 <Link
-                  href="#services-pulmonary"
+                  href="/#services"
                   className="block px-5 py-3 text-sm text-primary hover:bg-secondary hover:text-accent transition-colors"
+                >
+                  All Services
+                </Link>
+                <p className="px-5 py-2 text-xs font-semibold text-primary/40 uppercase tracking-wider border-t border-gray-100 mt-1">
+                  Specialties
+                </p>
+                <Link
+                  href="/services/pulmonary-function-testing"
+                  className="block px-5 py-3 text-sm text-primary hover:bg-secondary hover:text-accent transition-colors"
+                >
+                  Pulmonary Function Testing
+                </Link>
+                <Link
+                  href="/services/sleep-studies-diagnostics"
+                  className="block px-5 py-3 text-sm text-primary hover:bg-secondary hover:text-accent transition-colors border-t border-gray-100"
+                >
+                  Sleep Studies & Diagnostics
+                </Link>
+                <Link
+                  href="/services/advanced-bronchoscopy"
+                  className="block px-5 py-3 text-sm text-primary hover:bg-secondary hover:text-accent transition-colors border-t border-gray-100"
+                >
+                  Advanced Bronchoscopy
+                </Link>
+                <Link
+                  href="/services/pulmonary-vascular-diseases"
+                  className="block px-5 py-3 text-sm text-primary hover:bg-secondary hover:text-accent transition-colors border-t border-gray-100"
+                >
+                  Pulmonary Vascular & Cardiac
+                </Link>
+                <Link
+                  href="/services/exercise-oxygen-high-altitude-testing"
+                  className="block px-5 py-3 text-sm text-primary hover:bg-secondary hover:text-accent transition-colors border-t border-gray-100"
+                >
+                  Exercise & Altitude Testing
+                </Link>
+                <Link
+                  href="/#services"
+                  className="block px-5 py-3 text-sm text-primary hover:bg-secondary hover:text-accent transition-colors border-t border-gray-100"
                 >
                   Pulmonary Care
                 </Link>
                 <Link
-                  href="#services-sleep"
+                  href="/#services"
                   className="block px-5 py-3 text-sm text-primary hover:bg-secondary hover:text-accent transition-colors border-t border-gray-100"
                 >
-                  Sleep Disorders
+                  Sleep Medicine
                 </Link>
                 <Link
-                  href="#services-diagnostic"
+                  href="/#services"
                   className="block px-5 py-3 text-sm text-primary hover:bg-secondary hover:text-accent transition-colors border-t border-gray-100"
                 >
                   Diagnostic Testing
@@ -115,26 +157,26 @@ export default function Navigation() {
               FACILITY TOUR
             </Link> */}
           <Link
-            href="#providers"
+            href="/#providers"
             className="text-primary hover:text-accent transition-colors text-sm font-medium tracking-wide"
           >
             PROVIDERS
           </Link>
           <Link
-            href="#testimonials"
+            href="/#testimonials"
             className="text-primary hover:text-accent transition-colors text-sm font-medium tracking-wide"
           >
             TESTIMONIALS
           </Link>
           <Link
-            href="#contact"
+            href="/#contact"
             className="text-primary hover:text-accent transition-colors text-sm font-medium tracking-wide"
           >
             CONTACT
           </Link>
 
           {/* CTA Button */}
-          <Link href="#schedule" className="hidden lg:flex items-center">
+          <Link href="/#schedule" className="hidden lg:flex items-center">
             <button className="bg-[#3D4749] text-white flex items-center gap-2 px-6 py-2.5 rounded-lg group hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 text-sm font-medium tracking-tight">
               SCHEDULE APPOINTMENT
               <ArrowRight className="w-4 group-hover:translate-x-1 transition-all duration-300" />
@@ -161,14 +203,14 @@ export default function Navigation() {
         <div className="lg:hidden py-4 border-t border-secondary bg-white">
           <div className="space-y-1">
             <Link
-              href="#home"
+              href="/#home"
               className="block py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
               onClick={() => setIsOpen(false)}
             >
               HOME
             </Link>
             <Link
-              href="#about"
+              href="/#about"
               className="block py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
               onClick={() => setIsOpen(false)}
             >
@@ -181,7 +223,7 @@ export default function Navigation() {
                 onClick={() => setServicesOpen(!servicesOpen)}
                 className="w-full flex items-center justify-between py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
               >
-                SERVICES
+                OUR SERVICES
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-300 ${
                     servicesOpen ? "rotate-180" : ""
@@ -191,21 +233,63 @@ export default function Navigation() {
               {servicesOpen && (
                 <div className="ml-4 mt-1 space-y-1">
                   <Link
-                    href="#services-pulmonary"
+                    href="/#services"
+                    className="block py-2 px-4 text-primary hover:text-accent text-sm rounded-lg hover:bg-secondary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    All Services
+                  </Link>
+                  <Link
+                    href="/services/pulmonary-function-testing"
+                    className="block py-2 px-4 text-primary hover:text-accent text-sm rounded-lg hover:bg-secondary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Pulmonary Function Testing
+                  </Link>
+                  <Link
+                    href="/services/sleep-studies-diagnostics"
+                    className="block py-2 px-4 text-primary hover:text-accent text-sm rounded-lg hover:bg-secondary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Sleep Studies & Diagnostics
+                  </Link>
+                  <Link
+                    href="/services/advanced-bronchoscopy"
+                    className="block py-2 px-4 text-primary hover:text-accent text-sm rounded-lg hover:bg-secondary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Advanced Bronchoscopy
+                  </Link>
+                  <Link
+                    href="/services/pulmonary-vascular-diseases"
+                    className="block py-2 px-4 text-primary hover:text-accent text-sm rounded-lg hover:bg-secondary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Pulmonary Vascular & Cardiac
+                  </Link>
+                  <Link
+                    href="/services/exercise-oxygen-high-altitude-testing"
+                    className="block py-2 px-4 text-primary hover:text-accent text-sm rounded-lg hover:bg-secondary transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Exercise & Altitude Testing
+                  </Link>
+                  <Link
+                    href="/#services"
                     className="block py-2 px-4 text-primary hover:text-accent text-sm rounded-lg hover:bg-secondary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     Pulmonary Care
                   </Link>
                   <Link
-                    href="#services-sleep"
+                    href="/#services"
                     className="block py-2 px-4 text-primary hover:text-accent text-sm rounded-lg hover:bg-secondary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
-                    Sleep Disorders
+                    Sleep Medicine
                   </Link>
                   <Link
-                    href="#services-diagnostic"
+                    href="/#services"
                     className="block py-2 px-4 text-primary hover:text-accent text-sm rounded-lg hover:bg-secondary transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
@@ -223,28 +307,28 @@ export default function Navigation() {
                 FACILITY TOUR
               </Link> */}
             <Link
-              href="#providers"
+              href="/#providers"
               className="block py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
               onClick={() => setIsOpen(false)}
             >
               PROVIDERS
             </Link>
             <Link
-              href="#testimonials"
+              href="/#testimonials"
               className="block py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
               onClick={() => setIsOpen(false)}
             >
               TESTIMONIALS
             </Link>
             <Link
-              href="#contact"
+              href="/#contact"
               className="block py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
               onClick={() => setIsOpen(false)}
             >
               CONTACT
             </Link>
 
-            <Link href="#schedule">
+            <Link href="/#schedule">
               <button
                 className="w-full mt-4 bg-[#3D4749] text-white px-4 py-3 rounded-lg hover:bg-opacity-90 hover:shadow-lg transition-all duration-300 text-sm font-medium"
                 onClick={() => setIsOpen(false)}

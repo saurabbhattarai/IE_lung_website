@@ -1,0 +1,81 @@
+# Inland Empire Lung & Sleep Institute (IE Lung)
+
+> Inland Empire Lung & Sleep Institute is a specialized pulmonary and sleep medicine clinic located in Redlands, California. We provide comprehensive, science-driven, and patient-centered diagnostics and treatments for complex respiratory conditions, lung diseases, and sleep disorders.
+
+## About the Practice
+- **Location:** 245 Terracina Boulevard, Suite 108, Redlands, CA 92373
+- **Phone:** (909) 938-1152
+- **Fax:** (909) 453-3676
+- **Email:** contact@ielung.com
+- **Website:** https://ielung.com
+- **Hours:** Monday – Friday, 8:00 AM – 5:00 PM PST
+- **Service Areas:** Redlands, San Bernardino County, Riverside County, and the broader Inland Empire region of Southern California.
+
+## Medical Leadership & Providers
+- **Dr. Paresh C. Giri, MD** – Board-Certified Pulmonologist & Director of Pulmonary Hypertension Care.
+- **Dr. Roger Seheult, MD** – Board-Certified in Sleep Medicine, Pulmonary Diseases, and Critical Care.
+- **Dr. Aalok Shah, MD** – Board-Certified Pulmonologist & Critical Care Physician.
+- **Dr. Tarik Ngab, MD** – Board-Certified Pulmonologist & Interventional Specialist.
+- **Dr. Sahib Grewal, MD** – Board-Certified Pulmonologist & Interventional Specialist.
+
+## Core Clinical Services & Specialized Testing
+
+### 1. Pulmonary Function Testing (PFT) & Asthma Diagnostics
+- **URL:** https://ielung.com/services/pulmonary-function-testing
+- **Description:** Non-invasive lung function evaluation measuring airflow, lung volume, and gas exchange.
+- **Procedures Offered:**
+  - Spirometry (evaluates airway obstruction like COPD and asthma)
+  - Lung Volume Testing / Body Plethysmography
+  - Diffusing Capacity of the Lungs for Carbon Monoxide (DLCO)
+  - Upright and Supine Vital Capacity (diaphragm function)
+  - Bronchodilator Response Testing
+  - Exercise Bronchoprovocation (exercise-induced asthma)
+  - Peak Expiratory Flow Measurement
+  - Respiratory Muscle Strength (MIP / MEP)
+
+### 2. Sleep Studies & Diagnostics
+- **URL:** https://ielung.com/services/sleep-studies-diagnostics
+- **Description:** Comprehensive in-lab and home diagnostics for obstructive sleep apnea (OSA), insomnia, narcolepsy, and daytime fatigue.
+- **Procedures Offered:**
+  - Home Sleep Apnea Testing (HSAT)
+  - In-Laboratory Polysomnography (PSG)
+  - PAP / CPAP / BiPAP Titration Studies (including split-night studies)
+  - Multiple Sleep Latency Test (MSLT)
+  - Maintenance of Wakefulness Test (MWT)
+  - Overnight Pulse Oximetry
+
+### 3. Advanced Bronchoscopy & Interventional Pulmonology
+- **URL:** https://ielung.com/services/advanced-bronchoscopy
+- **Description:** Minimally invasive airway procedures and biopsies to diagnose lung nodules, central chest lesions, and pleural effusions without traditional surgery.
+- **Procedures Offered:**
+  - Robotic Bronchoscopy (navigating peripheral lung nodules)
+  - Endobronchial Ultrasound (EBUS) with fine needle aspiration
+  - Flexible Bronchoscopy with Bronchoalveolar Lavage (BAL)
+  - Bronchoscopy-Guided Lung Biopsy
+  - Ultrasound-Guided Thoracentesis (fluid drainage and pleural evaluation)
+
+### 4. Pulmonary Vascular & Cardiac Evaluation
+- **URL:** https://ielung.com/services/pulmonary-vascular-diseases
+- **Description:** Specialized diagnostic testing and physician interpretation for pulmonary arterial hypertension (PAH) and pulmonary thromboembolic diseases.
+- **Procedures Offered:**
+  - Right-Heart Catheterization (RHC)
+  - Acute Vasoreactivity Testing
+  - CT Pulmonary Angiography (CTPA) interpretation
+  - Electrocardiogram (ECG / EKG) Interpretation
+
+### 5. Exercise, Oxygen & High-Altitude Testing
+- **URL:** https://ielung.com/services/exercise-oxygen-high-altitude-testing
+- **Description:** Functional assessments measuring cardiovascular, pulmonary, and metabolic responses under exertion and lower oxygen environments.
+- **Procedures Offered:**
+  - Cardiopulmonary Exercise Testing (CPET)
+  - Six-Minute Walk Test (6MWT)
+  - High-Altitude Simulation Testing (HAST / "Fit-to-Fly" clearance)
+  - Ambulatory Oximetry & Oxygen Prescription Titration
+  - Blood Gas Analysis (ABG) Interpretation
+  - Resting Pulse Oximetry
+
+## Patient & Provider Resources
+- **Online Appointment Request:** https://ielung.com/#schedule
+- **Contact Form & Inquiries:** https://ielung.com/#contact
+- **Provider Referral Form (PDF):** https://ielung.com/referral-form.pdf
+

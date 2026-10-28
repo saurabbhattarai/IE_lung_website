@@ -1,0 +1,7 @@
+# robots.txt for Inland Empire Lung & Sleep Institute
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ielung.com/sitemap.xml
+

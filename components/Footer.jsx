@@ -47,7 +47,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="#home"
+                  href="/#home"
                   className="text-gray-300 hover:text-accent transition"
                 >
                   Home
@@ -55,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#about"
+                  href="/#about"
                   className="text-gray-300 hover:text-accent transition"
                 >
                   About Us
@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#services"
+                  href="/#services"
                   className="text-gray-300 hover:text-accent transition"
                 >
                   Services
@@ -71,7 +71,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#providers"
+                  href="/#providers"
                   className="text-gray-300 hover:text-accent transition"
                 >
                   Our Providers
@@ -79,7 +79,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#contact"
+                  href="/#contact"
                   className="text-gray-300 hover:text-accent transition"
                 >
                   Contact
@@ -94,31 +94,47 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="#services"
+                  href="/services/pulmonary-function-testing"
                   className="text-gray-300 hover:text-accent transition"
                 >
-                  Pulmonary Care
+                  Pulmonary Function Testing
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#services"
+                  href="/services/sleep-studies-diagnostics"
                   className="text-gray-300 hover:text-accent transition"
                 >
-                  Sleep Medicine
+                  Sleep Studies & Diagnostics
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#services"
+                  href="/services/advanced-bronchoscopy"
                   className="text-gray-300 hover:text-accent transition"
                 >
-                  Diagnostic Testing
+                  Advanced Bronchoscopy
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#schedule"
+                  href="/services/pulmonary-vascular-diseases"
+                  className="text-gray-300 hover:text-accent transition"
+                >
+                  Pulmonary Vascular & Cardiac
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/exercise-oxygen-high-altitude-testing"
+                  className="text-gray-300 hover:text-accent transition"
+                >
+                  Exercise & Altitude Testing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#schedule"
                   className="text-gray-300 hover:text-accent transition"
                 >
                   Schedule Appointment
