@@ -88,7 +88,7 @@ export default function AdvancedBronchoscopy() {
     {
       question: "What does an interventional pulmonologist do?",
       answer:
-        "An interventional pulmonologist is a lung specialist with advanced training in minimally invasive airway and pleural procedures. They use specialized tools to diagnose and treat lung nodules, enlarged lymph nodes, and complex airway disorders, often avoiding traditional open chest surgery.",
+        "An interventional pulmonologist is a lung specialist with advanced training in minimally invasive airway and pleural procedures. They use specialized tools to diagnose and manage lung nodules, enlarged lymph nodes, and complex airway disorders, often avoiding traditional open chest surgery.",
     },
     {
       question: "Is an EBUS procedure painful?",
@@ -157,8 +157,8 @@ export default function AdvancedBronchoscopy() {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <p className="text-lg text-primary/70 leading-relaxed">
-            When facing an abnormal chest X-ray or a complex lung condition, an
-            accurate diagnosis is key. At the Inland Empire Lung & Sleep
+            If you have an abnormal chest X-ray, a complex lung condition or spot in a lung an
+            accurate diagnosis is key. At Inland Empire Lung & Sleep
             Institute in Redlands, CA, our interventional pulmonologists use
             advanced, minimally invasive technology—including robotic
             bronchoscopy and endobronchial ultrasound (EBUS)—to help evaluate
@@ -247,7 +247,7 @@ export default function AdvancedBronchoscopy() {
                 </h3>
                 <p className="text-primary/60 text-sm leading-relaxed">
                   A pulmonologist inserts a flexible tube equipped with a tiny
-                  ultrasound probe down your windpipe.
+                  ultrasound probe and a camera and continue down your windpipe.
                 </p>
               </div>
               <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
