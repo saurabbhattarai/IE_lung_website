@@ -114,7 +114,7 @@ export default function SleepStudiesDiagnostics() {
     {
       name: "Maintenance of Wakefulness Test (MWT)",
       description:
-        "Measures your ability to stay awake under standardized, quiet conditions. This is often used to assess alertness for occupational safety, such as for commercial drivers.",
+        "Measures your ability to stay awake under standardized, quiet conditions. This is often used to assess alertness during day time.",
     },
   ];
 
@@ -127,12 +127,12 @@ export default function SleepStudiesDiagnostics() {
     {
       question: "What are the signs you need a sleep study?",
       answer:
-        "Common signs that indicate you may need a sleep study include loud and chronic snoring, waking up choking or gasping, severe daytime sleepiness, morning headaches, and difficulty concentrating.",
+        "Common signs that indicate you may need a sleep study include loud and chronic snoring, waking up choking or gasping, someone notices that you stopped breathing while you sleep, severe daytime sleepiness, morning headaches, and difficulty concentrating.",
     },
     {
       question: "Does insurance cover sleep clinic costs?",
       answer:
-        "Most major health insurance plans and Medicare cover both home sleep apnea tests and in-lab polysomnography when your doctor determines they are medically necessary. Our clinic team will help verify your specific sleep study coverage prior to testing.",
+        "Most health insurance plans and Medicare cover both home sleep apnea tests and in-lab polysomnography when your doctor determines they are medically necessary. Our clinic team will help verify your specific sleep study coverage prior to testing.",
     },
   ];
 
@@ -188,10 +188,7 @@ export default function SleepStudiesDiagnostics() {
             Sleep studies monitor your body while you rest to help identify the
             cause of snoring, chronic fatigue, or daytime sleepiness. Serving
             the Inland Empire, Redlands, and surrounding communities, our
-            board-certified sleep team offers both in-lab and at-home testing. We
-            work closely with primary care providers and hospitals in Riverside
-            County, CA, and San Bernardino County to help find the cause of your
-            symptoms and guide your treatment.{" "}
+            board-certified sleep team offers both in-lab and at-home testing.{" "}
             <Link
               href="/#schedule"
               className="text-accent font-semibold hover:underline"
@@ -267,8 +264,7 @@ export default function SleepStudiesDiagnostics() {
           <p className="text-primary/70 leading-relaxed mb-8">
             A sleep study, clinically known as Polysomnography (PSG), is a
             non-invasive test used to diagnose sleep disorders. Whether conducted
-            in a sleep clinic or via a home sleep test, it monitors your body
-            functions as you rest. A complete sleep study evaluates:
+            in a sleep clinic or via a home sleep test, it monitors your sleep as you rest. A complete sleep study evaluates:
           </p>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
