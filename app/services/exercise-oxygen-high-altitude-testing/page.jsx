@@ -23,7 +23,7 @@ export default function ExerciseOxygenHighAltitudeTesting() {
   const decisionCards = [
     {
       symptom:
-        "Shortness of breath when you work out or push yourself physically",
+        "Shortness of breath when you work out or exert yourself physically",
       label: "If you experience:",
       test: "Cardiopulmonary Exercise Testing (CPET)",
       icon: Activity,
@@ -32,7 +32,7 @@ export default function ExerciseOxygenHighAltitudeTesting() {
     },
     {
       symptom:
-        "You are planning to fly on a plane or visit the mountains, but you have COPD",
+        "You are planning to visit a high altitude or an airplane travel",
       label: "If you experience:",
       test: "High-Altitude Simulation Testing (HAST)",
       icon: Plane,
@@ -109,7 +109,7 @@ export default function ExerciseOxygenHighAltitudeTesting() {
     {
       question: "Why would I need an arterial blood gas test?",
       answer:
-        "An arterial blood gas (ABG) analysis is used to precisely measure the balance of oxygen and carbon dioxide in your blood, as well as your blood's acid-base (pH) level. Pulmonologists use this interpretation to manage chronic lung diseases or evaluate respiratory failure.",
+        "An arterial blood gas (ABG) analysis is used to precisely measure the oxygen and carbon dioxide in your blood, as well as your blood's acid-base (pH) level. Pulmonologists use this interpretation to manage chronic lung diseases or evaluate respiratory failure.",
     },
   ];
 
@@ -163,11 +163,10 @@ export default function ExerciseOxygenHighAltitudeTesting() {
         <div className="max-w-4xl mx-auto">
           <p className="text-lg text-primary/70 leading-relaxed">
             If your breathing is fine at rest but you struggle during physical
-            activity or travel, standard lung tests may not show the full
-            picture. At the Inland Empire Lung & Sleep Institute in Redlands, CA,
-            our pulmonary team provides specialized functional testing. From
+            activity or travel, standard lung tests and identify the problem. At Inland Empire Lung & Sleep Institute in Redlands, CA,
+            our pulmonary team provides specialized functional testing.
             Cardiopulmonary Exercise Testing (CPET) to High-Altitude Simulation
-            Testing (HAST), these tests help your doctor see how your heart,
+            Testing (HAST), tests help your doctor see how your heart,
             lungs, and muscles use oxygen under stress.{" "}
             <Link
               href="/#schedule"
@@ -273,7 +272,7 @@ export default function ExerciseOxygenHighAltitudeTesting() {
                 <p className="text-primary/60 text-sm leading-relaxed">
                   It helps your doctor identify the true underlying cause of
                   unexplained breathlessness and precisely measures your
-                  physical exercise limitations.
+                  physical exercise limitations.It measures your body's oxygen uptake capacity.
                 </p>
               </div>
             </div>
@@ -291,7 +290,7 @@ export default function ExerciseOxygenHighAltitudeTesting() {
                 </div>
                 <div>
                   <h3 className="font-bold text-primary text-lg mb-2">
-                    Fit-to-Fly & High Altitude Clearance
+                    Fit-and-Fly & High Altitude Clearance
                   </h3>
                   <p className="text-primary/70 leading-relaxed">
                     A High-Altitude Simulation Test (HAST), sometimes called a
