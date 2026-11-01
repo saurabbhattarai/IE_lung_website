@@ -34,13 +34,13 @@ export default function PulmonaryVascularDiseases() {
       color: "bg-blue-50 border-blue-200",
       iconColor: "text-blue-500",
     },
-    {
-      symptom: "An irregular heartbeat or unexplained palpitations",
-      test: "Electrocardiogram (ECG / EKG)",
-      icon: Activity,
-      color: "bg-emerald-50 border-emerald-200",
-      iconColor: "text-emerald-500",
-    },
+    // {
+    //   symptom: "An irregular heartbeat or unexplained palpitations",
+    //   test: "Electrocardiogram (ECG / EKG)",
+    //   icon: Activity,
+    //   color: "bg-emerald-50 border-emerald-200",
+    //   iconColor: "text-emerald-500",
+    // },
   ];
 
   const invasiveTests = [
@@ -57,11 +57,11 @@ export default function PulmonaryVascularDiseases() {
   ];
 
   const nonInvasiveTests = [
-    {
-      name: "Electrocardiogram (ECG or EKG) Interpretation",
-      description:
-        "Evaluates your cardiac rhythm and checks for electrical abnormalities in your heart that could affect your breathing.",
-    },
+    // {
+    //   name: "Electrocardiogram (ECG or EKG) Interpretation",
+    //   description:
+    //     "Evaluates your cardiac rhythm and checks for electrical abnormalities in your heart that could affect your breathing.",
+    // },
     {
       name: "CT Pulmonary Angiography Interpretation",
       description:
@@ -73,19 +73,19 @@ export default function PulmonaryVascularDiseases() {
     {
       question: "How serious is a right heart catheterization?",
       answer:
-        "While a right heart catheterization is an invasive procedure, it is a common test performed by experienced pulmonary cardiologists and interventional pulmonologists. You will be awake during the test but given mild medication to help you relax and ensure your comfort.",
+        "While a right heart catheterization is an invasive procedure, it is a common test performed by experienced pulmonary team. You will be awake during the test but given mild medication to help you relax and ensure your comfort.",
     },
     {
       question:
         "Why do I need to see a pulmonary hypertension specialist?",
       answer:
-        "Pulmonary Hypertension (PAH) is a complex condition where high blood pressure affects the arteries in your lungs and the right side of your heart. It requires highly specialized care, advanced diagnostic interpretation, and targeted treatments that standard clinics often do not provide.",
+        "Pulmonary Hypertension (PAH) is a complex condition where high blood pressure affects the arteries in your lungs and the right side of your heart. It requires highly specialized care, advanced diagnostic interpretation, and targeted treatments.",
     },
-    {
-      question: "Where can I get an EKG near me?",
-      answer:
-        "IE Lung offers expert Electrocardiogram (ECG/EKG) interpretation in Redlands, CA. Our heart and lung doctors review your electrical cardiac rhythm to ensure your heart is functioning properly alongside your respiratory system.",
-    },
+    // {
+    //   question: "Where can I get an EKG near me?",
+    //   answer:
+    //     "IE Lung offers expert Electrocardiogram (ECG/EKG) interpretation in Redlands, CA. Our heart and lung doctors review your electrical cardiac rhythm to ensure your heart is functioning properly alongside your respiratory system.",
+    // },
   ];
 
   return (
@@ -141,12 +141,10 @@ export default function PulmonaryVascularDiseases() {
           <p className="text-lg text-primary/70 leading-relaxed">
             Pulmonary vascular and cardiac tests evaluate the complex connection
             between your heart and lungs. If you have severe shortness of breath,
-            irregular heartbeats, or a suspected blood clot, these specialized
-            tests help your doctor find the underlying cause. At the Inland Empire
+            irregular heartbeats, or a suspected blood clot in your lungs, these specialized
+            tests help your doctor find the underlying cause. At Inland Empire
             Lung & Sleep Institute, our pulmonary hypertension specialists provide
-            the testing required to guide your care. Unlike a standard Redlands
-            advanced imaging center, our clinic pairs state-of-the-art scans with
-            direct interpretation by specialized pulmonary cardiologists.{" "}
+            the testing required to guide your care. {" "}
             <Link
               href="/#schedule"
               className="text-accent font-semibold hover:underline"
@@ -178,7 +176,7 @@ export default function PulmonaryVascularDiseases() {
           <div className="max-w-3xl mx-auto mb-12 bg-red-50 border border-red-200 rounded-2xl p-5 flex items-start gap-4">
             <AlertTriangle className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
             <p className="text-red-800 text-sm leading-relaxed">
-              <strong>If you have sudden chest pain, severe shortness of breath,
+              <strong>If you have sudden chest pain, unexplained shortness of breath,
               or a medical emergency, call 911 or go to the nearest emergency room
               immediately.</strong>
             </p>
