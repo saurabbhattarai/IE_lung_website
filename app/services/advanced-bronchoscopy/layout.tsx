@@ -4,6 +4,9 @@ export const metadata = {
   title: "Advanced Bronchoscopy & Interventional Pulmonology in Redlands, CA",
   description:
     "Need a lung nodule specialist or lung biopsy near you? Interventional pulmonologists at IE Lung offer robotic bronchoscopy, EBUS, and thoracentesis.",
+  alternates: {
+    canonical: "https://ielung.com/services/advanced-bronchoscopy",
+  },
 };
 
 export default function AdvancedBronchoscopyLayout({

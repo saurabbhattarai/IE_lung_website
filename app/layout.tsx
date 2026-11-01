@@ -12,6 +12,9 @@ export const metadata = {
   description:
     "Inland Empire Lung and Sleep Institute - Comprehensive care for lung and sleep disorders. Science-Led. Patient-Centered.",
   generator: "Next.js",
+  alternates: {
+    canonical: "https://ielung.com",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

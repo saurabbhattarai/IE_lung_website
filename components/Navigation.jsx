@@ -174,6 +174,12 @@ export default function Navigation() {
           >
             CONTACT
           </Link>
+          <Link
+            href="/blog"
+            className="text-primary hover:text-accent transition-colors text-sm font-medium tracking-wide"
+          >
+            BLOG
+          </Link>
 
           {/* CTA Button */}
           <Link href="/#schedule" className="hidden lg:flex items-center">
@@ -326,6 +332,13 @@ export default function Navigation() {
               onClick={() => setIsOpen(false)}
             >
               CONTACT
+            </Link>
+            <Link
+              href="/blog"
+              className="block py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              BLOG
             </Link>
 
             <Link href="/#schedule">

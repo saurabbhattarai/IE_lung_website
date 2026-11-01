@@ -4,6 +4,9 @@ export const metadata = {
   title: "Pulmonary Vascular & Cardiac Evaluation in Redlands, CA",
   description:
     "Need a right heart catheterization or EKG near you? IE Lung provides expert pulmonary vascular and cardiac evaluations in Redlands, CA. Request an appointment.",
+  alternates: {
+    canonical: "https://ielung.com/services/pulmonary-vascular-diseases",
+  },
 };
 
 export default function PulmonaryVascularLayout({
