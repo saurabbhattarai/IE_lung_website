@@ -27,7 +27,7 @@ export const providers = [
     credentials: "DO",
     fullDescription:
       "Luke Buxton, DO, is a pulmonologist and critical care physician who completed his Pulmonary and Critical Care fellowship at Arrowhead Regional Medical Center (2021–2024), where he served as Chief Fellow, and subsequently completed a Sleep Medicine Fellowship at Loma Linda University Medical Center (2024–2025). He previously served as Chief Resident during his Internal Medicine residency at Franciscan Health Olympia Fields and worked as a full-time nocturnist managing high-volume admissions and open ICU coverage. Dr. Buxton earned his Doctor of Osteopathic Medicine degree from the Chicago College of Osteopathic Medicine and holds a Bachelor of Science in Health Sciences from UC Santa Cruz. His academic contributions include peer-reviewed publications focused on pulmonary and COVID-19–related outcomes, as well as case reports in respiratory disease. He has received recognition for leadership and excellence in training, including ACP Resident of the Year, and maintains active interests in sleep medicine, wilderness medicine, and community service.",
-    image: "./doctors_images/dr_luke_buxton.webp",
+    image: "./doctors_images/dr.webp",
   },
   {
     id: 4,
