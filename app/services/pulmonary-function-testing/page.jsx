@@ -37,7 +37,7 @@ export default function PulmonaryFunctionTesting() {
     },
     {
       symptom:
-        "You use an inhaler but aren't sure it is opening your airways",
+        "You use an inhaler but aren't or if you are concerned about asthma",
       label: "If you experience:",
       test: "Bronchodilator Response Testing",
       icon: Gauge,
@@ -59,7 +59,7 @@ export default function PulmonaryFunctionTesting() {
     {
       name: "Spirometry",
       description:
-        "The most common breathing test. It measures how much air you can blow out, and how fast, to help identify obstructive lung diseases such as asthma and COPD.",
+        "The most common breathing test. It measures how much air you can blow out, and how fast, to help identify obstructive lung diseases such as asthma and COPD and asthma",
     },
     {
       name: "Lung Volume Testing (Body Plethysmography)",
@@ -87,7 +87,7 @@ export default function PulmonaryFunctionTesting() {
     {
       name: "Exercise Bronchoprovocation",
       description:
-        "Checks whether your airways tighten during physical exertion. It helps diagnose exercise-induced asthma (exercise-induced bronchoconstriction).",
+        "Checks whether your airways narrow during physical exertion. It helps diagnose exercise-induced asthma (exercise-induced bronchoconstriction).",
     },
     {
       name: "Peak Expiratory Flow Measurement",
@@ -118,8 +118,12 @@ export default function PulmonaryFunctionTesting() {
     {
       question: "Can spirometry detect asthma?",
       answer:
-        "Spirometry is a key test for asthma. It can show narrowed airways and how severe they are, and whether they open up after a bronchodilator. Your doctor also considers your symptoms, medical history, and sometimes other tests, because spirometry can be normal between asthma flare-ups.",
+        "Spirometry is a key test for asthma. It can show narrowed airways and how severe they are, and whether they open up after a bronchodilator. Your doctor also considers your symptoms, medical history, and sometimes other tests.",
     },
+    {
+    question:"Does insurance cover sleep clinic costs?",
+    answer:" Most major health insurance plans and Medicare cover both home sleep apnea tests and in-lab polysomnography when your doctor determines they are medically necessary. Our clinic team will help verify your specific sleep study coverage prior to testing.",
+    }
   ];
 
   return (
@@ -172,8 +176,8 @@ export default function PulmonaryFunctionTesting() {
         <div className="max-w-4xl mx-auto">
           <p className="text-lg text-primary/70 leading-relaxed">
             Pulmonary function tests measure how well your lungs work. If you
-            have shortness of breath, a chronic cough, or symptoms of asthma,
-            these tests help your doctor find the cause and plan your treatment.
+            have shortness of breath, chronic cough, or symptoms of asthma,
+            these tests help your doctor find the cause for your treatment.
             At Inland Empire Lung & Sleep Institute in Redlands, CA, our
             pulmonary team performs the tests below.{" "}
             <Link
@@ -298,7 +302,7 @@ export default function PulmonaryFunctionTesting() {
                 respiratory therapist coaches you to take deep breaths and blow
                 out as hard and fast as you can. For some tests, such as body
                 plethysmography, you may sit in a clear booth, similar to a
-                phone booth, so the team can measure pressure in your lungs.
+                phone booth, so the team can measure your lung volumes.
               </p>
             </div>
           </div>
