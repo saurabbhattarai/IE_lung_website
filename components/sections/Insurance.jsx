@@ -23,6 +23,10 @@ const insurancePlans = [
     logo: "https://frontend.medicare.gov/assets/medicare-logo-green-DrWAB2BY.svg",
   },
   {
+    name: "Redlands Yucaipa Medical Group",
+    logo: "https://www.rymg.com/wp-content/uploads/2021/06/RYMG-Logo-266.png",
+  },
+  {
     name: "Triwest Healthcare Alliance",
     logo: "https://www.spineandrehab.com/wp-content/uploads/2023/04/Untitled-design-2023-04-04T053407.087-1-e1680557736158.png.webp",
   },

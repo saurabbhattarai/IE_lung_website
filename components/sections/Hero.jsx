@@ -121,7 +121,7 @@ export default function Hero() {
       <div className="relative z-10 w-full px-4 pt-5 md:pt-6">
         <div className="mx-auto max-w-4xl rounded-full border border-[#25A89D]/30 bg-[#D9E8E6]/85 px-4 py-2.5 shadow-[0_8px_24px_rgba(61,71,73,0.06)] backdrop-blur-sm sm:px-6 md:px-8 md:py-3">
           <p className="text-center text-[9px] font-semibold uppercase tracking-[0.2em] text-[#3D4749] sm:text-[10px] md:text-xs">
-            Opening soon
+            Opening since
           </p>
           <p className="mt-0.5 text-center text-base font-semibold tracking-[-0.04em] text-[#3D4749] sm:text-lg md:text-2xl lg:text-[2rem]">
             November 2, 2026
