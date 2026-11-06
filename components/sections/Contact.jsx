@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
+import Link from "next/link";
 import {
   Mail,
   Phone,
@@ -10,6 +11,7 @@ import {
   CheckCircle2,
   Loader2,
   Printer,
+  BookOpen,
 } from "lucide-react";
 import { submitContactForm } from "../../lib/actions/contact.action";
 
@@ -264,22 +266,74 @@ export default function Contact() {
               )}
             </div>
 
-            {/* Provider Referral Box */}
-            <div className="mt-8 flex flex-col md:flex-row items-center justify-between p-6 sm:p-8 bg-gradient-to-r from-primary to-[#2D3537] rounded-[2rem] text-white relative">
-              <div className="relative z-10 mb-6 md:mb-0">
-                <h4 className="text-xl font-bold flex items-center gap-2 mb-1">
-                  <Download className="text-accent" /> Provider Referrals
-                </h4>
-                <p className="text-primary-foreground/70 text-sm">
-                  Download our secure referral form for your patients.
-                </p>
+            {/* Download Resources: Newsletter & Provider Referrals */}
+            <div className="mt-8 grid sm:grid-cols-2 gap-4">
+              {/* Patient Newsletter Box */}
+              <div className="p-6 sm:p-7 bg-gradient-to-br from-[#3D4749] to-[#252C2D] rounded-[2rem] text-white flex flex-col justify-between shadow-lg relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-2xl pointer-events-none" />
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-accent/20 text-accent">
+                      New • Issue 1
+                    </span>
+                    <span className="text-[11px] text-white/60">Nov 2026</span>
+                  </div>
+                  <h4 className="text-lg font-bold flex items-center gap-2 mb-1.5 text-white">
+                    <BookOpen className="text-accent w-5 h-5 shrink-0" /> Patient Newsletter
+                  </h4>
+                  <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-4">
+                    Download our inaugural newsletter on lung health, breathing tests, and clinic visit prep.
+                  </p>
+                </div>
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                  <a
+                    href="/news-letter/IE_Lung_November_2026_Newsletter-Issue 1-11-5-2026.pdf"
+                    download
+                    className="bg-accent hover:bg-accent/90 text-primary text-xs font-bold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                  >
+                    <Download size={14} /> DOWNLOAD PDF
+                  </a>
+                  <Link
+                    href="/downloads"
+                    className="text-white/80 hover:text-white text-xs font-semibold py-2 px-3 rounded-xl hover:bg-white/10 transition-colors text-center"
+                  >
+                    All Downloads →
+                  </Link>
+                </div>
               </div>
-              <a
-                href="/referral-form.pdf"
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-8 py-3 rounded-xl font-bold transition-all flex items-center gap-2"
-              >
-                <Download size={18} /> DOWNLOAD PDF
-              </a>
+
+              {/* Provider Referral Box */}
+              <div className="p-6 sm:p-7 bg-gradient-to-br from-[#3D4749] to-[#252C2D] rounded-[2rem] text-white flex flex-col justify-between shadow-lg relative overflow-hidden group">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/10 text-white/80">
+                      Physicians
+                    </span>
+                    <span className="text-[11px] text-white/60">PDF • 30 KB</span>
+                  </div>
+                  <h4 className="text-lg font-bold flex items-center gap-2 mb-1.5 text-white">
+                    <Download className="text-accent w-5 h-5 shrink-0" /> Provider Referrals
+                  </h4>
+                  <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-4">
+                    Download our secure referral form to refer patients for pulmonary & sleep consultations.
+                  </p>
+                </div>
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                  <a
+                    href="/referral-form.pdf"
+                    download
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <Download size={14} /> DOWNLOAD PDF
+                  </a>
+                  <Link
+                    href="/downloads"
+                    className="text-white/80 hover:text-white text-xs font-semibold py-2 px-3 rounded-xl hover:bg-white/10 transition-colors text-center"
+                  >
+                    All Forms →
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

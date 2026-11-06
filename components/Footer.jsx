@@ -85,6 +85,30 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/gallery"
+                  className="text-gray-300 hover:text-accent transition"
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/downloads"
+                  className="text-gray-300 hover:text-accent transition"
+                >
+                  Downloads & Newsletters
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="text-gray-300 hover:text-accent transition"
+                >
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
 

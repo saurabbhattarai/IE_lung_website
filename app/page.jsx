@@ -8,6 +8,7 @@ import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import Providers from "@/components/sections/Providers";
 import Insurance from "@/components/sections/Insurance";
+import OpeningGallery from "@/components/sections/OpeningGallery";
 // import FacilityTour from '@/components/sections/FacilityTour'
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
@@ -26,6 +27,7 @@ export default function Home() {
       <Services />
       <Providers />
       <Insurance />
+      <OpeningGallery />
       {/* <FacilityTour /> */}
       {/* <Testimonials /> */}
       <Contact />

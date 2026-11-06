@@ -175,10 +175,22 @@ export default function Navigation() {
             CONTACT
           </Link>
           <Link
+            href="/gallery"
+            className="text-primary hover:text-accent transition-colors text-sm font-medium tracking-wide"
+          >
+            GALLERY
+          </Link>
+          <Link
             href="/blog"
             className="text-primary hover:text-accent transition-colors text-sm font-medium tracking-wide"
           >
             BLOG
+          </Link>
+          <Link
+            href="/downloads"
+            className="text-primary hover:text-accent transition-colors text-sm font-medium tracking-wide"
+          >
+            DOWNLOADS
           </Link>
 
           {/* CTA Button */}
@@ -334,11 +346,25 @@ export default function Navigation() {
               CONTACT
             </Link>
             <Link
+              href="/gallery"
+              className="block py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              GALLERY
+            </Link>
+            <Link
               href="/blog"
               className="block py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
               onClick={() => setIsOpen(false)}
             >
               BLOG
+            </Link>
+            <Link
+              href="/downloads"
+              className="block py-3 px-4 text-primary hover:bg-secondary hover:text-accent rounded-lg transition-colors text-sm font-medium"
+              onClick={() => setIsOpen(false)}
+            >
+              DOWNLOADS
             </Link>
 
             <Link href="/#schedule">
