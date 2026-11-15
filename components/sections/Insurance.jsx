@@ -11,6 +11,10 @@ const insurancePlans = [
     logo: "https://www.bcbs.com/dA/cec184ec-9008-4a98-bd75-b5d2304fb861/85q",
   },
   {
+    name: "Cigna PPO",
+    logo: "https://filecache.mediaroom.com/mr5mr_cignanews/181750/cigna-healthcare-logo.png",
+  },
+  {
     name: "Community Alliance Medical Group",
     logo: "/CAMG-180x56-png.png",
   },
