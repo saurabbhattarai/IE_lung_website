@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { Callout } from "./CalloutExtension";
 import LinkModal from "./LinkModal";
+import ImageAltModal from "./ImageAltModal";
 import {
   createEmptyTiptapDoc,
   isSafeUrl,
@@ -52,6 +53,8 @@ export default function BlogContentEditor({
 }: BlogContentEditorProps) {
   const [isLinkModalOpen, setIsLinkModalOpen] = useState(false);
   const [currentLinkUrl, setCurrentLinkUrl] = useState("");
+  const [isAltModalOpen, setIsAltModalOpen] = useState(false);
+  const [currentImageAttrs, setCurrentImageAttrs] = useState<{ src: string; alt: string }>({ src: "", alt: "" });
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const [statusNotification, setStatusNotification] = useState<{
     type: "success" | "error";
@@ -572,6 +575,28 @@ export default function BlogContentEditor({
               </>
             )}
           </button>
+
+          {/* Edit Alt Text Button when an image is selected */}
+          {editor.isActive("image") && (
+            <button
+              type="button"
+              onClick={() => {
+                const attrs = editor.getAttributes("image");
+                setCurrentImageAttrs({
+                  src: (attrs.src as string) || "",
+                  alt: (attrs.alt as string) || "",
+                });
+                setIsAltModalOpen(true);
+              }}
+              disabled={disabled}
+              title="Edit image alternative description (alt text)"
+              aria-label="Edit Image Alt Text"
+              className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#00A389]/15 text-[#00A389] hover:bg-[#00A389]/25 transition-colors flex items-center gap-1.5"
+            >
+              <ImageIcon className="w-3.5 h-3.5 text-[#00A389]" />
+              <span>Edit Alt Text</span>
+            </button>
+          )}
         </div>
       </div>
 
@@ -616,6 +641,21 @@ export default function BlogContentEditor({
         onSave={handleSaveLink}
         onRemove={handleRemoveLink}
         onClose={() => setIsLinkModalOpen(false)}
+      />
+
+      {/* Image Alt Text Modal */}
+      <ImageAltModal
+        isOpen={isAltModalOpen}
+        initialAlt={currentImageAttrs.alt}
+        imageSrc={currentImageAttrs.src}
+        onSave={(newAlt) => {
+          editor.chain().focus().updateAttributes("image", { alt: newAlt.slice(0, 500) }).run();
+          setStatusNotification({
+            type: "success",
+            message: "Image alt text updated.",
+          });
+        }}
+        onClose={() => setIsAltModalOpen(false)}
       />
     </div>
   );
