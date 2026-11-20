@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { requireAdminSession } from "@/lib/auth/session";
+import { prisma } from "@/lib/prisma";
 import {
   FileText,
   Users,
@@ -16,6 +17,22 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminDashboardPage() {
   const session = await requireAdminSession();
+
+  let blogCount: number | null = null;
+  let publishedBlogCount: number | null = null;
+  let isDatabaseError = false;
+
+  try {
+    const [total, published] = await Promise.all([
+      prisma.blogPost.count(),
+      prisma.blogPost.count({ where: { status: "PUBLISHED" } }),
+    ]);
+    blogCount = total;
+    publishedBlogCount = published;
+  } catch {
+    // Graceful fallback if database is not reachable during build/static pass
+    isDatabaseError = true;
+  }
 
   return (
     <div className="space-y-8">
@@ -64,8 +81,8 @@ export default async function AdminDashboardPage() {
               <div className="w-12 h-12 rounded-xl bg-[#00A389]/10 text-[#00A389] flex items-center justify-center">
                 <FileText className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
-                Phase 4
+              <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#00A389]/10 text-[#00A389]">
+                Active CMS
               </span>
             </div>
             <div>
@@ -73,10 +90,14 @@ export default async function AdminDashboardPage() {
                 Blog Articles
               </p>
               <h2 className="text-3xl font-extrabold text-[#3D4749] mt-1">
-                0
+                {isDatabaseError ? "—" : blogCount}
               </h2>
               <p className="text-xs text-slate-500 mt-1">
-                Rich-text authoring & publishing workflow scheduled for Phase 4.
+                {isDatabaseError
+                  ? "Metrics currently unavailable"
+                  : blogCount === 0
+                  ? "No clinical articles yet. Create and publish posts."
+                  : `${publishedBlogCount} published, ${(blogCount ?? 0) - (publishedBlogCount ?? 0)} draft${(blogCount ?? 0) - (publishedBlogCount ?? 0) === 1 ? "" : "s"}.`}
               </p>
             </div>
           </div>

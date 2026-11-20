@@ -1,11 +1,40 @@
 import Link from "next/link";
 import { requireAdminSession } from "@/lib/auth/session";
-import { FileText, ArrowLeft, Plus, Clock, Sparkles } from "lucide-react";
+import { getBlogPostsListAction } from "@/lib/actions/blog.action";
+import BlogManagementClient, { BlogPostItem } from "@/components/admin/blog/BlogManagementClient";
+import { ArrowLeft, Plus } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
-export default async function BlogAdminPlaceholderPage() {
+export default async function BlogAdminPage() {
   await requireAdminSession();
+
+  let initialData: {
+    posts: BlogPostItem[];
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+  } | null = null;
+  let initialError: string | null = null;
+
+  try {
+    const result = await getBlogPostsListAction({ page: 1, limit: 10 });
+    if (result.success) {
+      initialData = result.data as {
+        posts: BlogPostItem[];
+        total: number;
+        page: number;
+        limit: number;
+        totalPages: number;
+      };
+    } else {
+      initialError = result.error || "Failed to load blog posts.";
+    }
+  } catch (err) {
+    initialError =
+      err instanceof Error ? err.message : "Failed to load blog posts.";
+  }
 
   return (
     <div className="space-y-6">
@@ -31,50 +60,20 @@ export default async function BlogAdminPlaceholderPage() {
           </p>
         </div>
 
-        <button
-          type="button"
-          disabled
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#00A389] text-white opacity-50 cursor-not-allowed shadow-xs self-start sm:self-auto"
-          title="Coming in Phase 4"
+        <Link
+          href="/ielung-admin/blog/new"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#00A389] hover:bg-[#00826e] text-white transition-colors shadow-xs self-start sm:self-auto"
         >
           <Plus className="w-4 h-4" />
-          <span>New Post (Phase 4)</span>
-        </button>
+          <span>New Post</span>
+        </Link>
       </div>
 
-      {/* Placeholder State Card */}
-      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-xs text-center space-y-6 max-w-2xl mx-auto">
-        <div className="w-16 h-16 rounded-2xl bg-[#00A389]/10 text-[#00A389] flex items-center justify-center mx-auto shadow-xs">
-          <FileText className="w-8 h-8" />
-        </div>
-
-        <div className="space-y-2">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#00A389]/10 text-[#00A389] text-xs font-semibold">
-            <Clock className="w-3.5 h-3.5" />
-            <span>Scheduled for Phase 4</span>
-          </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-[#3D4749]">
-            Blog CMS Engine Under Development
-          </h2>
-          <p className="text-sm text-slate-500 leading-relaxed max-w-md mx-auto">
-            Full rich-text article editing, draft/published workflow, slug generation, SEO metadata, and Cloudinary media uploads will be implemented in Phase 4.
-          </p>
-        </div>
-
-        <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
-            href="/ielung-admin"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200/80 transition-colors w-full sm:w-auto justify-center"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Return to Dashboard</span>
-          </Link>
-          <div className="inline-flex items-center gap-1 text-xs text-slate-400">
-            <Sparkles className="w-3.5 h-3.5 text-[#00A389]" />
-            <span>Prisma BlogPost model is ready</span>
-          </div>
-        </div>
-      </div>
+      {/* Interactive Blog Posts Management Client */}
+      <BlogManagementClient
+        initialData={initialData}
+        initialError={initialError}
+      />
     </div>
   );
 }
