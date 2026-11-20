@@ -12,17 +12,17 @@ import { verifyAdminToken, type AdminTokenPayload } from "./jwt";
  */
 export function getAdminCredentials() {
   const email = process.env.ADMIN_EMAIL;
-  const passwordHash = process.env.ADMIN_PASSWORD_HASH;
+  const password = process.env.ADMIN_PASSWORD;
 
-  if (!email || !passwordHash) {
+  if (!email || !password) {
     throw new Error(
-      "CRITICAL: ADMIN_EMAIL or ADMIN_PASSWORD_HASH environment variable is not configured.",
+      "CRITICAL: ADMIN_EMAIL or ADMIN_PASSWORD environment variable is not configured.",
     );
   }
 
   return {
     email: email.trim().toLowerCase(),
-    passwordHash: passwordHash.trim(),
+    password: password.trim(),
   };
 }
 

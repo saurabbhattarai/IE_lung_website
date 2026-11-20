@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { LoginSchema } from "@/lib/validations/auth.validation";
-import { verifyPassword } from "@/lib/auth/password";
+import { verifyAdminCredentials } from "@/lib/auth/password";
 import { signAdminToken } from "@/lib/auth/jwt";
 import {
   getAdminCredentials,
@@ -141,15 +141,10 @@ export async function POST(request: NextRequest) {
   const normalizedEmail = email.trim().toLowerCase();
 
   try {
-    const { email: configuredEmail, passwordHash: configuredPasswordHash } =
-      getAdminCredentials();
+    const { email: configuredEmail } = getAdminCredentials();
+    const isValid = await verifyAdminCredentials(normalizedEmail, password);
 
-    const isEmailValid = normalizedEmail === configuredEmail;
-    const isPasswordValid = isEmailValid
-      ? await verifyPassword(password, configuredPasswordHash)
-      : false;
-
-    if (!isEmailValid || !isPasswordValid) {
+    if (!isValid) {
       recordFailedAttempt(clientIp);
       return NextResponse.json(
         { error: "Invalid email or password." },

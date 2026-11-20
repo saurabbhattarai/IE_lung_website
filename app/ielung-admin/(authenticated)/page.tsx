@@ -268,7 +268,7 @@ export default async function AdminDashboardPage() {
                 <span>Phase 2: Authentication & Guard</span>
               </div>
               <p className="text-emerald-700 text-[11px] leading-relaxed">
-                Next.js 16 proxy.ts route guard, HS256 JWT, bcrypt, and HttpOnly cookies.
+                Next.js 16 proxy.ts route guard, HS256 JWT, timing-safe authentication, and HttpOnly cookies.
               </p>
             </div>
 
