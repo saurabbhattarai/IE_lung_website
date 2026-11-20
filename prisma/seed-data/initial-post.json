@@ -1,0 +1,543 @@
+{
+  "title": "IE Lung Opens Nov 2 | Pulmonary Care in Redlands, CA",
+  "slug": "ie-lung-opens-nov-2",
+  "excerpt": "Inland Empire Lung & Sleep Institute opens November 2, 2026 in Redlands, CA. Seven specialists for asthma, COPD, sleep apnea and more. Book now.",
+  "coverImage": "/logo.png",
+  "coverImagePublicId": null,
+  "author": "Inland Empire Lung & Sleep Institute",
+  "readingTimeMinutes": 3,
+  "status": "PUBLISHED",
+  "publishedAt": "2026-10-28T12:00:00.000Z",
+  "showDoctorsSection": true,
+  "doctorSpecialtyOverrides": {
+    "1": "Pulmonary & Critical Care",
+    "2": "Sleep Medicine, Pulmonary & Critical Care",
+    "3": "Sleep Medicine, Pulmonary & Critical Care",
+    "4": "Interventional Pulmonology & Critical Care",
+    "5": "Interventional Pulmonology & Critical Care",
+    "6": "Sleep Medicine, Pulmonary",
+    "7": "Pulmonary & Critical Care"
+  },
+  "faqs": [
+    {
+      "question": "Where is IE Lung located?",
+      "answer": "IE Lung is located at 245 Terracina Boulevard, Suite 108, Redlands, CA 92373."
+    },
+    {
+      "question": "When does IE Lung open?",
+      "answer": "We open on November 2, 2026."
+    },
+    {
+      "question": "What conditions do you treat?",
+      "answer": "We treat asthma, COPD, pulmonary hypertension, interstitial lung disease, obstructive sleep apnea, insomnia, and narcolepsy."
+    },
+    {
+      "question": "Are you accepting new patients?",
+      "answer": "Yes. We are accepting new patients starting November 2, 2026."
+    },
+    {
+      "question": "Which insurance plans do you accept?",
+      "answer": "Please call 909 938 1152 to verify your coverage before your visit."
+    },
+    {
+      "question": "Do you offer sleep studies?",
+      "answer": "Yes. We offer in-lab and at-home sleep studies."
+    },
+    {
+      "question": "How do I book an appointment?",
+      "answer": "Book online or call 909 938 1152."
+    }
+  ],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Breathing and sleep are two of the most basic foundations of health, and they should come easily. If you live in the Inland Empire and deal with a chronic cough, shortness of breath, loud snoring, or nights of poor sleep, you know how much these problems can affect work, family, and everyday energy."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Getting answers often means seeing several providers in different places. We built the Inland Empire Lung & Sleep Institute (IE Lung) to bring pulmonary and sleep care together in one clinic."
+          }
+        ]
+      },
+      {
+        "type": "callout",
+        "attrs": {
+          "type": "info"
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "marks": [{ "type": "bold" }],
+                "text": "📍 Opening November 2, 2026"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "text": "245 Terracina Boulevard, Suite 108, Redlands, CA 92373."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "marks": [{ "type": "bold" }],
+                "text": "We are accepting new patients now."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Our Approach: Science-Led, Patient-Centered"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "We believe every visit brings together two experts. Our physicians bring specialized training in pulmonary, critical care, and sleep medicine. You bring the most important information: how your symptoms feel, when they happen, and what matters most to you in your care."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Our care team includes seven board-certified physicians across pulmonary medicine, critical care, sleep medicine, and interventional pulmonology. Together, we are committed to improving respiratory and sleep health for families across Redlands and the surrounding communities."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "What We Treat at Our Redlands Clinic"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Pulmonary Lung Care"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "We evaluate and treat conditions that affect how you breathe, including:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Asthma"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Chronic obstructive pulmonary disease (COPD)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Pulmonary hypertension"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Interstitial lung disease (ILD)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Chronic cough and unexplained shortness of breath"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Sleep Medicine"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "We diagnose and manage sleep disorders, including:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Obstructive sleep apnea (OSA)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Insomnia"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Narcolepsy"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Advanced Diagnostics"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Testing on site helps us reach a diagnosis sooner. Our services include:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Complete pulmonary function testing (PFTs)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "In-lab and at-home sleep studies"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Minimally invasive robotic bronchoscopy"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "When Should You See a Lung or Sleep Specialist?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Consider booking a visit if you have:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "A cough that lasts more than eight weeks"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Shortness of breath during everyday activity"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Wheezing or chest tightness that keeps coming back"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Loud snoring, gasping, or pauses in breathing during sleep"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Daytime exhaustion even after a full night in bed"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Trouble falling or staying asleep for weeks at a time"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "These symptoms have many possible causes, and a specialist can help find the right one."
+          }
+        ]
+      },
+      {
+        "type": "callout",
+        "attrs": {
+          "type": "warning"
+        },
+        "content": [
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "type": "text",
+                "marks": [{ "type": "bold" }],
+                "text": "If you have severe trouble breathing, chest pain, or any emergency, call 911."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "What to Expect at Your First Visit"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Your first appointment starts with a conversation. Your physician will review your symptoms, medical history, and medications, then discuss which tests, if any, make sense. When testing is needed, such as lung function testing or a sleep study, we aim to explain each step so you know what to expect."
+          }
+        ]
+      }
+    ]
+  }
+}

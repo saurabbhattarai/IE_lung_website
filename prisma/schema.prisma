@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum SubscriberStatus {
+  ACTIVE
+  UNSUBSCRIBED
+}
+
+model BlogPost {
+  id                 String     @id @default(cuid())
+  title              String     @db.VarChar(255)
+  slug               String     @unique @db.VarChar(255)
+  excerpt            String     @db.Text
+  content            Json
+  coverImage         String?    @db.VarChar(1000)
+  coverImagePublicId String?    @db.VarChar(255)
+  author             String     @default("Inland Empire Lung & Sleep Institute") @db.VarChar(100)
+  readingTimeMinutes Int        @default(1)
+  status             PostStatus @default(DRAFT)
+  publishedAt        DateTime?
+  faqs                     Json?
+  showDoctorsSection       Boolean    @default(false)
+  doctorSpecialtyOverrides Json?
+  createdAt                DateTime   @default(now())
+  updatedAt                DateTime   @updatedAt
+
+  @@index([status])
+  @@index([publishedAt])
+  @@index([createdAt])
+  @@map("blog_posts")
+}
+
+model NewsletterSubscriber {
+  id             String           @id @default(cuid())
+  email          String           @unique @db.VarChar(255)
+  status         SubscriberStatus @default(ACTIVE)
+  subscribedAt   DateTime         @default(now())
+  unsubscribedAt DateTime?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  @@index([status])
+  @@index([subscribedAt])
+  @@map("newsletter_subscribers")
+}
