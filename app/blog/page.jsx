@@ -1,24 +1,17 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { ArrowRight, ChevronRight, Calendar, Clock } from "lucide-react";
+import {
+  getPublicBlogPosts,
+  formatPublicDate,
+  formatReadingTime,
+} from "@/lib/blog/public";
 
-const blogPosts = [
-  {
-    slug: "ie-lung-opens-nov-2",
-    title: "IE Lung Opens Nov 2 | Pulmonary Care in Redlands, CA",
-    excerpt:
-      "Inland Empire Lung & Sleep Institute opens November 2, 2026 in Redlands, CA. Seven specialists for asthma, COPD, sleep apnea and more. Book now.",
-    date: "October 28, 2026",
-    readTime: "5 min read",
-    image: "/logo.png",
-  },
-];
+export default async function BlogListing() {
+  const { posts, error } = await getPublicBlogPosts();
 
-export default function BlogListing() {
   return (
     <main className="bg-background text-foreground">
       <Navigation />
@@ -55,47 +48,68 @@ export default function BlogListing() {
       {/* Blog Grid */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group bg-white border-2 border-slate-200 rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
-              >
-                <div className="aspect-[16/10] bg-slate-100 flex items-center justify-center p-8">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    width={200}
-                    height={120}
-                    className="object-contain"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-4 text-xs text-primary/50 mb-3">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {post.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5" />
-                      {post.readTime}
-                    </span>
-                  </div>
-                  <h2 className="text-lg font-bold text-primary mb-3 group-hover:text-accent transition-colors leading-snug">
-                    {post.title}
-                  </h2>
-                  <p className="text-primary/60 text-sm leading-relaxed mb-4">
-                    {post.excerpt}
-                  </p>
-                  <span className="text-accent font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read More
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
+          {error ? (
+            <div className="text-center py-12 max-w-md mx-auto">
+              <p className="text-primary/70 text-base">{error}</p>
+            </div>
+          ) : posts.length === 0 ? (
+            <div className="text-center py-12 max-w-md mx-auto">
+              <p className="text-primary/70 text-lg mb-2">No articles published yet.</p>
+              <p className="text-primary/50 text-sm">
+                Please check back soon for health updates and clinical insights.
+              </p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {posts.map((post) => {
+                const formattedDate = formatPublicDate(post.publishedAt);
+                const readTime = formatReadingTime(post.readingTimeMinutes);
+                const imageSrc = post.coverImage?.trim() || "/logo.png";
+
+                return (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="group bg-white border-2 border-slate-200 rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+                  >
+                    <div className="aspect-[16/10] bg-slate-100 flex items-center justify-center p-8">
+                      <Image
+                        src={imageSrc}
+                        alt={post.title}
+                        width={200}
+                        height={120}
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center gap-4 text-xs text-primary/50 mb-3">
+                        {formattedDate ? (
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-3.5 h-3.5" />
+                            {formattedDate}
+                          </span>
+                        ) : null}
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5" />
+                          {readTime}
+                        </span>
+                      </div>
+                      <h2 className="text-lg font-bold text-primary mb-3 group-hover:text-accent transition-colors leading-snug">
+                        {post.title}
+                      </h2>
+                      <p className="text-primary/60 text-sm leading-relaxed mb-4">
+                        {post.excerpt}
+                      </p>
+                      <span className="text-accent font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Read More
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -103,4 +117,3 @@ export default function BlogListing() {
     </main>
   );
 }
-

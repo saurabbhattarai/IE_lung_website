@@ -26,11 +26,24 @@ export function getAdminCredentials() {
   };
 }
 
+let mockSessionForTesting: AdminTokenPayload | null = null;
+
+/**
+ * Sets a mock admin session for unit test environments where Next.js cookies are absent.
+ */
+export function setMockAdminSessionForTesting(payload: AdminTokenPayload | null) {
+  mockSessionForTesting = payload;
+}
+
 /**
  * Retrieves and validates the current admin session from incoming cookies.
  * Returns the verified token payload if valid and matching ADMIN_EMAIL, otherwise null.
  */
 export async function getAdminSession(): Promise<AdminTokenPayload | null> {
+  if (mockSessionForTesting) {
+    return mockSessionForTesting;
+  }
+
   try {
     const cookieStore = await cookies();
     const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value;

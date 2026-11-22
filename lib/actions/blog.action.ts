@@ -1,6 +1,7 @@
 "use server";
 
 import { requireAdminSession } from "@/lib/auth/session";
+import { revalidateBlogCache } from "@/lib/blog/revalidate";
 import {
   CreateBlogPostSchema,
   UpdateBlogPostSchema,
@@ -74,6 +75,7 @@ export async function updateBlogPostAction(
     }
 
     const updated = await updateBlogPostService(id, parsed.data);
+    revalidateBlogCache(updated.slug);
     return { success: true, data: updated };
   } catch (error) {
     return {
@@ -151,6 +153,7 @@ export async function publishBlogPostAction(
     }
 
     const published = await publishBlogPostService(id);
+    revalidateBlogCache(published.slug);
     return { success: true, data: published };
   } catch (error) {
     return {
@@ -175,6 +178,7 @@ export async function unpublishBlogPostAction(
     }
 
     const unpublished = await unpublishBlogPostService(id);
+    revalidateBlogCache(unpublished.slug);
     return { success: true, data: unpublished };
   } catch (error) {
     return {
@@ -199,6 +203,7 @@ export async function deleteBlogPostAction(
     }
 
     const result = await deleteBlogPostService(id);
+    revalidateBlogCache(result.slug);
     return {
       success: true,
       data: { id: result.deletedId, title: result.title },

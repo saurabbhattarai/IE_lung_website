@@ -326,6 +326,7 @@ export async function deleteBlogPostService(id: string) {
     select: {
       id: true,
       title: true,
+      slug: true,
       coverImagePublicId: true,
     },
   });
@@ -363,6 +364,7 @@ export async function deleteBlogPostService(id: string) {
     success: true,
     deletedId: id,
     title: existing.title,
+    slug: existing.slug,
     warning: mediaCleanupWarning,
   };
 }
