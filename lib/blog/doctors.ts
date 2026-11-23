@@ -21,10 +21,13 @@ export function getArticleDoctors(
   overrides?: DoctorSpecialtyOverrides | null
 ): ArticleDoctorView[] {
   return providers.map((doc) => {
-    // Formulate clean name with credentials
-    const formattedName = doc.credentials
-      ? `${doc.name}, ${doc.credentials}`
-      : doc.name;
+    // Formulate clean name with credentials without duplicating if already present
+    const hasCredentials =
+      Boolean(doc.credentials) && doc.name.includes(doc.credentials);
+    const formattedName =
+      doc.credentials && !hasCredentials
+        ? `${doc.name}, ${doc.credentials}`
+        : doc.name;
 
     // Check for override by ID (number or string) or by name
     const override =
