@@ -3,7 +3,8 @@
 import { useState, useTransition, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Lock, Mail, Loader2, AlertCircle, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { Lock, Mail, Loader2, AlertCircle, Eye, EyeOff } from "lucide-react";
 
 function LoginForm() {
   const router = useRouter();
@@ -21,6 +22,7 @@ function LoginForm() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
@@ -60,23 +62,27 @@ function LoginForm() {
   }
 
   return (
-    <div className="w-full max-w-md bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-200 overflow-hidden">
-      {/* Header Banner */}
-      <div className="bg-[#3D4749] text-white p-8 text-center relative overflow-hidden">
-        <div className="absolute -top-12 -right-12 w-36 h-36 bg-accent/20 rounded-full blur-2xl pointer-events-none" />
-        <div className="flex justify-center mb-4">
-          <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center border border-white/15">
-            <ShieldCheck className="w-8 h-8 text-accent" />
-          </div>
-        </div>
-        <h1 className="text-2xl font-bold tracking-tight">IE Lung Admin Portal</h1>
-        <p className="text-xs text-white/70 mt-1 uppercase tracking-wider font-semibold">
-          Authorized Personnel Only
+    <div className="w-full max-w-md bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200/80 overflow-hidden">
+      {/* Header Banner with Official White Logo */}
+      <div className="bg-[#3D4749] text-white p-8 text-center flex flex-col items-center">
+        <Link href="/" className="inline-block mb-3 hover:opacity-90 transition-opacity">
+          <Image
+            src="/logo_white.png"
+            alt="Inland Empire Lung & Sleep Institute"
+            width={160}
+            height={46}
+            className="object-contain h-10 w-auto"
+            priority
+          />
+        </Link>
+        <h1 className="text-xl font-bold tracking-tight">Admin Portal</h1>
+        <p className="text-xs text-white/70 mt-1 font-medium">
+          Sign in to manage clinical articles, downloads, and photography
         </p>
       </div>
 
       {/* Login Form Body */}
-      <div className="p-8">
+      <div className="p-6 sm:p-8">
         {error && (
           <div
             role="alert"
@@ -87,16 +93,16 @@ function LoginForm() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
               htmlFor="admin-email"
-              className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 ml-1"
+              className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5 ml-1"
             >
-              Admin Email
+              Email Address
             </label>
             <div className="relative">
-              <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 id="admin-email"
                 type="email"
@@ -106,7 +112,7 @@ function LoginForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin@ielung.com"
-                className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all disabled:opacity-60"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#00A389]/20 focus:border-[#00A389] transition-all disabled:opacity-60"
               />
             </div>
           </div>
@@ -114,43 +120,56 @@ function LoginForm() {
           <div>
             <label
               htmlFor="admin-password"
-              className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 ml-1"
+              className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5 ml-1"
             >
               Password
             </label>
             <div className="relative">
-              <Lock className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 id="admin-password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 autoComplete="current-password"
                 required
                 disabled={isPending}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••••"
-                className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all disabled:opacity-60"
+                className="w-full pl-10 pr-11 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#00A389]/20 focus:border-[#00A389] transition-all disabled:opacity-60"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 rounded-md transition-colors"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                title={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? (
+                  <EyeOff className="w-4 h-4" />
+                ) : (
+                  <Eye className="w-4 h-4" />
+                )}
+              </button>
             </div>
           </div>
 
           <button
             type="submit"
             disabled={isPending}
-            className="w-full mt-2 bg-[#3D4749] hover:bg-[#252C2D] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full mt-3 bg-[#00A389] hover:bg-[#008f78] text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 shadow-xs hover:shadow disabled:opacity-70 disabled:cursor-not-allowed"
           >
             {isPending ? (
               <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                <span>Verifying Session...</span>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                <span>Signing In...</span>
               </>
             ) : (
-              <span>Sign In to Dashboard</span>
+              <span>Sign In</span>
             )}
           </button>
         </form>
 
-        <div className="mt-8 pt-6 border-t border-slate-100 text-center">
+        <div className="mt-6 pt-5 border-t border-slate-100 text-center">
           <Link
             href="/"
             className="text-xs text-slate-500 hover:text-slate-800 transition-colors font-medium"
@@ -165,11 +184,11 @@ function LoginForm() {
 
 export default function AdminLoginPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200">
+    <main className="min-h-screen flex items-center justify-center p-4 bg-slate-50">
       <Suspense
         fallback={
-          <div className="w-full max-w-md bg-white rounded-3xl p-12 text-center shadow-xl border border-slate-200">
-            <Loader2 className="w-8 h-8 animate-spin mx-auto text-[#3D4749]" />
+          <div className="w-full max-w-md bg-white rounded-2xl p-12 text-center shadow-md border border-slate-200">
+            <Loader2 className="w-8 h-8 animate-spin mx-auto text-[#00A389]" />
             <p className="text-xs text-slate-400 mt-4 uppercase tracking-wider font-bold">
               Loading Portal...
             </p>
