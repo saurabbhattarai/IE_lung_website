@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Instagram, Printer } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import NewsletterForm from "./newsletter/NewsletterForm";
 
 export default function Footer() {
   const [currentYear, setCurrentYear] = useState(2026);
@@ -210,6 +211,17 @@ export default function Footer() {
                   contact@ielung.com
                 </a>
               </div>
+            </div>
+
+            {/* Newsletter Subscription */}
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <h5 className="font-semibold text-sm text-white mb-1.5">
+                Stay Connected
+              </h5>
+              <p className="text-gray-300 text-xs leading-relaxed mb-3">
+                Receive respiratory health insights and clinic updates from our team.
+              </p>
+              <NewsletterForm />
             </div>
           </div>
         </div>
