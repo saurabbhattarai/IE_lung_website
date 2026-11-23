@@ -44,7 +44,7 @@ export default async function EditGalleryPage({
         >
           <ArrowLeft className="w-3.5 h-3.5" /> Back to Gallery
         </Link>
-        <div className="p-8 rounded-3xl bg-rose-50 border border-rose-200 text-rose-800 space-y-3">
+        <div className="p-8 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 space-y-3">
           <div className="flex items-center gap-3">
             <AlertCircle className="w-6 h-6 text-rose-600 shrink-0" />
             <h2 className="text-lg font-bold">Image Not Found</h2>

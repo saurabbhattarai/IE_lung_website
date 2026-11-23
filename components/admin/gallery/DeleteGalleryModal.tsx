@@ -25,7 +25,7 @@ export default function DeleteGalleryModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs animate-in fade-in duration-200">
       <div
-        className="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100 scale-in-95 duration-200"
+        className="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-100 scale-in-95 duration-200"
         role="dialog"
         aria-modal="true"
         aria-labelledby="gallery-delete-modal-title"

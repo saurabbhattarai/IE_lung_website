@@ -8,7 +8,6 @@ import {
   Upload,
   CheckCircle2,
   AlertCircle,
-  ArrowLeft,
   Loader2,
   Images,
   Maximize2,
@@ -232,23 +231,10 @@ export default function GalleryForm({ initialData, isEdit = false }: GalleryForm
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      {/* Top Breadcrumb & Actions */}
-      <div className="flex items-center justify-between">
-        <Link
-          href="/ielung-admin/gallery"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#00A389] hover:underline"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" /> Back to Gallery
-        </Link>
-        <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-          {isEdit ? "Edit Image" : "Add New Image"}
-        </span>
-      </div>
-
       {/* Main Card */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-100 shadow-xl space-y-8"
+        className="bg-white rounded-2xl p-6 sm:p-10 border border-slate-100 shadow-xl space-y-8"
       >
         {/* Header */}
         <div>
@@ -333,7 +319,7 @@ export default function GalleryForm({ initialData, isEdit = false }: GalleryForm
               </div>
             </div>
           ) : (
-            <div className="border-2 border-dashed border-slate-200 rounded-3xl p-8 text-center hover:border-slate-300 transition-colors">
+            <div className="border-2 border-dashed border-slate-200 rounded-2xl p-8 text-center hover:border-slate-300 transition-colors">
               <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center mx-auto text-slate-400 mb-3">
                 <Images className="w-6 h-6" />
               </div>

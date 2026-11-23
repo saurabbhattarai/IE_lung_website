@@ -304,7 +304,7 @@ export default function DownloadsListClient({
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-4">
+      <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Search Box */}
           <div className="relative flex-1 max-w-md">
@@ -372,10 +372,10 @@ export default function DownloadsListClient({
       </div>
 
       {/* Main Table / Resource List */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
         {filteredItems.length === 0 ? (
           <div className="p-12 text-center">
-            <div className="w-16 h-16 rounded-3xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-4">
               <FileDown className="w-8 h-8" />
             </div>
             <h3 className="text-base font-bold text-slate-700">No resources found</h3>

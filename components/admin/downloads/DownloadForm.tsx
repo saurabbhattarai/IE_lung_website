@@ -13,7 +13,6 @@ import {
   Plus,
   Trash2,
   ExternalLink,
-  ArrowLeft,
   Loader2,
   FileCheck,
 } from "lucide-react";
@@ -229,12 +228,6 @@ export default function DownloadForm({ initialData, isEdit = false }: DownloadFo
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <Link
-            href="/ielung-admin/downloads"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#00A389] hover:underline mb-2"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to Downloads
-          </Link>
           <h1 className="text-2xl sm:text-3xl font-bold text-[#3D4749]">
             {isEdit ? "Edit Download Resource" : "Create New Download Resource"}
           </h1>
@@ -286,7 +279,7 @@ export default function DownloadForm({ initialData, isEdit = false }: DownloadFo
       )}
 
       {/* Card 1: Core Resource Information */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-6">
+      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-6">
         <h2 className="text-base font-bold text-slate-800 flex items-center gap-2">
           <FileText className="w-5 h-5 text-[#00A389]" />
           <span>Resource Details</span>
@@ -361,7 +354,7 @@ export default function DownloadForm({ initialData, isEdit = false }: DownloadFo
       </div>
 
       {/* Card 2: PDF Document Upload */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-6">
+      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-6">
         <h2 className="text-base font-bold text-slate-800 flex items-center gap-2">
           <Upload className="w-5 h-5 text-[#00A389]" />
           <span>PDF Document *</span>
@@ -469,7 +462,7 @@ export default function DownloadForm({ initialData, isEdit = false }: DownloadFo
 
       {/* Card 3: Newsletter-Specific Details (Conditional) */}
       {category === "NEWSLETTER" && (
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#00A389]/20 shadow-xs space-y-6 animate-in fade-in">
+        <div className="bg-white rounded-2xl p-6 sm:p-8 border-2 border-[#00A389]/20 shadow-xs space-y-6 animate-in fade-in">
           <div className="flex items-center justify-between">
             <h2 className="text-base font-bold text-slate-800 flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-[#00A389]" />
@@ -632,7 +625,7 @@ export default function DownloadForm({ initialData, isEdit = false }: DownloadFo
       )}
 
       {/* Card 4: Publishing & Sorting */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-6">
+      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-6">
         <h2 className="text-base font-bold text-slate-800">Publishing Options</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

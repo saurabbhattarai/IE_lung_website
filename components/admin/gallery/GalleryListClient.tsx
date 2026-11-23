@@ -252,7 +252,7 @@ export default function GalleryListClient({
 
       {/* Stats Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-        <div className="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center gap-4">
+        <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-2xl bg-teal-50 text-[#00A389] flex items-center justify-center shrink-0">
             <Images className="w-6 h-6" />
           </div>
@@ -264,7 +264,7 @@ export default function GalleryListClient({
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center gap-4">
+        <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
             <Eye className="w-6 h-6" />
           </div>
@@ -276,7 +276,7 @@ export default function GalleryListClient({
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center gap-4">
+        <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
             <EyeOff className="w-6 h-6" />
           </div>
@@ -288,7 +288,7 @@ export default function GalleryListClient({
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl p-5 border border-slate-100 shadow-sm flex items-center gap-4">
+        <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex items-center gap-4">
           <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
             <FolderOpen className="w-6 h-6" />
           </div>
@@ -330,7 +330,7 @@ export default function GalleryListClient({
       )}
 
       {/* Filter and Search Bar */}
-      <div className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-100 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+      <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-100 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
         {/* Search */}
         <div className="relative flex-1">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -408,8 +408,8 @@ export default function GalleryListClient({
 
       {/* Gallery Cards Grid */}
       {paginatedItems.length === 0 ? (
-        <div className="bg-white rounded-3xl p-12 text-center border border-slate-100 shadow-sm space-y-3">
-          <div className="w-16 h-16 rounded-3xl bg-slate-50 flex items-center justify-center mx-auto text-slate-400">
+        <div className="bg-white rounded-2xl p-12 text-center border border-slate-100 shadow-sm space-y-3">
+          <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mx-auto text-slate-400">
             <Images className="w-8 h-8" />
           </div>
           <h3 className="text-lg font-bold text-slate-800">No photos found</h3>
@@ -424,7 +424,7 @@ export default function GalleryListClient({
           {paginatedItems.map((item, idx) => (
             <div
               key={item.id}
-              className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group"
+              className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group"
             >
               {/* Image Preview Container */}
               <div className="relative aspect-[4/3] w-full bg-slate-900 overflow-hidden">
@@ -439,19 +439,24 @@ export default function GalleryListClient({
                 {/* Status Badge */}
                 <div className="absolute top-3 left-3 z-10">
                   <span
-                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md ${
+                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-medium backdrop-blur-sm ${
                       item.status === "PUBLISHED"
-                        ? "bg-emerald-500/90 text-white"
-                        : "bg-amber-500/90 text-white"
+                        ? "bg-slate-900/80 text-emerald-400 border border-emerald-500/30"
+                        : "bg-slate-900/80 text-amber-300 border border-amber-500/30"
                     }`}
                   >
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full ${
+                        item.status === "PUBLISHED" ? "bg-emerald-400" : "bg-amber-300"
+                      }`}
+                    />
                     {item.status === "PUBLISHED" ? "Published" : "Draft"}
                   </span>
                 </div>
 
                 {/* Aspect Badge */}
                 <div className="absolute top-3 right-3 z-10">
-                  <span className="px-2 py-1 rounded-full text-[10px] font-semibold bg-black/60 text-white backdrop-blur-md capitalize">
+                  <span className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-900/80 text-slate-300 border border-white/10 backdrop-blur-sm capitalize">
                     {item.aspect || "landscape"}
                   </span>
                 </div>
@@ -553,7 +558,7 @@ export default function GalleryListClient({
 
       {/* Pagination Footer */}
       {totalPages > 1 && (
-        <div className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-100 shadow-sm flex items-center justify-between">
+        <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-100 shadow-sm flex items-center justify-between">
           <p className="text-xs sm:text-sm text-slate-500">
             Showing {(currentPage - 1) * pageSize + 1} to{" "}
             {Math.min(currentPage * pageSize, totalFiltered)} of {totalFiltered} photos
