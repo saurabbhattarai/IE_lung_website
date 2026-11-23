@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAdminSession } from "../../../../../lib/auth/session";
 import {
-  deleteImageFromCloudinary,
-  validateBlogPublicId,
-  isImageReferencedInDatabase,
+  deleteMediaFromCloudinary,
+  isMediaReferencedInDatabase,
 } from "../../../../../lib/media/cloudinary";
+import {
+  validateMediaPublicId,
+} from "../../../../../lib/media/validation";
 
 export const dynamic = "force-dynamic";
 
 /**
- * Handles safe deletion of an unreferenced image from Cloudinary.
+ * Handles safe deletion of an unreferenced asset (blog image, gallery image, or PDF document) from Cloudinary.
  */
 async function handleDelete(request: NextRequest) {
   // 1. Enforce Server-Side Admin Authentication
@@ -36,7 +38,7 @@ async function handleDelete(request: NextRequest) {
   }
 
   // 3. Validate Public ID Folder & Path Traversal
-  const pathValidation = validateBlogPublicId(publicId);
+  const pathValidation = validateMediaPublicId(publicId);
   if (!pathValidation.valid) {
     return NextResponse.json(
       { error: pathValidation.error || "Invalid public ID." },
@@ -46,9 +48,9 @@ async function handleDelete(request: NextRequest) {
 
   const validPublicId = publicId!.trim();
 
-  // 4. Verify Database References (Prevent deleting images used by published/draft posts)
+  // 4. Verify Database References (Prevent deleting assets used by published or draft records across blog, gallery, or downloads)
   try {
-    const referenceCheck = await isImageReferencedInDatabase(validPublicId);
+    const referenceCheck = await isMediaReferencedInDatabase(validPublicId);
     if (referenceCheck.isReferenced) {
       return NextResponse.json(
         {
@@ -71,12 +73,12 @@ async function handleDelete(request: NextRequest) {
 
   // 5. Delete via Official Cloudinary SDK
   try {
-    const result = await deleteImageFromCloudinary(validPublicId);
+    const result = await deleteMediaFromCloudinary(validPublicId);
     return NextResponse.json(result, { status: 200 });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Deletion failed.";
     return NextResponse.json(
-      { error: message || "Failed to delete image from Cloudinary." },
+      { error: message || "Failed to delete media asset from Cloudinary." },
       { status: 500 }
     );
   }
