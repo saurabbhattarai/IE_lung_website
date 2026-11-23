@@ -16,23 +16,46 @@ import {
   ArrowRight,
   Camera,
   CheckCircle2,
+  AlertCircle,
+  Images,
 } from "lucide-react";
-import { openingDayImages } from "@/lib/constants/galleryData";
 
-export default function GalleryPage() {
-  const [selectedIdx, setSelectedIdx] = useState(null);
+export interface PublicGalleryImage {
+  id: string;
+  src: string;
+  title: string;
+  category: string;
+  aspect?: string | null;
+  alt: string;
+  sortOrder?: number;
+}
+
+interface GalleryPageClientProps {
+  initialImages: PublicGalleryImage[];
+  hasError?: boolean;
+}
+
+export default function GalleryPageClient({
+  initialImages,
+  hasError = false,
+}: GalleryPageClientProps) {
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const categories = ["All", "Opening Day"];
+  // Dynamic categories based on published items
+  const dynamicCategories = Array.from(
+    new Set(initialImages.map((img) => img.category).filter(Boolean))
+  );
+  const categories = ["All", ...dynamicCategories];
 
   const filteredImages =
     activeFilter === "All"
-      ? openingDayImages
-      : openingDayImages.filter((img) => img.category === activeFilter);
+      ? initialImages
+      : initialImages.filter((img) => img.category === activeFilter);
 
   // Keyboard controls for lightbox
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIdx === null) return;
       if (e.key === "Escape") setSelectedIdx(null);
       if (e.key === "ArrowLeft") {
@@ -78,10 +101,10 @@ export default function GalleryPage() {
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Glimpses of Opening Day
+              Glimpses of Opening Day & Clinic Spaces
             </h1>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed">
-              Step inside the grand opening of Inland Empire Lung & Sleep Institute at 245 Terracina Boulevard, Suite 108 in Redlands, CA.
+              Step inside the grand opening and clinical spaces of Inland Empire Lung & Sleep Institute at 245 Terracina Boulevard, Suite 108 in Redlands, CA.
             </p>
           </div>
         </div>
@@ -92,7 +115,7 @@ export default function GalleryPage() {
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Top Bar with Filter & Count */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-6">
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -109,49 +132,74 @@ export default function GalleryPage() {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-500 font-medium">
-              Showing {filteredImages.length} of {openingDayImages.length} photographs
+              Showing {filteredImages.length} of {initialImages.length} photographs
             </p>
           </div>
 
-          {/* Photo Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredImages.map((img, idx) => (
-              <div
-                key={img.id}
-                onClick={() => setSelectedIdx(idx)}
-                className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col"
-              >
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white shadow-lg">
-                      <Maximize2 size={20} />
+          {/* Database error banner if present */}
+          {hasError && (
+            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-sm flex items-center gap-3">
+              <AlertCircle className="w-5 h-5 text-amber-600 shrink-0" />
+              <p>
+                We are experiencing a temporary issue connecting to our live gallery service. Please refresh shortly.
+              </p>
+            </div>
+          )}
+
+          {/* Empty state */}
+          {filteredImages.length === 0 ? (
+            <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-sm space-y-3">
+              <div className="w-16 h-16 rounded-3xl bg-slate-50 flex items-center justify-center mx-auto text-slate-400">
+                <Images className="w-8 h-8" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-800">No photographs available</h3>
+              <p className="text-sm text-slate-500 max-w-md mx-auto">
+                {activeFilter !== "All"
+                  ? `There are currently no photos in the "${activeFilter}" category.`
+                  : "Photographs will be published here soon. Please check back later."}
+              </p>
+            </div>
+          ) : (
+            /* Photo Grid */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredImages.map((img, idx) => (
+                <div
+                  key={img.id}
+                  onClick={() => setSelectedIdx(idx)}
+                  className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col"
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white shadow-lg">
+                        <Maximize2 size={20} />
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="p-4 flex items-center justify-between">
-                  <div>
-                    <h3 className="font-bold text-primary text-sm sm:text-base">
-                      {img.title}
-                    </h3>
-                    <p className="text-[11px] text-slate-400 mt-0.5">
-                      Opening Day • Redlands, CA
-                    </p>
+                  <div className="p-4 flex items-center justify-between">
+                    <div>
+                      <h3 className="font-bold text-primary text-sm sm:text-base">
+                        {img.title}
+                      </h3>
+                      <p className="text-[11px] text-slate-400 mt-0.5">
+                        {img.category} • Redlands, CA
+                      </p>
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-accent bg-accent/10 px-2.5 py-1 rounded-md">
+                      View
+                    </span>
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-accent bg-accent/10 px-2.5 py-1 rounded-md">
-                    View
-                  </span>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           {/* Event Context Card */}
           <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-10 shadow-sm">
@@ -222,7 +270,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Lightbox Modal */}
-      {selectedIdx !== null && (
+      {selectedIdx !== null && filteredImages[selectedIdx] && (
         <div
           role="dialog"
           aria-modal="true"
@@ -284,7 +332,7 @@ export default function GalleryPage() {
                 {filteredImages[selectedIdx].title}
               </p>
               <p className="text-xs text-white/60 mt-1">
-                Photo {selectedIdx + 1} of {filteredImages.length} • Glimpses of Opening Day (November 2, 2026)
+                Photo {selectedIdx + 1} of {filteredImages.length} • {filteredImages[selectedIdx].category}
               </p>
             </div>
           </div>
@@ -295,4 +343,3 @@ export default function GalleryPage() {
     </main>
   );
 }
-
