@@ -258,7 +258,7 @@ export default function SubscribersManagementClient({
       )}
 
       {/* Filter and Action Bar */}
-      <div className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/80 shadow-xs space-y-4">
+      <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-xs space-y-4">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           {/* Search Input */}
           <div className="relative flex-1 max-w-md">
@@ -305,7 +305,7 @@ export default function SubscribersManagementClient({
               type="button"
               onClick={handleExportCsv}
               disabled={isExporting || total === 0}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#00A389] hover:bg-[#008f78] text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs disabled:opacity-50 disabled:cursor-not-allowed"
               title="Export all filtered subscribers to CSV"
             >
               {isExporting ? (
@@ -352,7 +352,7 @@ export default function SubscribersManagementClient({
       </div>
 
       {/* Main Table / Cards Content */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 shadow-xs overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
         {/* Loading Overlay */}
         {isLoading && (
           <div className="p-8 text-center space-y-3">

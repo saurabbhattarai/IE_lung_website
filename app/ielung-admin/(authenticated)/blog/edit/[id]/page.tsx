@@ -68,27 +68,9 @@ export default async function EditBlogPostPage({
 
   return (
     <div className="space-y-6">
-      {/* Header & Breadcrumbs */}
+      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-1">
-            <Link
-              href="/ielung-admin"
-              className="hover:text-slate-600 transition-colors flex items-center gap-1"
-            >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Dashboard</span>
-            </Link>
-            <span>/</span>
-            <Link
-              href="/ielung-admin/blog"
-              className="hover:text-slate-600 transition-colors"
-            >
-              Blog Posts
-            </Link>
-            <span>/</span>
-            <span className="text-slate-600 truncate max-w-xs">{post.title}</span>
-          </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-[#3D4749] tracking-tight">
             Edit Blog Post
           </h1>

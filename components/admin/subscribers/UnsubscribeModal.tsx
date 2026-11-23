@@ -32,7 +32,7 @@ export default function UnsubscribeModal({
       aria-modal="true"
       aria-labelledby="unsubscribe-modal-title"
     >
-      <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200/80 space-y-5 animate-in zoom-in-95 duration-200">
+      <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200/80 space-y-5 animate-in zoom-in-95 duration-200">
         <div className="flex items-start justify-between gap-4">
           <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
             <AlertTriangle className="w-6 h-6" />
