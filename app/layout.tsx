@@ -8,6 +8,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata = {
+  metadataBase: new URL("https://ielung.com"),
   title: "IE Lung - Pulmonary & Sleep Medicine",
   description:
     "Inland Empire Lung and Sleep Institute - Comprehensive care for lung and sleep disorders. Science-Led. Patient-Centered.",
