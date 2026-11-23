@@ -1,4 +1,4 @@
-import { LayoutDashboard, FileText, Users, FileDown, LucideIcon } from "lucide-react";
+import { LayoutDashboard, FileText, Users, FileDown, Images, LucideIcon } from "lucide-react";
 
 export interface AdminNavItem {
   title: string;
@@ -25,6 +25,13 @@ export const ADMIN_NAV_ITEMS: AdminNavItem[] = [
     title: "Downloads",
     href: "/ielung-admin/downloads",
     icon: FileDown,
+    badge: "Phase 4H",
+    badgeVariant: "accent",
+  },
+  {
+    title: "Gallery",
+    href: "/ielung-admin/gallery",
+    icon: Images,
     badge: "Phase 4H",
     badgeVariant: "accent",
   },
