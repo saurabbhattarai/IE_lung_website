@@ -20,15 +20,24 @@ export default async function AdminDashboardPage() {
 
   let blogCount: number | null = null;
   let publishedBlogCount: number | null = null;
+  let subscriberTotal: number | null = null;
+  let subscriberActive: number | null = null;
+  let subscriberUnsubscribed: number | null = null;
   let isDatabaseError = false;
 
   try {
-    const [total, published] = await Promise.all([
+    const [total, published, subTotal, subActive, subUnsub] = await Promise.all([
       prisma.blogPost.count(),
       prisma.blogPost.count({ where: { status: "PUBLISHED" } }),
+      prisma.newsletterSubscriber.count(),
+      prisma.newsletterSubscriber.count({ where: { status: "ACTIVE" } }),
+      prisma.newsletterSubscriber.count({ where: { status: "UNSUBSCRIBED" } }),
     ]);
     blogCount = total;
     publishedBlogCount = published;
+    subscriberTotal = subTotal;
+    subscriberActive = subActive;
+    subscriberUnsubscribed = subUnsub;
   } catch {
     // Graceful fallback if database is not reachable during build/static pass
     isDatabaseError = true;
@@ -120,8 +129,8 @@ export default async function AdminDashboardPage() {
               <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
                 <Users className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
-                Phase 6
+              <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-100 text-blue-800">
+                Audience
               </span>
             </div>
             <div>
@@ -129,10 +138,14 @@ export default async function AdminDashboardPage() {
                 Newsletter Subscribers
               </p>
               <h2 className="text-3xl font-extrabold text-[#3D4749] mt-1">
-                0
+                {isDatabaseError ? "—" : subscriberTotal}
               </h2>
               <p className="text-xs text-slate-500 mt-1">
-                Audience list filtering & CSV export scheduled for Phase 6.
+                {isDatabaseError
+                  ? "Metrics currently unavailable"
+                  : subscriberTotal === 0
+                  ? "No subscribers yet. Audience list is empty."
+                  : `${subscriberActive} active, ${subscriberUnsubscribed} unsubscribed.`}
               </p>
             </div>
           </div>

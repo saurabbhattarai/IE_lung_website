@@ -1,11 +1,26 @@
 import Link from "next/link";
 import { requireAdminSession } from "@/lib/auth/session";
-import { Users, ArrowLeft, Download, Clock, Sparkles } from "lucide-react";
+import { getSubscribersListService } from "@/lib/subscriber/service";
+import SubscribersManagementClient from "@/components/admin/subscribers/SubscribersManagementClient";
+import { ArrowLeft } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
-export default async function SubscribersAdminPlaceholderPage() {
+export default async function SubscribersAdminPage() {
   await requireAdminSession();
+
+  let initialData: Awaited<ReturnType<typeof getSubscribersListService>> | null =
+    null;
+  let initialError: string | null = null;
+
+  try {
+    initialData = await getSubscribersListService({ page: 1, limit: 20 });
+  } catch (err) {
+    initialError =
+      err instanceof Error
+        ? err.message
+        : "Failed to load newsletter subscribers.";
+  }
 
   return (
     <div className="space-y-6">
@@ -27,54 +42,16 @@ export default async function SubscribersAdminPlaceholderPage() {
             Newsletter Subscribers
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Manage patient newsletter subscriptions, view subscriber status, and export mailing lists.
+            Manage patient newsletter subscriptions, view active status, unsubscribe recipients, and export filtered audience lists.
           </p>
         </div>
-
-        <button
-          type="button"
-          disabled
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-slate-200 text-slate-500 cursor-not-allowed shadow-xs self-start sm:self-auto"
-          title="Coming in Phase 6"
-        >
-          <Download className="w-4 h-4" />
-          <span>Export CSV (Phase 6)</span>
-        </button>
       </div>
 
-      {/* Placeholder State Card */}
-      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-xs text-center space-y-6 max-w-2xl mx-auto">
-        <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto shadow-xs">
-          <Users className="w-8 h-8" />
-        </div>
-
-        <div className="space-y-2">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-semibold">
-            <Clock className="w-3.5 h-3.5" />
-            <span>Scheduled for Phase 6</span>
-          </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-[#3D4749]">
-            Subscriber Management Under Development
-          </h2>
-          <p className="text-sm text-slate-500 leading-relaxed max-w-md mx-auto">
-            Full subscriber listings, active/unsubscribed status filtering, pagination, and one-click CSV export will be implemented in Phase 6.
-          </p>
-        </div>
-
-        <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
-            href="/ielung-admin"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200/80 transition-colors w-full sm:w-auto justify-center"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Return to Dashboard</span>
-          </Link>
-          <div className="inline-flex items-center gap-1 text-xs text-slate-400">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>Prisma NewsletterSubscriber model is ready</span>
-          </div>
-        </div>
-      </div>
+      {/* Interactive Subscribers Management Console */}
+      <SubscribersManagementClient
+        initialData={initialData}
+        initialError={initialError}
+      />
     </div>
   );
 }
