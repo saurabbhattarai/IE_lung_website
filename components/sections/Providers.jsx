@@ -1,26 +1,9 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import Link from "next/link";
 import { providers } from "../../lib/constants/doctorsData";
-import DoctorModal from "../DoctorsModal";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export default function Providers() {
-  const [selectedDoctor, setSelectedDoctor] = useState(null);
-
-  useEffect(() => {
-    if (selectedDoctor) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [selectedDoctor]);
-
   return (
     <section id="providers" className="py-24 px-4 bg-slate-50/50">
       <div className="max-w-7xl mx-auto">
@@ -41,10 +24,10 @@ export default function Providers() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {providers.map((doctor) => (
-            <div
+            <Link
               key={doctor.id}
-              onClick={() => setSelectedDoctor(doctor)}
-              className="group relative cursor-pointer bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-slate-100"
+              href={`/doctors/${doctor.slug}`}
+              className="group relative cursor-pointer bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-slate-100 block"
             >
               {/* Image Container */}
               <div className="relative aspect-[4/5] overflow-hidden">
@@ -81,23 +64,17 @@ export default function Providers() {
                 <p className="text-white/80 text-sm line-clamp-4 leading-relaxed mb-8">
                   {doctor.fullDescription}
                 </p>
-                <button className="flex items-center gap-3 text-accent font-bold text-xs uppercase tracking-widest self-start group/btn">
+                <span className="flex items-center gap-3 text-accent font-bold text-xs uppercase tracking-widest self-start group/btn">
                   View Profile{" "}
                   <ArrowRight
                     size={16}
                     className="group-hover/btn:translate-x-2 transition-transform"
                   />
-                </button>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
-
-        {/* Modal */}
-        <DoctorModal
-          doctor={selectedDoctor}
-          onClose={() => setSelectedDoctor(null)}
-        />
       </div>
     </section>
   );
