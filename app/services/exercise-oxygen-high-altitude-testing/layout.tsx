@@ -5,7 +5,17 @@ export const metadata = {
   description:
     "Experience shortness of breath during exercise or travel? IE Lung offers cardiopulmonary exercise testing (CPET), 6-minute walk tests, and HAST in Redlands, CA.",
   alternates: {
-    canonical: "https://ielung.com/services/exercise-oxygen-high-altitude-testing",
+    canonical:
+      "https://ielung.com/services/exercise-oxygen-high-altitude-testing",
+  },
+  openGraph: {
+    title: "CPET & High Altitude Testing in Redlands, CA | IE Lung",
+    description:
+      "Experience shortness of breath during exercise or travel? IE Lung offers cardiopulmonary exercise testing (CPET), 6-minute walk tests, and HAST in Redlands, CA.",
+    url: "https://ielung.com/services/exercise-oxygen-high-altitude-testing",
+    siteName: "Inland Empire Lung & Sleep Institute",
+    locale: "en_US",
+    type: "website",
   },
 };
 
@@ -16,4 +26,3 @@ export default function ExerciseOxygenAltitudeLayout({
 }) {
   return <>{children}</>;
 }
-
